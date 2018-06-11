@@ -1,0 +1,30 @@
+{
+  "name": "peo",
+  "version": "0.0.0",
+  "description": "Prime Exponent Object",
+  "author": "David Ryan",
+  "main": "index.js",
+  "repository": "git@github.com:daveryan23/Peo.git",
+  "license": "ISC",
+  "scripts": {
+    "test": "nyc mocha ./functions/specs/*.spec.js",
+    "examples": "cd ./examples && node run.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2"
+  },
+  "keywords": [
+    "denominator",
+    "exponent",
+    "factorisation",
+    "factorization",
+    "number",
+    "numerator",
+    "object",
+    "prime",
+    "rational",
+    "vector"
+  ]
+}
