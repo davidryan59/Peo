@@ -3,6 +3,7 @@ var initialise = require('./initialisers/initialise')
 var setFraction = require('./setters/setFraction')
 var setText = require('./setters/setText')
 
+var mult = require('./api/mult')
 
 // Here's the Peo class
 function Peo() {
@@ -14,7 +15,7 @@ function Peo() {
 
   // Initialise from arguments
   initialise(this, arguments)
-  
+
 }
 
 
@@ -41,5 +42,13 @@ Peo.prototype.toString = function() {
   return this.getText()
 }
 
+Peo.prototype.copy = function() {
+  // All the information needed to reconstruct the Peo
+  // is living in the prime exponent object
+  return new Peo(this.getPrimeExps())
+}
+
+// From API folder
+Peo.prototype.mult = mult
 
 module.exports = Peo

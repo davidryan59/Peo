@@ -51,6 +51,11 @@ describe("The Peo class", function() {
     check_56_45(peo)
   })
 
+  it("constructs Peo for 56/45 correctly using new Peo({2:3, 7:1, 3:-2, 5:-1, 11:0, 13:0}) which has redundant prime components", function() {
+    var peo = new Peo({2:3, 7:1, 3:-2, 5:-1, 11:0, 13:0})
+    check_56_45(peo)
+  })
+
   it("constructs Peo for 56/45 correctly using new Peo(56, 45)", function() {
     var peo = new Peo(56, 45)
     check_56_45(peo)
@@ -64,6 +69,22 @@ describe("The Peo class", function() {
   it("constructs Peo for 60 correctly using new Peo(60)", function() {
     var peo = new Peo(60)
     check_60(peo)
+  })
+
+  it("constructs Peo for 60 correctly using new Peo({6:1, 10:1}) (normally factors in object would be prime)", function() {
+    var peo = new Peo({6:1, 10:1})    // Should change it to {2:2, 3:1, 5:1}
+    check_60(peo)
+  })
+
+  it("constructs Peo for 871933 correctly using new Peo({871933:1})", function() {
+    // 871933 = 89 * 97 * 101 (primes)
+    var peo = new Peo({871933:1})
+    assert.strictEqual(peo.getPrimeExp(2), 0)
+    assert.strictEqual(peo.getPrimeExp(83), 0)
+    assert.strictEqual(peo.getPrimeExp(89), 1)
+    assert.strictEqual(peo.getPrimeExp(97), 1)
+    assert.strictEqual(peo.getPrimeExp(101), 1)
+    assert.strictEqual(peo.getPrimeExp(103), 0)
   })
 
   it("handles big number: new Peo(1000000)", function() {
@@ -97,6 +118,14 @@ describe("The Peo class", function() {
     // that's in the initialiseFromObject function.
     var peo = new Peo({13:'badValue', 2:3, 7:1, 3:-2, 5:-1})
     check_56_45(peo)
+  })
+
+  it("can multiply new Peo(12) by new Peo(1, 10) to get new Peo(6, 5)", function() {
+    var peo_12 = new Peo(12)
+    var peo_1_10 = new Peo(1, 10)
+    var peo_mult = peo_12.mult(peo_1_10)
+    var peo_6_5 = new Peo(6, 5)
+    assert.deepStrictEqual(peo_mult.getPrimeExps(), peo_6_5.getPrimeExps())
   })
 
 })

@@ -1,11 +1,11 @@
-var chk = require('../checkNumber')
+var chk = require('../maths/checkNumber')
 
 var setPrimeExp = function(peo, prime, exponent) {
 
   // Get the object to be set
   var obj = peo.p
 
-  if (chk(exponent, 1e15)) {
+  if (chk(exponent)) {
     // exponent is numeric, and not too big
     if (exponent) {
       // exponent is non-zero - set the object

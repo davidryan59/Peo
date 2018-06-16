@@ -1,10 +1,29 @@
-var initialiseFromObject = function(peo, object) {
+var chk = require('../maths/checkNumber')
+var isPrime = require('../maths/isPrime')
+var incrementPrimeExp = require('../setters/incrementPrimeExp')
+var addFactors = require('../setters/addFactors')
 
-  // Probably want to do a bit more here, to filter the object
-  // Going to need a numeric check, and also a prime check.
+var initialiseFromObject = function(peo, obj) {
 
-  // Treat as case where an object such as {2:3, 3:-2} is supplied
-  peo.p = object
+  // Will reconstruct obj into peo, but only the
+  // keys that are primes, and the
+  // values that are integers
+  var keys = Object.keys(obj)
+  for (var i=0; i<keys.length; i++) {
+    var key = keys[i]                    // key is a string
+    var value = obj[key]
+    // both key and value are string,
+    // turn them into integers (NaN if anything goes wrong)
+    var number = Number.parseInt(key)       // NaN if anything goes wrong
+    var exponent = Number.parseInt(value)
+    if (chk(number) && chk(exponent) && number>=2) {
+      if (isPrime(number)) {
+        incrementPrimeExp(peo, number, exponent)
+      } else {
+        addFactors(peo, number, exponent)
+      }
+    }
+  }
 
 }
 

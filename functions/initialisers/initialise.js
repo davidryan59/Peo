@@ -1,6 +1,6 @@
 var Fraction = require('fraction.js')
 
-var chk = require('../checkNumber')
+var chk = require('../maths/checkNumber')
 
 var initialiseFromObject = require('./initialiseFromObject')
 var initialiseFromFraction = require('./initialiseFromFraction')
