@@ -10,7 +10,10 @@
     "test": "nyc mocha ./functions/specs/*.spec.js",
     "examples": "cd ./examples && node run.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "fraction.js": "^4.0.8",
+    "primes-and-factors": "^0.1.4"
+  },
   "devDependencies": {
     "mocha": "^5.2.0",
     "nyc": "^12.0.2"
