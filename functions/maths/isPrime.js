@@ -1,27 +1,25 @@
-// Can test this function against the Prime Counting Function
-// https://en.wikipedia.org/wiki/Prime-counting_function
-// Run this in node:
-// b=0; for (var i=0; i<=1e7; i++) if (isPrime(i)) b++
-// result is b = 664,579, in less than 2 seconds
-// Same for 1e8 returned 5,761,455 in less than a minute
-// Conclusion: Function OK :)
-// (Can build these into unit tests, quite convincing that the function is correct.)
+var isPrime = function(input) {
+  // Naive primality test
+  // For numbers larger than around 1e9, might want to switch to a faster test.
 
-var isPrime = function(number) {
-  // Assumption: parameter number is a Number
+  // Non-integers are not prime
+  if (!Number.isInteger(input)) return false
 
-  // This is not complete yet
-  if (number<2) return false
-  if (!(Number.isInteger(number))) return false
-  // Got an integer, at least 2
-  if (number===2 || number===3 || number===5) return true
-  if (number%2===0 || number%3===0 || number%5===0) return false
-  if (number>1e9) return false    // For 1e9, this algorithm will run too slowly, so falsify it
-  var aMax = Math.ceil(Math.pow(number, 0.5))
-  for (var a=6; a<=aMax; a=a+6) {
-    // Need to check for prime factors 7, 11, 13, 17, 19, 23, (25), 29...
-    if (number%(a+1)===0 || number%(a+5)===0) return false
+  // Its an integer number
+  // 2 and 3 are prime
+  if (input===2 || input===3) return true
+
+  // Otherwise, if its less than 5 or divisible by 2 or 3 its not prime
+  if (input<5 || input%2===0 || input%3===0) return false
+
+  // We've got an integer at least 5, which is not divisible by 2 or 3
+  // Check all numbers of the form 6k-1 or 6k+1, up to its square root
+  var sqrt = Math.floor(Math.pow(input, 0.5))
+  for (var i=5; i<=sqrt; i=i+6) {
+    if (input%i===0 || input%(i+2)===0) return false
   }
+
+  // Otherwise, its not got a factor up to its square root. So its a prime.
   return true
 }
 
