@@ -1,9 +1,13 @@
 var initialise = require('./initialisers/initialise')
 
 var setFraction = require('./setters/setFraction')
-var setText = require('./setters/setText')
 
 var mult = require('./api/mult')
+var getText = require('./api/getText')
+var getFraction = require('./api/getFraction')
+var getPrimeExp = require('./api/getPrimeExp')
+var getPrimeExps = require('./api/getPrimeExps')
+var checkPrimeExps = require('./api/checkPrimeExps')
 
 // Here's the Peo class
 function Peo() {
@@ -18,37 +22,24 @@ function Peo() {
 
 }
 
-
-// Now put some functions onto the prototype
-Peo.prototype.getPrimeExps = function() {
-  return this.p
-}
-
-Peo.prototype.getPrimeExp = function(prime) {
-  return this.p[prime] || 0
-}
-
-Peo.prototype.getFraction = function() {
-  ;(!this.fr) ? setFraction(this) : null
-  return this.fr
-}
-
-Peo.prototype.getText = function() {
-  ;(!this.txt) ? setText(this) : null
-  return this.txt
-}
-
-Peo.prototype.toString = function() {
-  return this.getText()
-}
-
+// Do the copy function here, it requires the constructor
 Peo.prototype.copy = function() {
-  // All the information needed to reconstruct the Peo
-  // is living in the prime exponent object
-  return new Peo(this.getPrimeExps())
+  // Start with a new Peo representing 1/1
+  var copyPeo = new Peo()
+  // Assign it a copy of the prime exponent information, which contains all relevant info
+  copyPeo.p = Object.assign({}, this.p)
+  // Doing it this way because this.p is already trusted,
+  // don't want to have to check every key is prime again, could be costly
+  return copyPeo
 }
 
 // From API folder
 Peo.prototype.mult = mult
+Peo.prototype.getText = getText
+Peo.prototype.getFraction = getFraction
+Peo.prototype.getPrimeExp = getPrimeExp
+Peo.prototype.getPrimeExps = getPrimeExps
+Peo.prototype.checkPrimeExps = checkPrimeExps
+Peo.prototype.toString = function() {return this.getText()}
 
 module.exports = Peo

@@ -211,7 +211,7 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo1.getPrimeExps(), {3:1,5:-1})
   })
 
-  it("can multiply big numbers", function() {
+  it("can multiply all the big numbers from 1e9 to 1e9+10a and measure 2-height", function() {
     var start  = 1000000000
     var finish = 1000000010
     var peo = new Peo()
@@ -221,5 +221,48 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps()[2], 17)
   })
 
+  it("can make a big combinatoric number and compare a set of prime exponents using getPrimeExps(array)", function() {
+    var n = 1000000
+    var c = 100
+    var peo = new Peo()
+    for (var i=0; i<c; i++) {
+      peo = peo.mult(new Peo(n-i, i+1))
+    }
+    var expected = {2:7, 3:2, 5:4, 7:1, 41:1, 43:0, 999983:1}
+    assert.deepStrictEqual(peo.getPrimeExps([2,3,5,7,41,43,999983]), expected)
+  })
+
+  it("can check a set of exponents", function() {
+    var n = 100
+    var c = 43
+    var peo = new Peo()
+    for (var i=0; i<c; i++) {
+      peo = peo.mult(new Peo(n-i, i+1))
+    }
+    var expected = {2:5, 5:2, 29:1, 83:1, 101:null}
+    assert(peo.checkPrimeExps(expected))
+  })
+
+  it("check getPrimeExps() returns a copy, not the original", function() {
+    var peo = new Peo(13, 44)
+    var resultPrivate = peo.p
+    var resultPublic = peo.getPrimeExps()
+    var resultFromTest = {2:-2, 11:-1, 13:1}
+    assert.deepStrictEqual(resultPrivate, resultPublic)
+    assert.deepStrictEqual(resultPrivate, resultFromTest)
+    assert(resultPrivate !== resultPublic, "Private result is original, Public result is a copy")
+  })
+
+  it("check peo.copy() returns a copy of the Peo, not the original", function() {
+    var peo1 = new Peo(13, 44)
+    var peo2 = peo1.copy()
+    var exps1 = peo1.getPrimeExps()
+    var exps2 = peo2.getPrimeExps()
+    var exps3 = {2:-2, 11:-1, 13:1}
+    assert(peo1 !== peo2, "Peo objects have different identity")
+    assert(exps1 !== exps2, "Peo prime exponent objects have different identity")
+    assert.deepStrictEqual(exps1, exps2)
+    assert.deepStrictEqual(exps1, exps3)
+  })
 
 })
