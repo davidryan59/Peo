@@ -1,15 +1,13 @@
-var addFactors = require('../setters/addFactors')
+var incrementFromIntegerPower = require('../setters/incrementFromIntegerPower')
 
 var initialiseFromFraction = function(peo, fraction) {
 
-  // Already got a suitable Fraction object
-  // (Fractions are immutable)
-  // Initialise the .fr property.
+  // Already got a suitable (immutable) Fraction object, so initialise the .fr property.
   peo.fr = fraction
 
   // Use numerator and denominator to add factors to the peo
-  addFactors(peo, fraction.n)
-  addFactors(peo, fraction.d, -1)
+  incrementFromIntegerPower(peo, fraction.n)         // Default power is 1
+  incrementFromIntegerPower(peo, fraction.d, -1)
 
 }
 

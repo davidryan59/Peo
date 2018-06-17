@@ -2,7 +2,7 @@ var pf = require('primes-and-factors')
 
 var incrementPrimeExp = require('./incrementPrimeExp')
 
-var addFactors = function(peo, integer, multiplier) {
+var incrementFromIntegerPower = function(peo, integer, multiplier) {
   // multiplier is optional, defaults to 1
   // integer is a whole number for which to add t
   // primeFactorArray output from pf.getFrequency(integer)
@@ -22,4 +22,4 @@ var addFactors = function(peo, integer, multiplier) {
   }
 }
 
-module.exports = addFactors
+module.exports = incrementFromIntegerPower

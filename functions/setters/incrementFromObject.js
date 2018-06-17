@@ -1,7 +1,7 @@
 var chk = require('../maths/checkNumber')
 var isPrime = require('../maths/isPrime')
 var incrementPrimeExp = require('./incrementPrimeExp')
-var addFactors = require('./addFactors')
+var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 
 var incrementFromObject = function(peo, obj) {
 
@@ -20,7 +20,7 @@ var incrementFromObject = function(peo, obj) {
       if (isPrime(number)) {
         incrementPrimeExp(peo, number, exponent)
       } else {
-        addFactors(peo, number, exponent)
+        incrementFromIntegerPower(peo, number, exponent)
       }
     }
   }
