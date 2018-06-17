@@ -1,4 +1,5 @@
-var Peo = require('../functions/peo.js')
+var Peo = require('../functions/peo')
 
-var v = new Peo(12)
+var v = new Peo(11028387, 227973)
+v.getText()
 console.log(v)

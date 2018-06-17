@@ -1,5 +1,6 @@
 var initialise = require('./initialisers/initialise')
 
+var copy = require('./api/copy')
 var mult = require('./api/mult')
 var getText = require('./api/getText')
 var toString = require('./api/toString')
@@ -19,18 +20,8 @@ function Peo() {
   initialise(this, arguments)
 }
 
-// Do the copy function here since it requires the constructor
-Peo.prototype.copy = function() {
-  // Start with a new Peo representing 1/1
-  var copyPeo = new Peo()
-  // Assign it a copy of the prime exponent information, which contains all relevant info
-  copyPeo.p = Object.assign({}, this.p)
-  // Doing it this way because this.p is already trusted,
-  // don't want to have to check every key is prime again, could be costly
-  return copyPeo
-}
-
 // Setup the public API
+Peo.prototype.copy = copy
 Peo.prototype.mult = mult
 Peo.prototype.getText = getText
 Peo.prototype.toString = toString

@@ -1,7 +1,7 @@
 var assert = require('assert')
 var Fraction = require('fraction.js')
 
-var Peo = require('../Peo.js')
+var Peo = require('../Peo')
 
 describe("The Peo class", function() {
   // var peo = null
