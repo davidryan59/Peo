@@ -1,1 +1,5 @@
-module.exports = function() {return this.getText()}
+var toString = function() {
+  return this.getText()
+}
+
+module.exports = toString

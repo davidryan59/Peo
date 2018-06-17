@@ -265,4 +265,39 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(exps1, exps3)
   })
 
+  it("can calculate Peo.fact(4) as 24", function() {
+    var peo = Peo.fact(4)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 3:1})
+  })
+
+  it("can calculate Peo.fact(15) as 1,307,674,368,000", function() {
+    var peo = Peo.fact(15)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:11, 3:6, 5:3, 7:2, 11:1, 13:1})
+  })
+
+  it("does not calculate Peo.fact(4.001)", function() {
+    var peo = Peo.fact(4.001)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it('does not calculate Peo.fact("aString")', function() {
+    var peo = Peo.fact("aString")
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("can calculate Peo.binom(4, 2) as 6", function() {
+    var peo = Peo.binom(4, 2)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1})
+  })
+
+  it("can calculate Peo.binom(20, 10) as 184756", function() {
+    var peo = Peo.binom(20, 10)
+    assert.deepStrictEqual(peo.getText(), "184756")
+  })
+
+  it("can calculate Peo.binom(71, 9) as 74473879480", function() {
+    var peo = Peo.binom(71, 9)
+    assert.deepStrictEqual(peo.getText(), "74473879480")
+  })
+
 })

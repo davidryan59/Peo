@@ -1,5 +1,5 @@
 var initialise = require('./initialisers/initialise')
-
+// Instance methods
 var copy = require('./api/copy')
 var mult = require('./api/mult')
 var getText = require('./api/getText')
@@ -8,6 +8,9 @@ var getFraction = require('./api/getFraction')
 var getPrimeExp = require('./api/getPrimeExp')
 var getPrimeExps = require('./api/getPrimeExps')
 var checkPrimeExps = require('./api/checkPrimeExps')
+// Static methods
+var fact = require('./apis/fact')
+var binom = require('./apis/binom')
 
 // Peo class constructor
 function Peo() {
@@ -20,7 +23,7 @@ function Peo() {
   initialise(this, arguments)
 }
 
-// Setup the public API
+// Instance methods
 Peo.prototype.copy = copy
 Peo.prototype.mult = mult
 Peo.prototype.getText = getText
@@ -29,5 +32,8 @@ Peo.prototype.getFraction = getFraction
 Peo.prototype.getPrimeExp = getPrimeExp
 Peo.prototype.getPrimeExps = getPrimeExps
 Peo.prototype.checkPrimeExps = checkPrimeExps
+// Static methods
+Peo.fact = fact
+Peo.binom = binom
 
 module.exports = Peo
