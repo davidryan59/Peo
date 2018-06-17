@@ -115,7 +115,7 @@ describe("The Peo class", function() {
   it("constructs 56/45 correctly even with bad value: new Peo({13:'badValue', 2:3, 7:1, 3:-2, 5:-1})", function() {
     // Make sure 13 is not an index checked! (It would currently fail for 11:'badValue')
     // Really this index should be stripped out when its being created...
-    // that's in the incrementFromObject function.
+    // that's in the incrementFromObjectPower function.
     var peo = new Peo({13:'badValue', 2:3, 7:1, 3:-2, 5:-1})
     check_56_45(peo)
   })
@@ -126,6 +126,11 @@ describe("The Peo class", function() {
     var peo_mult = peo_12.mult(peo_1_10)
     var peo_6_5 = new Peo(6, 5)
     assert.deepStrictEqual(peo_mult.getPrimeExps(), peo_6_5.getPrimeExps())
+  })
+
+  it("can cube a Peo", function() {
+    var peo = (new Peo()).mult(new Peo(2), 3)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:3})
   })
 
 })
