@@ -115,7 +115,7 @@ describe("The Peo class", function() {
   it("constructs 56/45 correctly even with bad value: new Peo({13:'badValue', 2:3, 7:1, 3:-2, 5:-1})", function() {
     // Make sure 13 is not an index checked! (It would currently fail for 11:'badValue')
     // Really this index should be stripped out when its being created...
-    // that's in the initialiseFromObject function.
+    // that's in the incrementFromObject function.
     var peo = new Peo({13:'badValue', 2:3, 7:1, 3:-2, 5:-1})
     check_56_45(peo)
   })

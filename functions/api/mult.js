@@ -1,10 +1,14 @@
-var initialiseFromObject = require('../initialisers/initialiseFromObject')
+var incrementFromObject = require('../setters/incrementFromObject')
 
 var mult = function(otherPeo) {
 
+  // First make a copy to store the result.
   var result = this.copy()
-  // The initialise actually multiplies result by the object array from other Peo
-  initialiseFromObject(result, otherPeo.getPrimeExps())
+
+  // Second mutate the copy by multiplying from the otherPeo.
+  incrementFromObject(result, otherPeo.getPrimeExps())
+
+  // Multiplication complete. Return result.
   return result
 
 }

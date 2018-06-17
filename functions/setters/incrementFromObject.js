@@ -1,9 +1,9 @@
 var chk = require('../maths/checkNumber')
 var isPrime = require('../maths/isPrime')
-var incrementPrimeExp = require('../setters/incrementPrimeExp')
-var addFactors = require('../setters/addFactors')
+var incrementPrimeExp = require('./incrementPrimeExp')
+var addFactors = require('./addFactors')
 
-var initialiseFromObject = function(peo, obj) {
+var incrementFromObject = function(peo, obj) {
 
   // Will reconstruct obj into peo, but only the
   // keys that are primes, and the
@@ -27,4 +27,4 @@ var initialiseFromObject = function(peo, obj) {
 
 }
 
-module.exports = initialiseFromObject
+module.exports = incrementFromObject

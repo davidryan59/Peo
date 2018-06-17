@@ -2,7 +2,7 @@ var Fraction = require('fraction.js')
 
 var chk = require('../maths/checkNumber')
 
-var initialiseFromObject = require('./initialiseFromObject')
+var incrementFromObject = require('../setters/incrementFromObject')
 var initialiseFromFraction = require('./initialiseFromFraction')
 
 var initialise = function(peo, args) {
@@ -36,7 +36,7 @@ var initialise = function(peo, args) {
 
   // Need to do this check last
   if (typeof(arg0)==='object') {
-    initialiseFromObject(peo, arg0)
+    incrementFromObject(peo, arg0)
     return
   }
 
