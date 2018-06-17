@@ -2,7 +2,7 @@ var isPrime = function(input) {
   // Naive primality test
   // For numbers larger than around 1e9, might want to switch to a faster test.
 
-  // Non-integers are not prime
+  // Non-numbers or non-integers are not prime
   if (!Number.isInteger(input)) return false
 
   // Its an integer number
