@@ -2,6 +2,7 @@ var initialise = require('./initialisers/initialise')
 // Instance methods
 var copy = require('./api/copy')
 var mult = require('./api/mult')
+var log = require('./api/log')
 var getText = require('./api/getText')
 var toString = require('./api/toString')
 var getFraction = require('./api/getFraction')
@@ -26,6 +27,7 @@ function Peo() {
 // Instance methods
 Peo.prototype.copy = copy
 Peo.prototype.mult = mult
+Peo.prototype.log = log
 Peo.prototype.getText = getText
 Peo.prototype.toString = toString
 Peo.prototype.getFraction = getFraction
