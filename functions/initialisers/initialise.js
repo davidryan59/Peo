@@ -10,15 +10,16 @@ var initialise = function(peo, args) {
   // Get the first couple of arguments given to Peo constructor
   var arg0 = args[0]
   var arg1 = args[1]
+  var arg2 = args[2]
 
   // Check for 'Fraction' case first
   if (arg0 instanceof Fraction) {
-    initialiseFromFraction(peo, arg0)
+    initialiseFromFraction(peo, arg0, arg1)   // arg1 is the power
     return
   }
 
   // Then check for numeric case
-  var cutOff = 1e6    // Don't allow Fraction setup for numbers larger than this
+  var cutOff = 1e12    // Don't allow Fraction setup for numbers larger than this
   if (chk(arg0, cutOff)) {
     // Treat as case where small numerator, and possibly small denominator, are supplied
     var fraction = null
@@ -28,7 +29,7 @@ var initialise = function(peo, args) {
     } else {
       fraction = new Fraction(arg0, 1)
     }
-    initialiseFromFraction(peo, fraction)
+    initialiseFromFraction(peo, fraction, arg2)
     return
   }
 
@@ -36,7 +37,7 @@ var initialise = function(peo, args) {
 
   // Need to do this check last
   if (typeof(arg0)==='object') {
-    incrementFromObjectPower(peo, arg0)
+    incrementFromObjectPower(peo, arg0, arg1)
     return
   }
 

@@ -87,13 +87,13 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(103), 0)
   })
 
-  it("handles big number: new Peo(1000000)", function() {
-    var peo = new Peo(1000000)
-    assert.strictEqual(peo.toString(), "1000000")
+  it("handles big number: new Peo(1e12)", function() {
+    var peo = new Peo(1e12)
+    assert.strictEqual(peo.toString(), "1000000000000")
   })
 
-  it("returns 1 for bigger number: new Peo(1000001)", function() {
-    var peo = new Peo(1000001)
+  it("returns 1 for bigger number: new Peo(1e12+1)", function() {
+    var peo = new Peo(1e12+1)
     check_1(peo)
   })
 
@@ -128,9 +128,98 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo_mult.getPrimeExps(), peo_6_5.getPrimeExps())
   })
 
-  it("can cube a Peo", function() {
-    var peo = (new Peo()).mult(new Peo(2), 3)
-    assert.deepStrictEqual(peo.getPrimeExps(), {2:3})
+  it("can cube a Peo from initialiser (numeric)", function() {
+    var peo = new Peo(2, 5, 3)    // (2/5)^3
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 5:-3})
   })
+
+  it("can inverse square a Peo from initialiser (Fraction)", function() {
+    var peo = new Peo(new Fraction(6, 5), -2)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:-2, 3:-2, 5:2})
+  })
+
+  it("can power^10 a Peo from initialiser (object)", function() {
+    var peo = new Peo({101:2, 103:-4}, -107)
+    assert.deepStrictEqual(peo.getPrimeExps(), {101:-214, 103:428})
+  })
+
+  it("can cube a Peo from mult", function() {
+    var peo = (new Peo(5, 3)).mult(new Peo(2, 5), 3)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 5:-2, 3:-1})
+  })
+
+  it("can chain mults together", function() {
+    var peo = (new Peo(2, 3)).mult(new Peo(3, 5)).mult(new Peo(5, 7)).mult(new Peo(7, 11))
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 11:-1})
+  })
+
+  it("decimal powers are ignored", function() {
+    var peo = new Peo(2, 3, 3.1415)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1,3:-1})
+  })
+
+  it("null powers are ignored", function() {
+    var peo = new Peo(2, 3, null)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1,3:-1})
+  })
+
+  it("zero powers give 1/1 (numeric initialiser)", function() {
+    var peo = new Peo(2, 3, 0)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("zero powers give 1/1 (fraction initialiser)", function() {
+    var peo = new Peo(new Fraction(2, 3), 0)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("zero powers give 1/1 (object initialiser)", function() {
+    var peo = new Peo({2:1, 3:-1}, 0)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("zero powers give 1/1 (mult)", function() {
+    var peo = (new Peo(7, 5)).mult(new Peo(5, 3), 0)
+    assert.deepStrictEqual(peo.getPrimeExps(), {7:1, 5:-1})
+  })
+
+  it("first power same as default (numeric initialiser)", function() {
+    var peo1 = new Peo(4, 5, 1)
+    var peo2 = new Peo(4, 5)
+    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps())
+    assert.deepStrictEqual(peo1.getPrimeExps(), {2:2,5:-1})
+  })
+
+  it("first power same as default (fraction initialiser)", function() {
+    var peo1 = new Peo(new Fraction(4, 5), 1)
+    var peo2 = new Peo(new Fraction(4, 5))
+    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps())
+    assert.deepStrictEqual(peo1.getPrimeExps(), {2:2,5:-1})
+  })
+
+  it("first power same as default (object initialiser)", function() {
+    var peo1 = new Peo({4:1,5:-1}, 1)
+    var peo2 = new Peo({4:1,5:-1})
+    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps())
+    assert.deepStrictEqual(peo1.getPrimeExps(), {2:2,5:-1})
+  })
+
+  it("first power same as default (mult)", function() {
+    var peo1 = (new Peo(3, 4)).mult(new Peo(4, 5), 1)
+    var peo2 = (new Peo(3, 4)).mult(new Peo(4, 5))
+    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps())
+    assert.deepStrictEqual(peo1.getPrimeExps(), {3:1,5:-1})
+  })
+
+  it("can multiply big numbers", function() {
+    var start  = 1000000000
+    var finish = 1000000010
+    var peo = new Peo()
+    for (var i=start; i<=finish; i++) {
+      peo = peo.mult(new Peo(i))
+    }
+    assert.deepStrictEqual(peo.getPrimeExps()[2], 17)
+  })
+
 
 })

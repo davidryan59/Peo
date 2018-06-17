@@ -1,4 +1,5 @@
 var chk = require('../maths/checkNumber')
+var check = require('../maths/checkPower')
 var isPrime = require('../maths/isPrime')
 var incrementPrimeExp = require('./incrementPrimeExp')
 var incrementFromIntegerPower = require('./incrementFromIntegerPower')
@@ -9,9 +10,9 @@ var incrementFromObjectPower = function(peo, obj, power) {
   // keys that are primes, and the
   // values that are integers
 
-  // Check power is a positive or negative integer
-  power = (Number.isInteger(power)) ? power : 1    // If power=undefined, make it 1
-  if (!power) return                               // If power=0, do nothing
+  // If power is 0, return.
+  // Otherwise, if it's an integer, leave it alone, or else default to 1
+  if (!(power = check(power))) return
 
   var keys = Object.keys(obj)
   for (var i=0; i<keys.length; i++) {

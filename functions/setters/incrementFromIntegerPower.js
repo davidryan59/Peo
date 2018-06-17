@@ -1,4 +1,5 @@
 var pf = require('primes-and-factors')
+var check = require('../maths/checkPower')
 
 var incrementPrimeExp = require('./incrementPrimeExp')
 
@@ -10,9 +11,9 @@ var incrementFromIntegerPower = function(peo, integer, power) {
   //   Each object in the array is of form {factor:A, times:B}
   //   e.g. 8 is {factor:2, times:3}
 
-  // Check power is a positive or negative integer
-  power = (Number.isInteger(power)) ? power : 1    // If power=undefined, make it 1
-  if (!power) return                               // If power=0, do nothing
+  // If power is 0, return.
+  // Otherwise, if it's an integer, leave it alone, or else default to 1
+  if (!(power = check(power))) return
 
   var primeFactorArray = pf.getFrequency(integer)
   for (var i=0; i<primeFactorArray.length; i++) {
