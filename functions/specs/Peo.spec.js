@@ -66,6 +66,20 @@ describe("The Peo class", function() {
     check_56_45(peo)
   })
 
+  it("gives correct result near integer cut-off for new Peo(new Fraction(168897325606883, 43324900128225))", function() {
+    var peo = new Peo(new Fraction(168897325606883, 43324900128225))
+    assert.deepStrictEqual(peo.getPrimeExps(), {
+      3:-7,
+      5:-2,
+      97:1,
+      101:1,
+      103:1,
+      109:1,
+      127:1,
+      65537:-1
+    })
+  })
+
   it("constructs Peo for 60 correctly using new Peo(60)", function() {
     var peo = new Peo(60)
     check_60(peo)
@@ -87,13 +101,13 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(103), 0)
   })
 
-  it("handles big number: new Peo(1e12)", function() {
-    var peo = new Peo(1e12)
-    assert.strictEqual(peo.toString(), "1000000000000")
+  it("handles big number: new Peo(1e15)", function() {
+    var peo = new Peo(1e15)
+    assert.strictEqual(peo.toString(), "1000000000000000")
   })
 
-  it("returns 1 for bigger number: new Peo(1e12+1)", function() {
-    var peo = new Peo(1e12+1)
+  it("returns 1 for bigger number: new Peo(1e15+1)", function() {
+    var peo = new Peo(1e15+1)
     check_1(peo)
   })
 
@@ -263,6 +277,21 @@ describe("The Peo class", function() {
     assert(exps1 !== exps2, "Peo prime exponent objects have different identity")
     assert.deepStrictEqual(exps1, exps2)
     assert.deepStrictEqual(exps1, exps3)
+  })
+
+  it("does not calculate Peo.fact(-1)", function() {
+    var peo = Peo.fact(-1)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("does not calculate Peo.fact(0)", function() {
+    var peo = Peo.fact(0)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("can calculate Peo.fact(1) as 1", function() {
+    var peo = Peo.fact(1)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
   it("can calculate Peo.fact(4) as 24", function() {

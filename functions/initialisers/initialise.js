@@ -19,7 +19,7 @@ var initialise = function(peo, args) {
   }
 
   // Then check for numeric case
-  var cutOff = 1e12    // Don't allow Fraction setup for numbers larger than this
+  var cutOff = 1e15    // Number.MAX_SAFE_INTEGER is around 10^15.95
   if (chk(arg0, cutOff)) {
     // Treat as case where small numerator, and possibly small denominator, are supplied
     var fraction = null
