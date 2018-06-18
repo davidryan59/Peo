@@ -80,6 +80,19 @@ describe("The Peo class", function() {
     })
   })
 
+  // // Passed in 468ms on a laptop (June 2018)
+  // // For speed, comment this out
+  // // Test it as and when needed
+  // it("gives correct result near integer cut-off with large semiprimes on top and bottom", function() {
+  //   var peo = new Peo(100008420087241, 100011280317367)
+  //   assert.deepStrictEqual(peo.getPrimeExps(), {
+  //     10000121:1,
+  //     10000721:1,
+  //     10000537:-1,
+  //     10000591:-1
+  //   })
+  // })
+
   it("constructs Peo for 60 correctly using new Peo(60)", function() {
     var peo = new Peo(60)
     check_60(peo)
