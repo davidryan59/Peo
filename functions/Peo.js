@@ -3,6 +3,8 @@ var initialise = require('./initialisers/initialise')
 var copy = require('./api/copy')
 var mult = require('./api/mult')
 var getLog = require('./api/getLog')
+var getLogNum = require('./api/getLogNum')
+var getLogDenom = require('./api/getLogDenom')
 var getText = require('./api/getText')
 var toString = require('./api/toString')
 var getFraction = require('./api/getFraction')
@@ -29,6 +31,8 @@ function Peo() {
 Peo.prototype.copy = copy
 Peo.prototype.mult = mult
 Peo.prototype.getLog = getLog
+Peo.prototype.getLogNum = getLogNum
+Peo.prototype.getLogDenom = getLogDenom
 Peo.prototype.getText = getText
 Peo.prototype.toString = toString
 Peo.prototype.getFraction = getFraction

@@ -427,4 +427,11 @@ describe("The Peo class", function() {
     assert(Math.abs(result-10.8720) < 1e-4)
   })
 
+  it("can calculate all natural logs of new Peo(1200, 77)", function() {
+    var peo = new Peo(1200, 77)
+    assert(Math.abs(peo.getLog()-2.746271) < 1e-6, "Failed for Peo")
+    assert(Math.abs(peo.getLogNum()-7.090076) < 1e-6, "Failed for Num")
+    assert(Math.abs(peo.getLogDenom()-4.343805) < 1e-6, "Failed for Denom")
+  })
+
 })
