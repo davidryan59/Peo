@@ -20,6 +20,7 @@ function Peo() {
   // Cached info to speed up Peo is here. Each value should start off falsey.
   this.fr = null
   this.txt = ""
+  this.naturalLog = null
   // Initialise from various arguments
   initialise(this, arguments)
 }
