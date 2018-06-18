@@ -1,10 +1,14 @@
 // Static method - 'this' is Peo
-var fact = function(input) {
-  // Calculate the factorial of input
+var fact = function(input, terms) {
+  // fact(i) calculates factorial of i
+  // fact(i, t) calculates just the t largest terms of fact(i)
   var peo = new this()
   if (!Number.isInteger(input)) return peo
-  for (var i=2; i<=input; i++) {
-    peo = peo.mult(new this(i))
+  if (terms===undefined) terms = input
+  if (!Number.isInteger(terms) || terms < 1) return peo
+  if (terms > input) terms = input
+  for (var t=0; t<terms; t++) {
+    peo = peo.mult(new this(input-t))
   }
   return peo
 }

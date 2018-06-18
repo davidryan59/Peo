@@ -280,9 +280,74 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
+  it("does not calculate Peo.fact(-Infinity)", function() {
+    var peo = Peo.fact(-Infinity)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("does not calculate Peo.fact(Infinity)", function() {
+    var peo = Peo.fact(Infinity)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
   it('does not calculate Peo.fact("aString")', function() {
     var peo = Peo.fact("aString")
     assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it('does not calculate Peo.fact(7, "aString")', function() {
+    var peo = Peo.fact(7, "aString")
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("does not calculate Peo.fact(7, -Infinity)", function() {
+    var peo = Peo.fact(7, -Infinity)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("does not calculate Peo.fact(7, Infinity)", function() {
+    var peo = Peo.fact(7, Infinity)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("does not calculate Peo.fact(7, 1.5)", function() {
+    var peo = Peo.fact(7, 1.5)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("does not calculate Peo.fact(7, -1)", function() {
+    var peo = Peo.fact(7, -1)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("can calculate Peo.fact(7, 0) as 1", function() {
+    var peo = Peo.fact(7, 0)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("can calculate Peo.fact(7, 1) as 1", function() {
+    var peo = Peo.fact(7, 1)
+    assert.deepStrictEqual(peo.getPrimeExps(), {7:1})
+  })
+
+  it("can calculate Peo.fact(7, 3) as 210", function() {
+    var peo = Peo.fact(7, 3)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1})
+  })
+
+  it("can calculate Peo.fact(7, 6) as 5040", function() {
+    var peo = Peo.fact(7, 6)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
+  })
+
+  it("can calculate Peo.fact(7, 7) as 5040", function() {
+    var peo = Peo.fact(7, 7)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
+  })
+
+  it("can calculate Peo.fact(7, 8) as 5040", function() {
+    var peo = Peo.fact(7, 8)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
   it("can calculate Peo.binom(4, 2) as 6", function() {
