@@ -407,19 +407,24 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getText(), "74473879480")
   })
 
-  it("can calculate new Peo(32768).log(2) as exactly 15", function() {
+  it("can calculate (new Peo(32768)).getLog(2) as exactly 15", function() {
     var peo = new Peo(32768)
-    assert.strictEqual(peo.log(2), 15)
+    assert.strictEqual(peo.getLog(2), 15)
   })
 
-  it("can calculate new Peo(2310, 221).log(19) as approx 0.7970", function() {
-    var result = (new Peo(2310, 221)).log(19)
-    assert(Math.abs(result-0.7970) < 0.0001)
+  it("can calculate (new Peo(9, 2)).getLog() (natural log) as approx 1.504077", function() {
+    var result = (new Peo(9, 2)).getLog()
+    assert(Math.abs(result-1.504077) < 1e-6)
   })
 
-  it("can calculate Peo.binom(71, 9).log(10) as approx 10.8720", function() {
-    var result = Peo.binom(71, 9).log(10)
-    assert(Math.abs(result-10.8720) < 0.0001)
+  it("can calculate (new Peo(2310, 221)).getLog(19) as approx 0.7970", function() {
+    var result = (new Peo(2310, 221)).getLog(19)
+    assert(Math.abs(result-0.7970) < 1e-4)
+  })
+
+  it("can calculate (Peo.binom(71, 9)).getLog(10) as approx 10.8720", function() {
+    var result = Peo.binom(71, 9).getLog(10)
+    assert(Math.abs(result-10.8720) < 1e-4)
   })
 
 })

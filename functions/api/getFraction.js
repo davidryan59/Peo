@@ -1,7 +1,7 @@
 var setFraction = require('../setters/setFraction')
 
 var getFraction = function() {
-  ;(!this.fr) ? setFraction(this) : null
+  setFraction(this)
   return this.fr
 }
 

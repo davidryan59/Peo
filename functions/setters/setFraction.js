@@ -3,6 +3,10 @@ var Fraction = require('fraction.js')
 var chk = require('../maths/checkNumber')
 
 var setFraction = function(peo) {
+
+  // Exit if already set
+  if (peo.fr) return
+
   var obj = peo.getPrimeExps()
   var keys = Object.keys(obj)
 

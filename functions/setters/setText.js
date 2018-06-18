@@ -1,5 +1,8 @@
 var setText = function(peo) {
 
+  // Exit if already set
+  if (peo.txt) return
+
   var fraction = peo.getFraction()
   var fractionText = fraction.toFraction()
   peo.txt = fractionText

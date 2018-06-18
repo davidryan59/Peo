@@ -2,7 +2,7 @@ var initialise = require('./initialisers/initialise')
 // Instance methods
 var copy = require('./api/copy')
 var mult = require('./api/mult')
-var log = require('./api/log')
+var getLog = require('./api/getLog')
 var getText = require('./api/getText')
 var toString = require('./api/toString')
 var getFraction = require('./api/getFraction')
@@ -20,7 +20,7 @@ function Peo() {
   // Cached info to speed up Peo is here. Each value should start off falsey.
   this.fr = null
   this.txt = ""
-  this.naturalLog = null
+  this.log = null
   // Initialise from various arguments
   initialise(this, arguments)
 }
@@ -28,7 +28,7 @@ function Peo() {
 // Instance methods
 Peo.prototype.copy = copy
 Peo.prototype.mult = mult
-Peo.prototype.log = log
+Peo.prototype.getLog = getLog
 Peo.prototype.getText = getText
 Peo.prototype.toString = toString
 Peo.prototype.getFraction = getFraction
