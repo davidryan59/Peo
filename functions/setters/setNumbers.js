@@ -1,7 +1,7 @@
-var setLog = function(peo) {
+var setNumbers = function(peo) {
 
   // Exit if already set
-  if (peo.log) return
+  if (peo.number) return
 
   // Calculate and store the natural logs of numerator, denominator, whole Peo
   var resultPeo = 0
@@ -24,11 +24,15 @@ var setLog = function(peo) {
   }
 
   // Store results
-  peo.log = {}
-  peo.log.peo = resultPeo
-  peo.log.num = resultNum
-  peo.log.denom = resultDenom
+  peo.number = {}
+  peo.number.val = Math.exp(resultPeo)
+  peo.number.n = Math.round(Math.exp(resultNum))
+  peo.number.d = Math.round(Math.exp(resultDenom))
+  peo.number.ln = {}
+  peo.number.ln.val = resultPeo
+  peo.number.ln.n = resultNum
+  peo.number.ln.d = resultDenom
 
 }
 
-module.exports = setLog
+module.exports = setNumbers

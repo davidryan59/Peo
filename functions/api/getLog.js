@@ -1,9 +1,9 @@
 var getBaseMult = require('../maths/getBaseMult')
-var setLog = require('../setters/setLog')
+var setNumbers = require('../setters/setNumbers')
 
 var getLog = function(base) {
-  setLog(this)
-  return this.log.peo * getBaseMult(base)
+  setNumbers(this)
+  return this.number.ln.val * getBaseMult(base)
 }
 
 module.exports = getLog

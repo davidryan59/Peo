@@ -2,13 +2,9 @@ var initialise = require('./initialisers/initialise')
 
 // Peo class constructor
 function Peo() {
-  // Control of Peo is here
+  // This object must be immutable and completely determine the Peo output
   this.p = {}
-  // Cached info to speed up Peo is here. Each value should start off falsey.
-  this.fr = null
-  this.txt = ""
-  this.log = null
-  // Initialise from various arguments
+  // Initialise the Peo
   initialise(this, arguments)
 }
 
@@ -24,7 +20,9 @@ Peo.prototype.getFraction = require('./api/getFraction')
 Peo.prototype.getPrimeExp = require('./api/getPrimeExp')
 Peo.prototype.getPrimeExps = require('./api/getPrimeExps')
 Peo.prototype.checkPrimeExps = require('./api/checkPrimeExps')
+
 // Static methods
+Peo.power = require('./apis/power')
 Peo.fact = require('./apis/fact')
 Peo.prim = require('./apis/prim')
 Peo.binom = require('./apis/binom')
