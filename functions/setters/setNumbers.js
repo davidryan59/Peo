@@ -29,7 +29,7 @@ var setNumbers = function(peo) {
         logNum += logFactor
       }
       if (logFactor<0) {
-        denom /= factor
+        denom *= Math.pow(prime, -exponent)  // Always use whole numbers if possible!
         logDenom -= logFactor
       }
     }
