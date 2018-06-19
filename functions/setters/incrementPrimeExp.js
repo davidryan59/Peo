@@ -1,9 +1,9 @@
-var setPrimeExp = require('./setPrimeExp')
+var amendPrimeExponent = require('./amendPrimeExponent')
 
 var incrementPrimeExp = function(peo, prime, exponent) {
 
   var currentPrimeExp = peo.getPrimeExp(prime)
-  setPrimeExp(peo, prime, currentPrimeExp + exponent)
+  amendPrimeExponent(peo, prime, currentPrimeExp + exponent)
 
 }
 

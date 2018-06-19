@@ -1,8 +1,8 @@
-var setFraction = require('../setters/setFraction')
+var setNumbers = require('../setters/setNumbers')
 
 var getFraction = function() {
-  setFraction(this)
-  return this.fr
+  setNumbers(this)
+  return this.number.fr
 }
 
 module.exports = getFraction

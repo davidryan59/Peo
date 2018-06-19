@@ -1,6 +1,6 @@
 var chk = require('../maths/checkNumber')
 
-var setPrimeExp = function(peo, prime, exponent) {
+var amendPrimeExponent = function(peo, prime, exponent) {
 
   // Get the object to be set
   var obj = peo.p
@@ -18,4 +18,4 @@ var setPrimeExp = function(peo, prime, exponent) {
 
 }
 
-module.exports = setPrimeExp
+module.exports = amendPrimeExponent
