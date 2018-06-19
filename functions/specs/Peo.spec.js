@@ -509,9 +509,12 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {71:1, 73:1, 79:1, 83:1, 89:1, 97:1})
   })
 
-  it("can calculate Peo.power(new Peo(6, 5), -3) as (5/6)^3", function() {
-    var peo = Peo.power(new Peo(6, 5), -3)
-    assert.deepStrictEqual(peo.getPrimeExps(), {2:-3, 3:-3, 5:3})
+  it("can calculate (new Peo(6, 5)).pow(-3) as (5/6)^3", function() {
+    var peo1 = new Peo(6, 5)
+    var peo2 = peo1.pow(-3)
+    assert(peo1!==peo2)
+    assert.deepStrictEqual(peo1.getPrimeExps(), {2:1, 3:1, 5:-1})
+    assert.deepStrictEqual(peo2.getPrimeExps(), {2:-3, 3:-3, 5:3})
   })
 
 })

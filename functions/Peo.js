@@ -11,6 +11,7 @@ function Peo() {
 // Instance methods
 Peo.prototype.copy = require('./api/copy')
 Peo.prototype.mult = require('./api/mult')
+Peo.prototype.pow = require('./api/pow')
 Peo.prototype.getLog = require('./api/getLog')
 Peo.prototype.getLogNum = require('./api/getLogNum')
 Peo.prototype.getLogDenom = require('./api/getLogDenom')
@@ -22,7 +23,6 @@ Peo.prototype.getPrimeExps = require('./api/getPrimeExps')
 Peo.prototype.checkPrimeExps = require('./api/checkPrimeExps')
 
 // Static methods
-Peo.power = require('./apis/power')
 Peo.fact = require('./apis/fact')
 Peo.prim = require('./apis/prim')
 Peo.binom = require('./apis/binom')
