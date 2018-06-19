@@ -407,6 +407,11 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getText(), "74473879480")
   })
 
+  it("can calculate Peo.binom(71, 62) as 74473879480", function() {
+    var peo = Peo.binom(71, 62)      // 71 - 9 =
+    assert.deepStrictEqual(peo.getText(), "74473879480")
+  })
+
   it("can calculate (new Peo(32768)).getLog(2) as exactly 15", function() {
     var peo = new Peo(32768)
     assert.strictEqual(peo.getLog(2), 15)

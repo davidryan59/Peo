@@ -1,4 +1,5 @@
 var incrementFromIntegerPower = require('../setters/incrementFromIntegerPower')
+
 var check = require('../maths/checkPower')
 
 var initialiseFromFraction = function(peo, fraction, power) {
