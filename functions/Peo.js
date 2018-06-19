@@ -13,6 +13,7 @@ var getPrimeExps = require('./api/getPrimeExps')
 var checkPrimeExps = require('./api/checkPrimeExps')
 // Static methods
 var fact = require('./apis/fact')
+var prim = require('./apis/prim')
 var binom = require('./apis/binom')
 
 // Peo class constructor
@@ -41,6 +42,7 @@ Peo.prototype.getPrimeExps = getPrimeExps
 Peo.prototype.checkPrimeExps = checkPrimeExps
 // Static methods
 Peo.fact = fact
+Peo.prim = prim
 Peo.binom = binom
 
 module.exports = Peo

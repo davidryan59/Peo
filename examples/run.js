@@ -9,3 +9,7 @@ for (var n=66; n<=70; n++) {
 // var v = new Peo(11028387, 227973)
 // v.getText()
 // console.log(v)
+
+var peo2 = Peo.prim(10000, 9100)
+// peo.mult(Peo.prim(900,200))
+console.log(peo2)
