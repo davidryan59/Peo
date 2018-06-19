@@ -1,20 +1,4 @@
 var initialise = require('./initialisers/initialise')
-// Instance methods
-var copy = require('./api/copy')
-var mult = require('./api/mult')
-var getLog = require('./api/getLog')
-var getLogNum = require('./api/getLogNum')
-var getLogDenom = require('./api/getLogDenom')
-var getText = require('./api/getText')
-var toString = require('./api/toString')
-var getFraction = require('./api/getFraction')
-var getPrimeExp = require('./api/getPrimeExp')
-var getPrimeExps = require('./api/getPrimeExps')
-var checkPrimeExps = require('./api/checkPrimeExps')
-// Static methods
-var fact = require('./apis/fact')
-var prim = require('./apis/prim')
-var binom = require('./apis/binom')
 
 // Peo class constructor
 function Peo() {
@@ -29,20 +13,20 @@ function Peo() {
 }
 
 // Instance methods
-Peo.prototype.copy = copy
-Peo.prototype.mult = mult
-Peo.prototype.getLog = getLog
-Peo.prototype.getLogNum = getLogNum
-Peo.prototype.getLogDenom = getLogDenom
-Peo.prototype.getText = getText
-Peo.prototype.toString = toString
-Peo.prototype.getFraction = getFraction
-Peo.prototype.getPrimeExp = getPrimeExp
-Peo.prototype.getPrimeExps = getPrimeExps
-Peo.prototype.checkPrimeExps = checkPrimeExps
+Peo.prototype.copy = require('./api/copy')
+Peo.prototype.mult = require('./api/mult')
+Peo.prototype.getLog = require('./api/getLog')
+Peo.prototype.getLogNum = require('./api/getLogNum')
+Peo.prototype.getLogDenom = require('./api/getLogDenom')
+Peo.prototype.getText = require('./api/getText')
+Peo.prototype.toString = require('./api/toString')
+Peo.prototype.getFraction = require('./api/getFraction')
+Peo.prototype.getPrimeExp = require('./api/getPrimeExp')
+Peo.prototype.getPrimeExps = require('./api/getPrimeExps')
+Peo.prototype.checkPrimeExps = require('./api/checkPrimeExps')
 // Static methods
-Peo.fact = fact
-Peo.prim = prim
-Peo.binom = binom
+Peo.fact = require('./apis/fact')
+Peo.prim = require('./apis/prim')
+Peo.binom = require('./apis/binom')
 
 module.exports = Peo
