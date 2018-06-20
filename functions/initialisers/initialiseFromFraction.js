@@ -4,9 +4,6 @@ var check = require('../maths/checkPower')
 
 var initialiseFromFraction = function(peo, fraction, power) {
 
-  // Already got a suitable (immutable) Fraction object, so initialise the .fr property.
-  peo.fr = fraction
-
   // If power is 0, return.
   // Otherwise, if it's an integer, leave it alone, or else default to 1
   if (!(power = check(power))) return

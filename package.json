@@ -19,6 +19,7 @@
     "nyc": "^12.0.2"
   },
   "keywords": [
+    "add",
     "big",
     "binomial",
     "coefficient",
@@ -32,11 +33,14 @@
     "factorization",
     "factors",
     "fraction",
+    "function",
     "highest",
     "huge",
     "integer",
+    "liouville",
     "logarithm",
     "lowest",
+    "mobius",
     "multiplication",
     "number",
     "numerator",

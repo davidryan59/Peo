@@ -80,5 +80,10 @@ Peo can handle large numbers! (With small-ish prime factors.)
 #### Numeric stats
 `_.countDistinctFactors()  // returns the number of distinct prime factors of the Peo`  
 `_.countFactors()          // returns the total number of prime factors of the Peo`  
+`_.getHighestAbsExp()      // returns the highest abs(exponent) in the Peo`  
+`_.getHighestExp()         // returns the highest exponent in the Peo`  
 `_.getHighestPrime()       // returns the highest prime in the Peo`  
+`_.getLiouville()          // returns the Liouville function on the Peo`  
+`_.getLowestExp()          // returns the lowest exponent in the Peo`  
 `_.getLowestPrime()        // returns the lowest prime in the Peo`  
+`_.getMobius()             // returns the Mobius function on the Peo`  

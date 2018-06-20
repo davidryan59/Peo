@@ -47,8 +47,13 @@ Peo.prototype.getLogNum = require('./api/number/ln/getLogNum')
 // Numeric stats
 Peo.prototype.countDistinctFactors = require('./api/number/stats/countDistinctFactors')
 Peo.prototype.countFactors = require('./api/number/stats/countFactors')
-Peo.prototype.getLowestPrime = require('./api/number/stats/getLowestPrime')
+Peo.prototype.getHighestAbsExp = require('./api/number/stats/getHighestAbsExp')
+Peo.prototype.getHighestExp = require('./api/number/stats/getHighestExp')
 Peo.prototype.getHighestPrime = require('./api/number/stats/getHighestPrime')
+Peo.prototype.getLiouville = require('./api/number/stats/getLiouville')
+Peo.prototype.getLowestExp = require('./api/number/stats/getLowestExp')
+Peo.prototype.getLowestPrime = require('./api/number/stats/getLowestPrime')
+Peo.prototype.getMobius = require('./api/number/stats/getMobius')
 
 
 module.exports = Peo

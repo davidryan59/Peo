@@ -5,7 +5,7 @@ var setNumbers = function(peo) {
   // Exit if already set
   if (peo.number) return
 
-  // Calculate and store the natural logs of numerator, denominator, whole Peo
+  // Calculate many things from the primes and their exponents
   var val = 1
   var num = 1
   var denom = 1
@@ -14,8 +14,11 @@ var setNumbers = function(peo) {
   var lnDenom = 0
   var pLo = 0
   var pHi = 0
-  var countFactors = 0
-  var countDistinctFactors = 0
+  var cF = 0
+  var cDF = 0
+  var eLo = null   // exponent could be +/-
+  var eHi = null   // exponent could be +/-
+  var eAbsHi = 0
   var primeExpObj = peo.getPrimeExps()
   var keys = Object.keys(primeExpObj)
   for (var i=0; i<keys.length; i++) {
@@ -23,11 +26,14 @@ var setNumbers = function(peo) {
     var value = primeExpObj[key]
     var prime = Number.parseInt(key)
     var exponent = Number.parseInt(value)
-    if (prime) {
+    if (prime && exponent) {
+      cDF++
+      cF += Math.abs(exponent)
       pLo = (pLo) ? Math.min(pLo, prime) : prime
       pHi = Math.max(pHi, prime)
-      countDistinctFactors++
-      countFactors += Math.abs(exponent)
+      eLo = (eLo!==null) ? Math.min(eLo, exponent) : exponent
+      eHi = (eHi!==null) ? Math.max(eHi, exponent) : exponent
+      eAbsHi = Math.max(eAbsHi, Math.abs(exponent))
       var factor = Math.pow(prime, exponent)
       var logFactor = exponent * Math.log(prime)
       val *= factor
@@ -41,8 +47,10 @@ var setNumbers = function(peo) {
         lnDenom -= logFactor
       }
     }
-
   }
+  // Work out Liouville and Mobius function
+  var liou = Math.pow(-1, cF)
+  var mob = (cDF===cF) ? liou : 0
 
   // Store results
   peo.number = {}
@@ -54,10 +62,15 @@ var setNumbers = function(peo) {
   peo.number.ln.n = lnNum
   peo.number.ln.d = lnDenom
   peo.number.stats = {}
-  peo.number.stats.lo = pLo
-  peo.number.stats.hi = pHi
-  peo.number.stats.countFactors = countFactors
-  peo.number.stats.countDistinctFactors = countDistinctFactors
+  peo.number.stats.pLo = pLo
+  peo.number.stats.pHi = pHi
+  peo.number.stats.cF = cF
+  peo.number.stats.cDF = cDF
+  peo.number.stats.eLo = eLo
+  peo.number.stats.eHi = eHi
+  peo.number.stats.eAbsHi = eAbsHi
+  peo.number.stats.liou = liou
+  peo.number.stats.mob = mob
 
   // Only allow a Fraction if num and denom both less than 10^15
   var accuracyLimit = 34.539      // Just over ln(10^15)

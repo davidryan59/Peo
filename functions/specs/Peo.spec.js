@@ -4,11 +4,6 @@ var Fraction = require('fraction.js')
 var Peo = require('../Peo')
 
 describe("The Peo class", function() {
-  // var peo = null
-
-  beforeEach(function() {
-    // peo = new Peo(3, 2)   // "3/2"
-  })
 
   var check_1 = function(peo) {
     assert.strictEqual(peo.getVal(), 1)
@@ -112,12 +107,57 @@ describe("The Peo class", function() {
     check_60(peo)
   })
 
-  it("can get factor counts, lowest and highest primes", function() {
+  it("can produce 9 stats on a fraction", function() {
     var peo = new Peo({13:1, 17:-1000, 19:12, 25:3})    // 25 will go to 5
     assert.strictEqual(peo.countDistinctFactors(), 4)
     assert.strictEqual(peo.countFactors(), 1019)
     assert.strictEqual(peo.getLowestPrime(), 5)
     assert.strictEqual(peo.getHighestPrime(), 19)
+    assert.strictEqual(peo.getLowestExp(), -1000)
+    assert.strictEqual(peo.getHighestExp(), 12)
+    assert.strictEqual(peo.getHighestAbsExp(), 1000)
+    assert.strictEqual(peo.getLiouville(), -1)
+    assert.strictEqual(peo.getMobius(), 0)
+  })
+
+  it("can produce 9 stats on a large integer", function() {
+    var peo = new Peo({5:1, 17:21, 25:22})    // 25 will go to 5
+    assert.strictEqual(peo.countDistinctFactors(), 2)
+    assert.strictEqual(peo.countFactors(), 66)
+    assert.strictEqual(peo.getLowestPrime(), 5)
+    assert.strictEqual(peo.getHighestPrime(), 17)
+    assert.strictEqual(peo.getLowestExp(), 21)
+    assert.strictEqual(peo.getHighestExp(), 45)
+    assert.strictEqual(peo.getHighestAbsExp(), 45)
+    assert.strictEqual(peo.getLiouville(), 1)
+    assert.strictEqual(peo.getMobius(), 0)
+  })
+
+  it("can produce 9 stats on reciprocal of a large integer", function() {
+    var peo = new Peo({23:-13, 25:-17, 35:-10})     // 25, 35 composite!
+    assert.strictEqual(peo.countDistinctFactors(), 3)
+    assert.strictEqual(peo.countFactors(), 67)
+    assert.strictEqual(peo.getLowestPrime(), 5)
+    assert.strictEqual(peo.getHighestPrime(), 23)
+    assert.strictEqual(peo.getLowestExp(), -44)
+    assert.strictEqual(peo.getHighestExp(), -10)
+    assert.strictEqual(peo.getHighestAbsExp(), 44)
+    assert.strictEqual(peo.getLiouville(), -1)
+    assert.strictEqual(peo.getMobius(), 0)
+  })
+
+  it("can calculate Mobius for a square-free integer", function() {
+    assert.strictEqual((new Peo(1)).getMobius(), 1)
+    assert.strictEqual((new Peo(2)).getMobius(), -1)
+    assert.strictEqual((new Peo(3)).getMobius(), -1)
+    assert.strictEqual((new Peo(4)).getMobius(), 0)
+    assert.strictEqual((new Peo(6)).getMobius(), 1)
+    assert.strictEqual((new Peo(43)).getMobius(), -1)
+    assert.strictEqual((new Peo(49)).getMobius(), 0)
+    assert.strictEqual((new Peo(77)).getMobius(), 1)
+    assert.strictEqual((new Peo(105)).getMobius(), -1)
+    assert.strictEqual((new Peo(210)).getMobius(), 1)
+    assert.strictEqual((new Peo(420)).getMobius(), 0)
   })
 
   it("constructs Peo for 871933 correctly using new Peo({871933:1})", function() {
