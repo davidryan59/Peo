@@ -112,6 +112,14 @@ describe("The Peo class", function() {
     check_60(peo)
   })
 
+  it("can get factor counts, lowest and highest primes", function() {
+    var peo = new Peo({13:1, 17:-1000, 19:12, 25:3})    // 25 will go to 5
+    assert.strictEqual(peo.countDistinctFactors(), 4)
+    assert.strictEqual(peo.countFactors(), 1019)
+    assert.strictEqual(peo.getLowestPrime(), 5)
+    assert.strictEqual(peo.getHighestPrime(), 19)
+  })
+
   it("constructs Peo for 871933 correctly using new Peo({871933:1})", function() {
     // 871933 = 89 * 97 * 101 (primes)
     var peo = new Peo({871933:1})
@@ -150,7 +158,7 @@ describe("The Peo class", function() {
 
   it("can calculate text for (new Peo(11, 2)).pow(1000000000) as 10^740362689.49 in exponential format", function() {
     var peo = (new Peo(11, 2)).pow(1000000000)
-    assert.strictEqual(peo.getText(), "10^740362689.49")    
+    assert.strictEqual(peo.getText(), "10^740362689.49")
   })
 
   it("returns 1 for invalid input: new Peo('aString')", function() {

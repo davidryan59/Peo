@@ -5,7 +5,7 @@ var incrementFromIntegerPower = require('../../setters/incrementFromIntegerPower
 // Static method - 'this' is Peo
 var prim = function(i, j) {
   // Primorial function
-  // prim(i) calculates product of primes from 2 to i
+  // prim(i) calculates product of primes from 1 to i
   // prim(i, j) calculates product of primes from i to j
 
   // Check inputs are numbers

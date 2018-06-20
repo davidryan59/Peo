@@ -44,5 +44,11 @@ Peo.prototype.getLog = require('./api/number/ln/getLog')
 Peo.prototype.getLogDenom = require('./api/number/ln/getLogDenom')
 Peo.prototype.getLogNum = require('./api/number/ln/getLogNum')
 
+// Numeric stats
+Peo.prototype.countDistinctFactors = require('./api/number/stats/countDistinctFactors')
+Peo.prototype.countFactors = require('./api/number/stats/countFactors')
+Peo.prototype.getLowestPrime = require('./api/number/stats/getLowestPrime')
+Peo.prototype.getHighestPrime = require('./api/number/stats/getHighestPrime')
+
 
 module.exports = Peo

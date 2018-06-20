@@ -12,6 +12,10 @@ var setNumbers = function(peo) {
   var lnVal = 0
   var lnNum = 0
   var lnDenom = 0
+  var pLo = 0
+  var pHi = 0
+  var countFactors = 0
+  var countDistinctFactors = 0
   var primeExpObj = peo.getPrimeExps()
   var keys = Object.keys(primeExpObj)
   for (var i=0; i<keys.length; i++) {
@@ -20,6 +24,10 @@ var setNumbers = function(peo) {
     var prime = Number.parseInt(key)
     var exponent = Number.parseInt(value)
     if (prime) {
+      pLo = (pLo) ? Math.min(pLo, prime) : prime
+      pHi = Math.max(pHi, prime)
+      countDistinctFactors++
+      countFactors += Math.abs(exponent)
       var factor = Math.pow(prime, exponent)
       var logFactor = exponent * Math.log(prime)
       val *= factor
@@ -45,6 +53,11 @@ var setNumbers = function(peo) {
   peo.number.ln.val = lnVal
   peo.number.ln.n = lnNum
   peo.number.ln.d = lnDenom
+  peo.number.stats = {}
+  peo.number.stats.lo = pLo
+  peo.number.stats.hi = pHi
+  peo.number.stats.countFactors = countFactors
+  peo.number.stats.countDistinctFactors = countDistinctFactors
 
   // Only allow a Fraction if num and denom both less than 10^15
   var accuracyLimit = 34.539      // Just over ln(10^15)
