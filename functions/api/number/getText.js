@@ -1,4 +1,4 @@
-var setNumbers = require('../setters/setNumbers')
+var setNumbers = require('../../setters/setNumbers')
 
 var getText = function() {
   setNumbers(this)

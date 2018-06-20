@@ -1,5 +1,6 @@
 var initialise = require('./initialisers/initialise')
 
+
 // Peo class constructor
 function Peo() {
   // This object must be immutable and completely determine the Peo output
@@ -8,27 +9,40 @@ function Peo() {
   initialise(this, arguments)
 }
 
-// Instance methods
-Peo.prototype.get1 = require('./api/get1')
-Peo.prototype.copy = require('./api/copy')
-Peo.prototype.mult = require('./api/mult')
-Peo.prototype.pow = require('./api/pow')
-Peo.prototype.getFraction = require('./api/number/getFraction')
-Peo.prototype.getVal = require('./api/number/getVal')
-Peo.prototype.getNum = require('./api/number/getNum')
-Peo.prototype.getDenom = require('./api/number/getDenom')
-Peo.prototype.getLog = require('./api/number/ln/getLog')
-Peo.prototype.getLogNum = require('./api/number/ln/getLogNum')
-Peo.prototype.getLogDenom = require('./api/number/ln/getLogDenom')
-Peo.prototype.getText = require('./api/getText')
-Peo.prototype.toString = require('./api/toString')
-Peo.prototype.getPrimeExp = require('./api/getPrimeExp')
-Peo.prototype.getPrimeExps = require('./api/getPrimeExps')
-Peo.prototype.checkPrimeExps = require('./api/checkPrimeExps')
 
-// Static methods
-Peo.fact = require('./apis/fact')
-Peo.prim = require('./apis/prim')
-Peo.binom = require('./apis/binom')
+// Static or Class methods
+Peo.fact = require('./api/class/fact')
+Peo.prim = require('./api/class/prim')
+Peo.binom = require('./api/class/binom')
+
+
+// --------- Instance methods ---------
+
+// Access to prime exponents
+Peo.prototype.checkPrimeExps = require('./api/exps/checkPrimeExps')
+Peo.prototype.getPrimeExp = require('./api/exps/getPrimeExp')
+Peo.prototype.getPrimeExps = require('./api/exps/getPrimeExps')
+
+// General
+Peo.prototype.copy = require('./api/general/copy')
+Peo.prototype.toString = require('./api/general/toString')
+
+// Maths operations
+Peo.prototype.get1 = require('./api/maths/get1')
+Peo.prototype.mult = require('./api/maths/mult')
+Peo.prototype.pow = require('./api/maths/pow')
+
+// Numeric values
+Peo.prototype.getDenom = require('./api/number/getDenom')
+Peo.prototype.getFraction = require('./api/number/getFraction')
+Peo.prototype.getNum = require('./api/number/getNum')
+Peo.prototype.getText = require('./api/number/getText')
+Peo.prototype.getVal = require('./api/number/getVal')
+
+// Logarithmic numeric values
+Peo.prototype.getLog = require('./api/number/ln/getLog')
+Peo.prototype.getLogDenom = require('./api/number/ln/getLogDenom')
+Peo.prototype.getLogNum = require('./api/number/ln/getLogNum')
+
 
 module.exports = Peo

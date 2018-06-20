@@ -1,6 +1,6 @@
-var chk = require('../maths/checkNumber')
-var isPrime = require('../maths/isPrime')
-var incrementFromIntegerPower = require('../setters/incrementFromIntegerPower')
+var chk = require('../../maths/checkNumber')
+var isPrime = require('../../maths/isPrime')
+var incrementFromIntegerPower = require('../../setters/incrementFromIntegerPower')
 
 // Static method - 'this' is Peo
 var prim = function(i, j) {

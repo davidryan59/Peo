@@ -1,4 +1,4 @@
-var incrementFromObjectPower = require('../setters/incrementFromObjectPower')
+var incrementFromObjectPower = require('../../setters/incrementFromObjectPower')
 
 var mult = function(otherPeo, power) {
 

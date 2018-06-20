@@ -1,4 +1,4 @@
-var get1 = require('./get1')
+var get1 = require('../maths/get1')
 
 var copy = function() {
   var copyPeo = this.get1()  // Start a new Peo representing 1/1
