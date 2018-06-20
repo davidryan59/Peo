@@ -19,9 +19,9 @@ var setNumbers = function(peo) {
     var value = primeExpObj[key]
     var prime = Number.parseInt(key)
     var exponent = Number.parseInt(value)
-    var factor = Math.pow(prime, exponent)
-    var logFactor = exponent * Math.log(prime)
     if (prime) {
+      var factor = Math.pow(prime, exponent)
+      var logFactor = exponent * Math.log(prime)
       val *= factor
       logVal += logFactor
       if (logFactor>0) {

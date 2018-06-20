@@ -564,6 +564,11 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
+  it("can calculate Peo.prim(-10, 17) as 2*3*5*7*11*13*17", function() {
+    var peo = Peo.prim(-10, 17)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
+  })
+
   it("can calculate Peo.prim(17, 1) as 2*3*5*7*11*13*17", function() {
     var peo = Peo.prim(17, 1)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
