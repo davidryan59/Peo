@@ -36,6 +36,7 @@ var fact = function(startNum, terms, jump) {
     startNum = temp
   }
 
+  // Start a new Peo for 1, increment it according to each factor
   var peo = new this()
   for (var i=startNum; i<=endNum; i=i+jump) {
     incrementFromIntegerPower(peo, i)
