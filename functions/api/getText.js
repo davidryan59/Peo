@@ -1,8 +1,8 @@
-var setText = require('../setters/setText')
+var setNumbers = require('../setters/setNumbers')
 
 var getText = function() {
-  setText(this)
-  return this.txt
+  setNumbers(this)
+  return this.number.txt
 }
 
 module.exports = getText

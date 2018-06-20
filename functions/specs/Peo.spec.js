@@ -133,6 +133,26 @@ describe("The Peo class", function() {
     check_1(peo)
   })
 
+  it("can calculate text for (new Peo(11, 1)).pow(4) as 14641 in integer format", function() {
+    var peo = (new Peo(11, 1)).pow(4)
+    assert.strictEqual(peo.getText(), "14641")
+  })
+
+  it("can calculate text for (new Peo(11, 2)).pow(4) as 14641/16 in fractional format", function() {
+    var peo = (new Peo(11, 2)).pow(4)
+    assert.strictEqual(peo.getText(), "14641/16")
+  })
+
+  it("can calculate text for (new Peo(11, 2)).pow(-1000) as 10^-740.36 in exponential format", function() {
+    var peo = (new Peo(11, 2)).pow(-1000)
+    assert.strictEqual(peo.getText(), "10^-740.36")
+  })
+
+  it("can calculate text for (new Peo(11, 2)).pow(1000000000) as 10^740362689.49 in exponential format", function() {
+    var peo = (new Peo(11, 2)).pow(1000000000)
+    assert.strictEqual(peo.getText(), "10^740362689.49")    
+  })
+
   it("returns 1 for invalid input: new Peo('aString')", function() {
     var peo = new Peo('aString')      // Single quotes!
     check_1(peo)

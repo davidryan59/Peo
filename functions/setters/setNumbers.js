@@ -9,9 +9,9 @@ var setNumbers = function(peo) {
   var val = 1
   var num = 1
   var denom = 1
-  var logVal = 0
-  var logNum = 0
-  var logDenom = 0
+  var lnVal = 0
+  var lnNum = 0
+  var lnDenom = 0
   var primeExpObj = peo.getPrimeExps()
   var keys = Object.keys(primeExpObj)
   for (var i=0; i<keys.length; i++) {
@@ -23,14 +23,14 @@ var setNumbers = function(peo) {
       var factor = Math.pow(prime, exponent)
       var logFactor = exponent * Math.log(prime)
       val *= factor
-      logVal += logFactor
+      lnVal += logFactor
       if (logFactor>0) {
         num *= factor
-        logNum += logFactor
+        lnNum += logFactor
       }
       if (logFactor<0) {
         denom *= Math.pow(prime, -exponent)  // Always use whole numbers if possible!
-        logDenom -= logFactor
+        lnDenom -= logFactor
       }
     }
 
@@ -42,16 +42,18 @@ var setNumbers = function(peo) {
   peo.number.n = num
   peo.number.d = denom
   peo.number.ln = {}
-  peo.number.ln.val = logVal
-  peo.number.ln.n = logNum
-  peo.number.ln.d = logDenom
+  peo.number.ln.val = lnVal
+  peo.number.ln.n = lnNum
+  peo.number.ln.d = lnDenom
 
   // Only allow a Fraction if num and denom both less than 10^15
   var accuracyLimit = 34.539      // Just over ln(10^15)
-  if (logNum<accuracyLimit && logDenom<accuracyLimit) {
+  if (lnNum<accuracyLimit && lnDenom<accuracyLimit) {
     peo.number.fr = new Fraction(num, denom)
+    peo.number.txt = (denom===1) ? "" + num : num + "/" + denom
   } else {
     peo.number.fr = new Fraction(1, 1)
+    peo.number.txt = "10^" + Math.round(lnVal*100/Math.log(10))/100  // 4dps
   }
 
 }
