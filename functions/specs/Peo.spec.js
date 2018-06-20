@@ -11,6 +11,9 @@ describe("The Peo class", function() {
   })
 
   var check_1 = function(peo) {
+    assert.strictEqual(peo.getVal(), 1)
+    assert.strictEqual(peo.getNum(), 1)
+    assert.strictEqual(peo.getDenom(), 1)
     assert.strictEqual(peo.getPrimeExp(2), 0)
     assert.strictEqual(peo.getPrimeExp(3), 0)
     assert.strictEqual(peo.getPrimeExp(5), 0)
@@ -23,6 +26,9 @@ describe("The Peo class", function() {
   }
 
   var check_60 = function(peo) {
+    assert.strictEqual(peo.getVal(), 60)
+    assert.strictEqual(peo.getNum(), 60)
+    assert.strictEqual(peo.getDenom(), 1)
     assert.strictEqual(peo.getPrimeExp(2), 2)
     assert.strictEqual(peo.getPrimeExp(3), 1)
     assert.strictEqual(peo.getPrimeExp(5), 1)
@@ -35,6 +41,9 @@ describe("The Peo class", function() {
   }
 
   var check_56_45 = function(peo) {
+    assert.strictEqual(peo.getVal(), 56/45)
+    assert.strictEqual(peo.getNum(), 56)
+    assert.strictEqual(peo.getDenom(), 45)
     assert.strictEqual(peo.getPrimeExp(2), 3)
     assert.strictEqual(peo.getPrimeExp(3), -2)
     assert.strictEqual(peo.getPrimeExp(5), -1)

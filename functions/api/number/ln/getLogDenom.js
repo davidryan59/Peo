@@ -1,5 +1,5 @@
-var getBaseMult = require('../maths/getBaseMult')
-var setNumbers = require('../setters/setNumbers')
+var getBaseMult = require('../../../maths/getBaseMult')
+var setNumbers = require('../../../setters/setNumbers')
 
 var getLogDenom = function(base) {
   setNumbers(this)
