@@ -50,6 +50,21 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.toString(), "56/45")
   }
 
+  it("constructs a copy of peo, when doing new Peo(peo)", function() {
+    var peo1 = new Peo(5, 4)
+    var peo2 = new Peo(peo1)
+    assert(peo1!==peo2)
+    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps())
+  })
+
+  it("constructs a copy of Nth power of peo, when doing new Peo(peo, N)", function() {
+    var peo1 = new Peo(5, 4)
+    var peo2 = new Peo(peo1, -2)
+    var peo3 = new Peo(16, 25)
+    assert(peo1!==peo2)
+    assert.deepStrictEqual(peo2.getPrimeExps(), peo3.getPrimeExps())
+  })
+
   it("constructs Peo for 56/45 correctly using new Peo({2:3, 7:1, 3:-2, 5:-1})", function() {
     var peo = new Peo({2:3, 7:1, 3:-2, 5:-1})
     check_56_45(peo)

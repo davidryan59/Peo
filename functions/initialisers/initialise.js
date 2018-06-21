@@ -12,7 +12,14 @@ var initialise = function(peo, args) {
   var arg1 = args[1]
   var arg2 = args[2]
 
-  // Check for 'Fraction' case first
+  // Check for 'Peo' case
+  // Have to use peo.constructor, rather than Peo
+  if (arg0 instanceof peo.constructor) {
+    // arg0.p is an object, from which we can increment peo
+    incrementFromObjectPower(peo, arg0.p, arg1)
+  }
+
+  // Check for 'Fraction' case
   if (arg0 instanceof Fraction) {
     initialiseFromFraction(peo, arg0, arg1)   // arg1 is the power
     return
@@ -35,7 +42,7 @@ var initialise = function(peo, args) {
 
   // Another case needed here for arrays entered as arguments in the Peo constructor
 
-  // Need to do this check last
+  // Need to do this check last, since its 'object', the most general!
   if (typeof(arg0)==='object') {
     incrementFromObjectPower(peo, arg0, arg1)
     return

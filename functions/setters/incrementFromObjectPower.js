@@ -6,6 +6,7 @@ var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 
 var incrementFromObjectPower = function(peo, obj, power) {
 
+  // obj of form {p1:e1, p2:e2, ... , pk:ek}
   // Will reconstruct obj into peo, but only the
   // keys that are primes, and the
   // values that are integers
