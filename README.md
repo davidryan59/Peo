@@ -15,19 +15,17 @@ Note that the Peo is designed to be immutable, i.e. all the API functions return
 
 ## Usage
 ``` js
-`var Peo = require('peo')
-`var peo = new Peo(80, 14)
-`console.log(peo.getText())   // "40/7"
-`console.log(peo.getNum())    // 40
-`console.log(peo.getDenom())  // 7
-`console.log(peo.getVal())    // 5.7142857142857135
+var Peo = require('peo')
+var peo = new Peo(80, 14)
+console.log(peo.getText())   // "40/7"
+console.log(peo.getNum())    // 40
+console.log(peo.getDenom())  // 7
+console.log(peo.getVal())    // 5.7142857142857135
 ```
 
 ## Test
-``` js
-`npm test
-`npm run examples
-```
+`npm test`
+`npm run examples`
 
 ## API
 
@@ -78,8 +76,8 @@ _.mult(other)          // returns a new Peo which is this*other
 _.mult(other, n)       // returns a new Peo which is this*(other^n)
 _.pow(n)               // returns a new Peo which is this^n
 _.split(p1, [p2, p3])  // splits a Peo into components [{p1:e1}, {p2:e2, p3:e3}, {everything else}]
-                       // The argument list for .split is extensible
-                       // and should be primes or arrays of primes
+                       // The argument list for .split is extensible and can contain
+                       // primes or arrays of primes in any order.
 ```
 
 #### Numeric values
