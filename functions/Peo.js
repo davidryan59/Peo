@@ -31,6 +31,7 @@ Peo.prototype.toString = require('./api/general/toString')
 Peo.prototype.get1 = require('./api/maths/get1')
 Peo.prototype.mult = require('./api/maths/mult')
 Peo.prototype.pow = require('./api/maths/pow')
+Peo.prototype.split = require('./api/maths/split')
 
 // Numeric values
 Peo.prototype.getDenom = require('./api/number/getDenom')

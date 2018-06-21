@@ -690,4 +690,66 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo2.getPrimeExps(), {2:-3, 3:-3, 5:3})
   })
 
+  it("can split 14/15 by () to get 14/15", function() {
+    var peo = new Peo(14, 15)
+    var array = peo.split()
+    assert(array.length===1)
+    assert.strictEqual(array[0].getText(),"14/15")
+  })
+
+  it("can split 14/15 by (5) to get 1/5, 14/3", function() {
+    var peo = new Peo(14, 15)
+    var array = peo.split(5)
+    assert(array.length===2)
+    assert.strictEqual(array[0].getText(),"1/5")
+    assert.strictEqual(array[1].getText(),"14/3")
+  })
+
+  it('can split 14/15 by (2, 11, "aString") to get 2/1, 1/1, 1/1, 7/15', function() {
+    var peo = new Peo(14, 15)
+    var array = peo.split(2, 11, "aString")    // Test invalid values such as strings
+    assert(array.length===4)
+    assert.strictEqual(array[0].getText(),"2")
+    assert.strictEqual(array[1].getText(),"1")
+    assert.strictEqual(array[2].getText(),"1")
+    assert.strictEqual(array[3].getText(),"7/15")
+  })
+
+  it('can split 14/15 by (3, 3) to get 1/3, 1/1, 14/5', function() {
+    var peo = new Peo(14, 15)
+    var array = peo.split(3, 3)
+    assert(array.length===3)
+    assert.strictEqual(array[0].getText(),"1/3")
+    assert.strictEqual(array[1].getText(),"1")
+    assert.strictEqual(array[2].getText(),"14/5")
+  })
+
+  it('can split 174440/73962963 by ([89, 3, 29]) to get 89/2349, 1960/31487', function() {
+    var peo = new Peo(2*2*2*5*7*7*89, 3*3*3*3*23*29*37*37)
+    var array = peo.split([89, 3, 29])
+    assert(array.length===2)
+    assert.strictEqual(array[0].getText(),"89/2349")
+    assert.strictEqual(array[1].getText(),"1960/31487")
+  })
+
+  it('can split 174440/73962963 5 ways using numbers and arrays together', function() {
+    var peo = new Peo(2*2*2*5*7*7*89, 3*3*3*3*23*29*37*37)
+    var array = peo.split(3, [37, 41, 7], [2, null, 5], 71)   // Test invalid value inside array
+    assert(array.length===5)
+    assert.strictEqual(array[0].getText(),"1/81")
+    assert.strictEqual(array[1].getText(),"49/1369")
+    assert.strictEqual(array[2].getText(),"40")
+    assert.strictEqual(array[3].getText(),"1")
+    assert.strictEqual(array[4].getText(),"89/667")
+  })
+
+  it('can split big number using [2,3], 5', function() {
+    var peo = new Peo({2:15, 3:-7, 5:2, 13:1, 29:-2, 1979:1})
+    var array = peo.split([2, 3], 5)
+    assert(array.length===3)
+    assert.strictEqual(array[0].getText(),"32768/2187")
+    assert.strictEqual(array[1].getText(),"25")
+    assert.strictEqual(array[2].getText(),"25727/841")
+  })
+
 })
