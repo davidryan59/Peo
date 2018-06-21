@@ -1,6 +1,6 @@
 var chk = require('../maths/checkNumber')
 var check = require('../maths/checkPower')
-var isPrime = require('../maths/isPrime')
+var isPrime = require('primes-and-factors').isPrime
 var incrementPrimeExp = require('./incrementPrimeExp')
 var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 

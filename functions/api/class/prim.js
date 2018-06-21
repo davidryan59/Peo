@@ -1,5 +1,5 @@
 var chk = require('../../maths/checkNumber')
-var isPrime = require('../../maths/isPrime')
+var isPrime = require('primes-and-factors').isPrime
 var incrementFromIntegerPower = require('../../setters/incrementFromIntegerPower')
 
 // Static method - 'this' is Peo
