@@ -1,5 +1,5 @@
 var chk = require('../../maths/checkNumber')
-var isPrime = require('primes-and-factors').isPrime
+var pf = require('primes-and-factors')
 var incrementFromIntegerPower = require('../../setters/incrementFromIntegerPower')
 
 // Static method - 'this' is Peo
@@ -36,7 +36,7 @@ var prim = function(i, j) {
   // A more efficient implementation would be a sieve,
   // rather than running isPrime on every number in range
   for (var k=i; k<=j; k=k+2) {      // Search odd k for i<=k<=j.
-    if (isPrime(k)) incrementFromIntegerPower(peo, k)
+    if (pf.isPrime(k)) incrementFromIntegerPower(peo, k)
   }
 
   return peo

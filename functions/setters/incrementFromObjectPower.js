@@ -1,6 +1,6 @@
 var chk = require('../maths/checkNumber')
 var checked = require('../maths/checkPower')
-var isPrime = require('primes-and-factors').isPrime
+var pf = require('primes-and-factors')
 var incrementPrimeExp = require('./incrementPrimeExp')
 var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 
@@ -23,7 +23,7 @@ var incrementFromObjectPower = function(peo, obj, power) {
     var number = Number.parseInt(key)       // NaN if anything goes wrong
     var exponent = Number.parseInt(value)
     if (chk(number) && chk(exponent) && number>=2) {
-      if (isPrime(number)) {
+      if (pf.isPrime(number)) {
         incrementPrimeExp(peo, number, exponent * power)
       } else {
         incrementFromIntegerPower(peo, number, exponent * power)
