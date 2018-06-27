@@ -7,7 +7,7 @@ var initialiseFromFraction = require('./initialiseFromFraction')
 
 var initialise = function(peo, args) {
 
-  // Get the first couple of arguments given to Peo constructor
+  // Get the first few arguments given to Peo constructor
   var arg0 = args[0]
   var arg1 = args[1]
   var arg2 = args[2]
@@ -17,6 +17,7 @@ var initialise = function(peo, args) {
   if (arg0 instanceof peo.constructor) {
     // arg0.p is an object, from which we can increment peo
     incrementFromObjectPower(peo, arg0.p, arg1)
+    return
   }
 
   // Check for 'Fraction' case
