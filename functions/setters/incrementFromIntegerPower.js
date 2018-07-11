@@ -20,11 +20,7 @@ var incrementFromIntegerPower = function(peo, integer, power) {
     var obj = primeFactorArray[i]
     var prime = obj.factor
     var exponent = obj.times
-    // pf has bugs for 0, 1, returning a prime factor of 0, 1 respectively.
-    // Ignore these values.
-    if (prime>=2) {
-      incrementPrimeExp(peo, prime, exponent * power)
-    }
+    incrementPrimeExp(peo, prime, exponent * power)
   }
 }
 
