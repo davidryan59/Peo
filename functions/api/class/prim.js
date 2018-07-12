@@ -1,4 +1,4 @@
-var chk = require('../../maths/checkNumber')
+var ibn = require('is-bounded-number')
 var pf = require('primes-and-factors')
 var incrementFromIntegerPower = require('../../setters/incrementFromIntegerPower')
 
@@ -9,8 +9,8 @@ var prim = function(i, j) {
   // prim(i, j) calculates product of primes from i to j
 
   // Check inputs are numbers
-  if (!chk(i)) i = 1
-  if (!chk(j)) j = 1
+  if (!ibn(i)) i = 1
+  if (!ibn(j)) j = 1
 
   // Force them all to integers
   i = Math.round(i)

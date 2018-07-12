@@ -1,4 +1,4 @@
-var chk = require('../../maths/checkNumber')
+var ibn = require('is-bounded-number')
 var incrementFromIntegerPower = require('../../setters/incrementFromIntegerPower')
 
 // Static method - 'this' is Peo
@@ -10,9 +10,9 @@ var fact = function(startNum, terms, jump) {
   // s, t ought to be positive. j ought to be non-zero
 
   // Check inputs are numbers
-  if (!chk(startNum)) startNum = 1
-  if (!chk(terms)) terms = startNum
-  if (!chk(jump)) jump = -1
+  if (!ibn(startNum)) startNum = 1
+  if (!ibn(terms)) terms = startNum
+  if (!ibn(jump)) jump = -1
 
   // Force them all to integers
   startNum = Math.round(startNum)

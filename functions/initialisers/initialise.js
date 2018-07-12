@@ -1,6 +1,5 @@
+var ibn = require('is-bounded-number')
 var Fraction = require('fraction.js')
-
-var chk = require('../maths/checkNumber')
 
 var incrementFromObjectPower = require('../setters/incrementFromObjectPower')
 var initialiseFromFraction = require('./initialiseFromFraction')
@@ -28,10 +27,10 @@ var initialise = function(peo, args) {
 
   // Then check for numeric case
   var cutOff = 1e15    // Number.MAX_SAFE_INTEGER is around 10^15.95
-  if (chk(arg0, cutOff)) {
+  if (ibn(arg0, cutOff)) {
     // Treat as case where small numerator, and possibly small denominator, are supplied
     var fraction = null
-    if (chk(arg1, cutOff)) {
+    if (ibn(arg1, cutOff)) {
       // Both numerator and denominator supplied
       fraction = new Fraction(arg0, arg1)
     } else {
