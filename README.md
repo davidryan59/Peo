@@ -56,58 +56,57 @@ Peo.prim(a, b)     // returns product of primes between a and b
 ```
 
 ### Instance methods
-(The underscore `_` represents your own instance of `Peo` class)
 
 #### Accessing prime exponents
 ``` js
-_.checkPrimeExps({p1:e1,...})  // returns Boolean
-_.getPrimeExp(p)               // returns numeric, the exponent
-_.getPrimeExps([p1,...])       // returns {p1:e1,...}
+peo.checkPrimeExps({p1:e1,...})  // returns Boolean
+peo.getPrimeExp(p)               // returns numeric, the exponent
+peo.getPrimeExps([p1,...])       // returns {p1:e1,...}
 ```
 
 #### General functions
 ``` js
-_.copy()      // returns a copy of the original peo
-_.toString()  // returns a text representation of the Peo (same as .getText()
+peo.copy()      // returns a copy of the original peo
+peo.toString()  // returns a text representation of the Peo (same as .getText()
 ```
 
 #### Maths operations
 ``` js
-_.get1()               // returns a new identity Peo, e.g. new Peo(1)
-_.mult(other)          // returns a new Peo which is this*other  
-_.mult(other, n)       // returns a new Peo which is this*(other^n)
-_.pow(n)               // returns a new Peo which is this^n
-_.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
-                       // [{p1:e1}, {p2:e2, p3:e3}, {everything else}]
-                       // The argument list for .split is extensible and can contain
-                       // primes or arrays of primes in any order.
+peo.get1()               // returns a new identity Peo, e.g. new Peo(1)
+peo.mult(other)          // returns a new Peo which is this*other  
+peo.mult(other, n)       // returns a new Peo which is this*(other^n)
+peo.pow(n)               // returns a new Peo which is this^n
+peo.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
+                         // [{p1:e1}, {p2:e2, p3:e3}, {everything else}]
+                         // The argument list for .split is extensible and can contain
+                         // primes or arrays of primes in any order.
 ```
 
 #### Numeric values
 ``` js
-_.getDenom()     // returns the denominator of the fraction
-_.getFraction()  // returns relevant Fraction object from fraction.js
-_.getNum()       // returns the numerator of the fraction
-_.getText()      // returns a text representation of the Peo
-_.getVal()       // returns a decimal representation of the Peo
+peo.getDenom()     // returns the denominator of the fraction
+peo.getFraction()  // returns relevant Fraction object from fraction.js
+peo.getNum()       // returns the numerator of the fraction
+peo.getText()      // returns a text representation of the Peo
+peo.getVal()       // returns a decimal representation of the Peo
 ```
 
 #### Logarithmic numeric values
 ``` js
-_.getLog(b)       // returns log of Peo to base b (if omitted, natural log)
-_.getLogDenom(b)  // returns log of Peo denominator
-_.getLogNum(b)    // returns log of Peo numerator
+peo.getLog(b)       // returns log of Peo to base b (if omitted, natural log)
+peo.getLogDenom(b)  // returns log of Peo denominator
+peo.getLogNum(b)    // returns log of Peo numerator
 ```
 
 #### Numeric stats
 ``` js
-_.countDistinctFactors()  // returns the number of distinct prime factors of the Peo
-_.countFactors()          // returns the total number of prime factors of the Peo
-_.getHighestAbsExp()      // returns the highest abs(exponent) in the Peo
-_.getHighestExp()         // returns the highest exponent in the Peo
-_.getHighestPrime()       // returns the highest prime in the Peo
-_.getLiouville()          // returns the Liouville function on the Peo
-_.getLowestExp()          // returns the lowest exponent in the Peo
-_.getLowestPrime()        // returns the lowest prime in the Peo
-_.getMobius()             // returns the Mobius function on the Peo
+peo.countDistinctFactors()  // returns the number of distinct prime factors of the Peo
+peo.countFactors()          // returns the total number of prime factors of the Peo
+peo.getHighestAbsExp()      // returns the highest abs(exponent) in the Peo
+peo.getHighestExp()         // returns the highest exponent in the Peo
+peo.getHighestPrime()       // returns the highest prime in the Peo
+peo.getLiouville()          // returns the Liouville function on the Peo
+peo.getLowestExp()          // returns the lowest exponent in the Peo
+peo.getLowestPrime()        // returns the lowest prime in the Peo
+peo.getMobius()             // returns the Mobius function on the Peo
 ```
