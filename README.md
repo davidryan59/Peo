@@ -1,6 +1,8 @@
 # Prime Exponent Object
 ### (PEO, `Peo` class)
 
+[![npm version](https://badge.fury.io/js/peo.png)](https://badge.fury.io/js/peo)
+
 A **Prime Exponent Object** (Peo) is a JavaScript object which stores small or large rational numbers as an object of the form `{2:1000, 3:-567, 65536:-1} = 2^1000 * 3^-567 * 65537^-1`, i.e. as an object with keys equal to primes, and values equal to the exponent of that prime.
 
 The class contains:
