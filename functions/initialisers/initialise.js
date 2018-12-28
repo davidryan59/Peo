@@ -4,6 +4,13 @@ var Fraction = require('fraction.js')
 var incrementFromObjectPower = require('../setters/incrementFromObjectPower')
 var initialiseFromFraction = require('./initialiseFromFraction')
 
+var digits = 15
+var cutOff = 10 ** digits
+var searchForDigits = "[0-9]{1," + digits + "}"
+var regexIntegerString = new RegExp("^" + searchForDigits + "$")
+var regexFractionString = new RegExp("^" + searchForDigits + "\\/" + searchForDigits + "$")
+
+
 var initialise = function(peo, args) {
 
   // Get the first few arguments given to Peo constructor
@@ -26,7 +33,6 @@ var initialise = function(peo, args) {
   }
 
   // Then check for numeric case
-  var cutOff = 1e15    // Number.MAX_SAFE_INTEGER is around 10^15.95
   if (ibn(arg0, cutOff)) {
     // Treat as case where small numerator, and possibly small denominator, are supplied
     var fraction = null
@@ -34,10 +40,21 @@ var initialise = function(peo, args) {
       // Both numerator and denominator supplied
       fraction = new Fraction(arg0, arg1)
     } else {
-      fraction = new Fraction(arg0, 1)
+      fraction = new Fraction(arg0)
     }
     initialiseFromFraction(peo, fraction, arg2)
     return
+  }
+
+  // Check for string case e.g. new Peo("5") or new Peo("3/2")
+  // .search is 0 if match (at start), -1 if no match
+  // Fraction will initialise correctly from either "5" or "3/2"
+  if (typeof(arg0) === typeof("")) {
+    if (arg0.search(regexIntegerString)===0 || arg0.search(regexFractionString)===0) {
+      var fraction = new Fraction(arg0)
+      initialiseFromFraction(peo, fraction, arg1)
+      return
+    }
   }
 
   // Another case needed here for arrays entered as arguments in the Peo constructor
