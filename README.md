@@ -35,9 +35,11 @@ console.log(peo.getVal())    // 5.7142857142857135
 ``` js
 new Peo(a)                      // integer a
 new Peo(a, b)                   // fraction a/b
-new Peo(a, b, n)                // fraction (a/b)^n
+new Peo(a, b, n)                // fraction (a/b) ^ n
 new Peo(fr)                     // fr a Fraction from fraction.js
-new Peo(fr, n)                  // fr^n
+new Peo(fr, n)                  // fr ^ n
+new Peo(txt)                    // txt an integer or fraction in text form e.g. "5", "3/2"
+new Peo(txt, n)                 // txt ^ n
 new Peo({p1:e1, ...,pk:ek})     // equivalent to p1^e1 * ... * pk^ek
 new Peo({p1:e1, ...,pk:ek}, n)  // equivalent to p1^(n*e1) * ... * pk^(n*ek)
 ```
