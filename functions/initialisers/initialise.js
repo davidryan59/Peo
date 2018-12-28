@@ -46,7 +46,7 @@ var initialise = function(peo, args) {
     return
   }
 
-  // Check for text case e.g. new Peo("5") or new Peo("3/2")
+  // Check for string case e.g. new Peo("5") or new Peo("3/2")
   // .search is 0 if match (at start), -1 if no match
   // Fraction will initialise correctly from either "5" or "3/2"
   if (typeof(arg0) === typeof("")) {
@@ -54,7 +54,7 @@ var initialise = function(peo, args) {
       var fraction = new Fraction(arg0)
       initialiseFromFraction(peo, fraction, arg1)
       return
-    }    
+    }
   }
 
   // Another case needed here for arrays entered as arguments in the Peo constructor
