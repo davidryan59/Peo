@@ -17,7 +17,7 @@
   "dependencies": {
     "fraction.js": "^4.0.8",
     "is-bounded-number": "^1.0.1",
-    "primes-and-factors": "^0.2.1"
+    "primes-and-factors": "^1.2.0"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
