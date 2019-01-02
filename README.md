@@ -58,8 +58,10 @@ peo.toString()  // returns a text representation of the Peo (same as .getText()
 #### Maths operations
 ``` js
 peo.get1()               // returns a new identity Peo, e.g. new Peo(1)
-peo.mult(other)          // returns a new Peo which is this*other  
-peo.mult(other, n)       // returns a new Peo which is this*(other^n)
+peo.mult(m)              // returns a new Peo which is this * integer m
+peo.mult(m, n)           // returns a new Peo which is this * integer m^n
+peo.mult(otherPeo)       // returns a new Peo which is this * otherPeo  
+peo.mult(otherPeo, n)    // returns a new Peo which is this * (otherPeo^n)
 peo.pow(n)               // returns a new Peo which is this^n
 peo.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
                          // [{p1:e1}, {p2:e2, p3:e3}, {everything else}]

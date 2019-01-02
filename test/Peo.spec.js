@@ -248,6 +248,20 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo_mult.getPrimeExps(), peo_6_5.getPrimeExps())
   })
 
+  it("can multiply new Peo(12) by 14 to get new Peo(168)", function() {
+    var peo_start = new Peo(12)
+    var peo_actual = peo_start.mult(14)
+    var peo_expected = new Peo(168)
+    assert.deepStrictEqual(peo_actual.getPrimeExps(), peo_expected.getPrimeExps())
+  })
+
+  it("can multiply new Peo(30) by 35^3 to get new Peo(1286250)", function() {
+    var peo_start = new Peo(30)
+    var peo_actual = peo_start.mult(35, 3)
+    var peo_expected = new Peo(1286250)
+    assert.deepStrictEqual(peo_actual.getPrimeExps(), peo_expected.getPrimeExps())
+  })
+
   it("can cube a Peo from initialiser (numeric)", function() {
     var peo = new Peo(2, 5, 3)    // (2/5)^3
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 5:-3})
