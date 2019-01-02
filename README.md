@@ -3,7 +3,7 @@
 
 [![npm version](https://badge.fury.io/js/peo.png)](https://badge.fury.io/js/peo)
 
-A **Prime Exponent Object** (Peo) stores small or large rational numbers as an object of the form `{p1:e1, p2:e2, ...}`. A simple example would be `20/3` stored as `{2:2,3:-1,5:1}`.
+A **Prime Exponent Object** (Peo) stores small or large rational numbers as an object of the form `{p1:e1, p2:e2, ...}`. A simple example would be `20/3` stored as `{2:2, 3:-1, 5:1}`.
 
 This format aids multiplication and exponentiation of large numbers. Maximum prime factor size is approximately 10^15, so large factorial, primorial or combinatoric values can be made, e.g. factorial of `1000` or higher. Calculations on Peos via the API return new Peo objects in order to keep Peo instances immutable.
 
@@ -45,7 +45,8 @@ Peo.prim(a, b)     // returns product of primes between a and b
 ``` js
 peo.checkPrimeExps({p1:e1,...})  // returns Boolean
 peo.getPrimeExp(p)               // returns numeric, the exponent
-peo.getPrimeExps([p1,...])       // returns {p1:e1,...}
+peo.getPrimeExps()               // returns all prime info {p1:e1,...}
+peo.getPrimeExps([p1,...])       // returns specified prime info {p1:e1,...}
 ```
 
 #### General functions

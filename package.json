@@ -7,7 +7,7 @@
     "email": "davidryan1998@hotmail.com",
     "url": "https://github.com/davidryan59"
   },
-  "main": "src/Peo.js",
+  "main": "build/Peo.js",
   "repository": "git@github.com:davidryan59/Peo.git",
   "license": "ISC",
   "scripts": {
