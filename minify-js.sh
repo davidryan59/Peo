@@ -32,7 +32,7 @@ for file in ./build/**/**/**/*.js; do
     echo minified: "$file"
 done
 
-echo "All files successfully minified"
+echo "File minification finished"
 
 
 # # Before executing this file, run:
