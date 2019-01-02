@@ -1,5 +1,7 @@
-var assert = require('assert')
-var Peo = require('../src/Peo')
+var assert = require('assert');
+
+var index = require('./index');
+var Peo = index.Peo;
 
 describe('Initialise Peo from fraction in text form', function() {
 

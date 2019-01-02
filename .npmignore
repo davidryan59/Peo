@@ -3,4 +3,6 @@
 examples
 node_modules
 removed
+src
 test
+minify-js.sh

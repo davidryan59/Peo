@@ -12,7 +12,8 @@
   "license": "ISC",
   "scripts": {
     "test": "nyc mocha ./test/*.spec.js",
-    "examples": "cd ./examples && node run.js"
+    "examples": "cd ./examples && node run.js",
+    "build": "./minify-js.sh"
   },
   "dependencies": {
     "fraction.js": "^4.0.8",
@@ -28,6 +29,7 @@
     "big",
     "binomial",
     "coefficient",
+    "combinatorics",
     "count",
     "denominator",
     "distinct",

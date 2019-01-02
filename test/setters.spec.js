@@ -1,10 +1,11 @@
-var assert = require('assert')
-var Fraction = require('fraction.js')
+var assert = require('assert');
+var Fraction = require('fraction.js');
 
-var Peo = require('../src/Peo')
-var amendPrimeExponent = require('../src/setters/amendPrimeExponent')
-var incrementFromIntegerPower = require('../src/setters/incrementFromIntegerPower')
-var setNumbers = require('../src/setters/setNumbers')
+var index = require('./index');
+var Peo = index.Peo;
+var amendPrimeExponent = index.amendPrimeExponent;
+var incrementFromIntegerPower = index.incrementFromIntegerPower;
+var setNumbers = index.setNumbers;
 
 describe("Extra checks on the setter functions", function() {
 

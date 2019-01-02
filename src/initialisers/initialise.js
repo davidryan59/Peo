@@ -5,7 +5,7 @@ var incrementFromObjectPower = require('../setters/incrementFromObjectPower')
 var initialiseFromFraction = require('./initialiseFromFraction')
 
 var digits = 15
-var cutOff = 10 ** digits
+var cutOff = Math.pow(10, digits)
 var searchForDigits = "[0-9]{1," + digits + "}"
 var regexIntegerString = new RegExp("^" + searchForDigits + "$")
 var regexFractionString = new RegExp("^" + searchForDigits + "\\/" + searchForDigits + "$")
