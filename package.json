@@ -7,11 +7,11 @@
     "email": "davidryan1998@hotmail.com",
     "url": "https://github.com/davidryan59"
   },
-  "main": "index.js",
+  "main": "src/Peo.js",
   "repository": "git@github.com:davidryan59/Peo.git",
   "license": "ISC",
   "scripts": {
-    "test": "nyc mocha ./functions/specs/*.spec.js",
+    "test": "nyc mocha ./test/*.spec.js",
     "examples": "cd ./examples && node run.js"
   },
   "dependencies": {

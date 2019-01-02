@@ -1,5 +1,5 @@
 // var Peo = require('peo')
-var Peo = require('../functions/Peo')
+var Peo = require('../src/Peo')
 
 var peo = new Peo(80, 14)
 console.log(peo.getText())  // "40/7"

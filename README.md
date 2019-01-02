@@ -1,5 +1,5 @@
-# Prime Exponent Object
-### (PEO, `Peo` class)
+# peo
+### Prime Exponent Object module, `Peo`
 
 [![npm version](https://badge.fury.io/js/peo.png)](https://badge.fury.io/js/peo)
 
