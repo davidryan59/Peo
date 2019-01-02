@@ -1,33 +1,18 @@
 # peo
-### Prime Exponent Object module, `Peo`
+### Prime Exponent Object module containing `Peo` class
 
 [![npm version](https://badge.fury.io/js/peo.png)](https://badge.fury.io/js/peo)
 
-A **Prime Exponent Object** (Peo) is a JavaScript object which stores small or large rational numbers as an object of the form `{2:1000, 3:-567, 65536:-1} = 2^1000 * 3^-567 * 65537^-1`, i.e. as an object with keys equal to primes, and values equal to the exponent of that prime.
+A **Prime Exponent Object** (Peo) stores small or large rational numbers as an object of the form `{p1:e1, p2:e2, ...}`. A simple example would be `20/3` stored as `{2:2,3:-1,5:1}`.
+
+This format aids multiplication and exponentiation of large numbers. Maximum prime factor size is approximately 10^15, so large factorial, primorial or combinatoric values can be made, e.g. factorial of `1000` or higher. Calculations on Peos via the API return new Peo objects in order to keep Peo instances immutable.
 
 The class contains:
 - A central data store of these primes and exponents
 - Some cached data, e.g. numeric, textual or fractional representation (the latter using Fraction class from `fraction.js`)
 - An API with many functions to manipulate the Peo and return the result as a new Peo.
 
-Note that the Peo is designed to be immutable, i.e. all the API functions return a new Peo when any modification has taken place.
-
-## Install
-`npm install peo`  
-
-## Usage
-``` js
-var Peo = require('peo')
-var peo = new Peo(80, 14)
-console.log(peo.getText())   // "40/7"
-console.log(peo.getNum())    // 40
-console.log(peo.getDenom())  // 7
-console.log(peo.getVal())    // 5.7142857142857135
-```
-
-## Test
-`npm test`  
-`npm run examples`  
+To install, use `npm i peo`. To test, `npm test`. For examples of usage see Github `examples` directory, via `npm run examples`.
 
 ## API
 
@@ -36,16 +21,13 @@ console.log(peo.getVal())    // 5.7142857142857135
 new Peo(a)                      // integer a
 new Peo(a, b)                   // fraction a/b
 new Peo(a, b, n)                // fraction (a/b) ^ n
-new Peo(fr)                     // fr a Fraction from fraction.js
+new Peo(fr)                     // fr a Fraction object from fraction.js
 new Peo(fr, n)                  // fr ^ n
 new Peo(txt)                    // txt an integer or fraction in text form e.g. "5", "3/2"
 new Peo(txt, n)                 // txt ^ n
-new Peo({p1:e1, ...,pk:ek})     // equivalent to p1^e1 * ... * pk^ek
-new Peo({p1:e1, ...,pk:ek}, n)  // equivalent to p1^(n*e1) * ... * pk^(n*ek)
+new Peo({p1:e1, ...,pk:ek})     // get Peo for p1^e1 * ... * pk^ek
+new Peo({p1:e1, ...,pk:ek}, n)  // get Peo for (p1^e1 * ... * pk^ek) ^ n
 ```
-
-These constructors have been tested up to `(11/2)^1000000000 = new Peo(11, 2, 10^9)`  
-Peo can handle large numbers! (With small-ish prime factors.)  
 
 ### Static or Class methods
 ``` js

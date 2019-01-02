@@ -1,8 +1,38 @@
 // var Peo = require('peo')
 var Peo = require('../src/Peo')
 
-var peo = new Peo(80, 14)
-console.log(peo.getText())  // "40/7"
-console.log(peo.getNum())   // 40
-console.log(peo.getDenom()) // 7
-console.log(peo.getVal())   // 5.7142857142857135
+var peo = new Peo(360, 77)
+console.log(`var peo = new Peo(360, 77)`)
+console.log(``)
+console.log(`peo.getText() returns ${peo.getText()}`)
+console.log(`peo.getNum() returns ${peo.getNum()}`)
+console.log(`peo.getDenom() returns ${peo.getDenom()}`)
+console.log(`peo.getVal() returns ${peo.getVal()}`)
+console.log(`peo.getPrimeExps() returns ${JSON.stringify(peo.getPrimeExps())}`)
+
+console.log(``)
+var fact50 = Peo.fact(50)
+console.log(`Factorial of 50 is approximately ${fact50.getText()}`)
+console.log(`and has prime factors:`)
+console.log(JSON.stringify(fact50.getPrimeExps()))
+
+console.log(``)
+var prim50 = Peo.prim(50)
+console.log(`Primorial of 50 is approximately ${prim50.getText()}`)
+console.log(`and has prime factors:`)
+console.log(JSON.stringify(prim50.getPrimeExps()))
+
+console.log(``)
+var binom100_35 = Peo.binom(100, 35)
+console.log(`Binomial coefficient (100, 35) is approximately ${binom100_35.getText()}`)
+console.log(`and has prime factors:`)
+console.log(JSON.stringify(binom100_35.getPrimeExps()))
+
+console.log(``)
+var binom284_28 = Peo.binom(284, 28)
+console.log(`Binomial coefficient (284, 28) is approximately ${binom284_28.getText()}`)
+console.log(`and has prime factors:`)
+console.log(JSON.stringify(binom284_28.getPrimeExps()))
+console.log(`(note there are no prime factors below 29)`)
+
+console.log(``)
