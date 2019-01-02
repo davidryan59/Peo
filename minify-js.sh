@@ -4,8 +4,13 @@
 # Minify on build up to 3 levels deep
 
 rm -rf ./build/
+echo "Removed build directory"
+
 mkdir ./build/
+echo "Made empty build directory"
+
 cp -r ./src/ ./build/
+echo "Copied source files"
 
 for file in ./build/*.js; do
     uglifyjs "$file" --stats -cm -o "$file"
@@ -26,6 +31,8 @@ for file in ./build/**/**/**/*.js; do
     uglifyjs "$file" --stats -cm -o "$file"
     echo minified: "$file"
 done
+
+echo "All files successfully minified"
 
 
 # # Before executing this file, run:

@@ -113,6 +113,25 @@ describe("The Peo class", function() {
   //   })
   // })
 
+  it("constructs Peo for 100000000000001 correctly using new Peo(100000000000001)", function() {
+    var peo = new Peo(100000000000001)
+    assert.deepStrictEqual(peo.getPrimeExps(), {
+      29:1,
+      101:1,
+      281:1,
+      121499449:1
+    })
+  })
+
+  it("constructs Peo for (10/7)^1000000000000001 correctly using new Peo(20, 14, 1000000000000001)", function() {
+    var peo = new Peo(20, 14, 100000000000001)
+    assert.deepStrictEqual(peo.getPrimeExps(), {
+      2:100000000000001,
+      5:100000000000001,
+      7:-100000000000001,
+    })
+  })
+
   it("constructs Peo for 60 correctly using new Peo(60)", function() {
     var peo = new Peo(60)
     check_60(peo)

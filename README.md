@@ -12,7 +12,7 @@ The class contains:
 - Some cached data, e.g. numeric, textual or fractional representation (the latter using Fraction class from `fraction.js`)
 - An API with many functions to manipulate the Peo and return the result as a new Peo.
 
-To install, use `npm i peo`. To test, `npm test`. For examples of usage see Github `examples` directory, via `npm run examples`.
+To install, use `npm i peo`. To test, `npm test`. For examples of usage see Github `examples` directory, via `npm run examples`. Limits of both prime (key) and exponent (value) are around 10^15.
 
 ## API
 
