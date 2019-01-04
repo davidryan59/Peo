@@ -13,12 +13,13 @@
   "scripts": {
     "test": "nyc mocha ./test/*.spec.js",
     "examples": "cd ./examples && node run.js",
-    "build": "./minify-js.sh"
+    "build": "./minify-js.sh",
+    "prepublishOnly": "npm run test"
   },
   "dependencies": {
     "fraction.js": "^4.0.12",
-    "is-bounded-number": "^1.1.2",
-    "primes-and-factors": "^1.2.0"
+    "is-bounded-number": "^1.1.3",
+    "primes-and-factors": "^1.2.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
