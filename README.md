@@ -1,5 +1,5 @@
 # peo
-### Prime Exponent Object module containing `Peo` class
+Prime Exponent Object module containing `Peo` class. Find [module on npm](https://www.npmjs.com/package/peo) and [repo on GitHub](https://github.com/davidryan59/Peo).
 
 [![npm version](https://badge.fury.io/js/peo.png)](https://badge.fury.io/js/peo)
 

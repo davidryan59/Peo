@@ -1,8 +1,8 @@
 .DS_Store
 .nyc_output
+build
 examples
 node_modules
 removed
-src
 test
 minify-js.sh
