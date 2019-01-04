@@ -15,11 +15,12 @@ var incrementFromIntegerPower = function(peo, integer, power) {
   // Otherwise, if it's an integer, leave it alone, or else default to 1
   if (!(power = checked(power))) return
 
-  var primeFactorArray = pf.getFrequency(integer)
-  for (var i=0; i<primeFactorArray.length; i++) {
-    var obj = primeFactorArray[i]
-    var prime = obj.factor
-    var exponent = obj.times
+  var primesObject = pf.getPrimeExponentObject(integer)   // Format like {"2":3, "3":-1}
+  var keys = Object.keys(primesObject)
+  for (var i=0; i<keys.length; i++) {
+    var key = keys[i]                    // key is a string
+    var prime = Number.parseInt(key)     // both prime and exponent are numeric
+    var exponent = primesObject[key]
     incrementPrimeExp(peo, prime, exponent * power)
   }
 }
