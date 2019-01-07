@@ -58,8 +58,15 @@ var initialise = function(peo, args) {
 
   // Need to do this check last, since its 'object', the most general!
   if (typeof(arg0)==='object') {
-    incrementFromObjectPower(peo, arg0, arg1)
-    return
+    if (arg0.num) {
+      // Case 'new Peo({num:a, denom:b, pow:c})'
+      initialiseFromNumAndDenom(peo, arg0.num, arg0.denom, arg0.pow)      
+      return
+    } else {
+      // Case 'new Peo({p1:e1, ...,pk:ek}, n)'
+      incrementFromObjectPower(peo, arg0, arg1)
+      return
+    }
   }
 
 }

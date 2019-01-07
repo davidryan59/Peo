@@ -5,6 +5,41 @@ var Peo = test_index.Peo;
 
 describe("The Peo class", function() {
 
+  it('can initialise from {num:3, denom:4, pow:5}', function() {
+    var peo = new Peo({num:3, denom:4, pow:5})
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:-10, 3:5})
+  })
+
+  it('can initialise from {num:6, denom:4, pow:-2}', function() {
+    var peo = new Peo({num:6, denom:4, pow:-2})
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:2, 3:-2})
+  })
+
+  it('can initialise from {num:35, pow:-2}', function() {
+    var peo = new Peo({num:35, pow:-2})
+    assert.deepStrictEqual(peo.getPrimeExps(), {5:-2, 7:-2})
+  })
+
+  it('can initialise from {num:14, denom:100}', function() {
+    var peo = new Peo({num:14, denom:100})
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:-1, 5:-2, 7:1})
+  })
+
+  it('can initialise from {num:77}', function() {
+    var peo = new Peo({num:77})
+    assert.deepStrictEqual(peo.getPrimeExps(), {7:1, 11:1})
+  })
+
+  it('can initialise from {num:1}', function() {
+    var peo = new Peo({num:1})
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it('gives default value from {num:"77"} since num must be numeric', function() {
+    var peo = new Peo({num:"77"})
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
   var check_1 = function(peo) {
     assert.strictEqual(peo.getVal(), 1)
     assert.strictEqual(peo.getNum(), 1)

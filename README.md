@@ -16,15 +16,20 @@ To install, use `npm i peo`. To test, `npm test`. For examples of usage see Gith
 
 ## API
 
-### Constructors
+### General constructors using objects
 ``` js
-new Peo(a)                      // integer a
-new Peo(a, b)                   // fraction a/b
-new Peo(a, b, n)                // fraction (a/b) ^ n
-new Peo(txt)                    // txt an integer or fraction in text form e.g. "5", "3/2"
-new Peo(txt, n)                 // txt ^ n
-new Peo({p1:e1, ...,pk:ek})     // get Peo for p1^e1 * ... * pk^ek
-new Peo({p1:e1, ...,pk:ek}, n)  // get Peo for (p1^e1 * ... * pk^ek) ^ n
+new Peo({num:a, denom:b, pow:c})    // Peo for rational number (a/b)^c
+new Peo({p1:e1, ...,pk:ek})         // get Peo for p1^e1 * ... * pk^ek  (keys are prime numbers)
+new Peo({p1:e1, ...,pk:ek}, n)      // get Peo for (p1^e1 * ... * pk^ek) ^ n
+```
+
+### Shorthand constructors
+``` js
+new Peo(a)         // integer a
+new Peo(a, b)      // fraction a/b
+new Peo(a, b, n)   // fraction (a/b) ^ n
+new Peo(txt)       // txt an integer or fraction in text form e.g. "5", "3/2"
+new Peo(txt, n)    // txt ^ n
 ```
 
 ### Static or Class methods
