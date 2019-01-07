@@ -6,3 +6,4 @@ node_modules
 removed
 test
 minify-js.sh
+temp*.md
