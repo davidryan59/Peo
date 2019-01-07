@@ -1,5 +1,4 @@
 var assert = require('assert');
-var Fraction = require('fraction.js');
 
 var test_index = require('./_test_index');
 var Peo = test_index.Peo;
@@ -16,7 +15,6 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(7), 0)
     assert.strictEqual(peo.getPrimeExp(11), 0)
     assert.strictEqual(peo.getPrimeExp(65537), 0)
-    assert.deepStrictEqual(peo.getFraction(), new Fraction(1))
     assert.strictEqual(peo.getText(), "1")
     assert.strictEqual(peo.toString(), "1")
   }
@@ -31,7 +29,6 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(7), 0)
     assert.strictEqual(peo.getPrimeExp(11), 0)
     assert.strictEqual(peo.getPrimeExp(65537), 0)
-    assert.deepStrictEqual(peo.getFraction(), new Fraction(60))
     assert.strictEqual(peo.getText(), "60")
     assert.strictEqual(peo.toString(), "60")
   }
@@ -46,7 +43,6 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(7), 1)
     assert.strictEqual(peo.getPrimeExp(11), 0)
     assert.strictEqual(peo.getPrimeExp(65537), 0)
-    assert.deepStrictEqual(peo.getFraction(), new Fraction(56, 45))
     assert.strictEqual(peo.getText(), "56/45")
     assert.strictEqual(peo.toString(), "56/45")
   }
@@ -81,13 +77,13 @@ describe("The Peo class", function() {
     check_56_45(peo)
   })
 
-  it("constructs Peo for 56/45 correctly using new Peo(new Fraction(56, 45))", function() {
-    var peo = new Peo(new Fraction(56, 45))
+  it("constructs Peo for 56/45 correctly using new Peo(\"56/45\")", function() {
+    var peo = new Peo("56/45")
     check_56_45(peo)
   })
 
-  it("gives correct result near integer cut-off for new Peo(new Fraction(168897325606883, 43324900128225))", function() {
-    var peo = new Peo(new Fraction(168897325606883, 43324900128225))
+  it("gives correct result near integer cut-off for new Peo(\"168897325606883/43324900128225\")", function() {
+    var peo = new Peo("168897325606883/43324900128225")
     assert.deepStrictEqual(peo.getPrimeExps(), {
       3:-7,
       5:-2,
@@ -100,18 +96,11 @@ describe("The Peo class", function() {
     })
   })
 
-  // // Passed in 468ms on a laptop (June 2018)
-  // // For speed, comment this out
-  // // Test it as and when needed
-  // it("gives correct result near integer cut-off with large semiprimes on top and bottom", function() {
-  //   var peo = new Peo(100008420087241, 100011280317367)
-  //   assert.deepStrictEqual(peo.getPrimeExps(), {
-  //     10000121:1,
-  //     10000721:1,
-  //     10000537:-1,
-  //     10000591:-1
-  //   })
-  // })
+  it("gives default Peo on new Peo(-1)", function() {
+    var peo = new Peo(-1)
+    assert.deepStrictEqual(peo.getNum(), 1)
+    assert.deepStrictEqual(peo.getDenom(), 1)
+  })
 
   it("constructs Peo for 100000000000001 correctly using new Peo(100000000000001)", function() {
     var peo = new Peo(100000000000001)
@@ -286,8 +275,8 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 5:-3})
   })
 
-  it("can inverse square a Peo from initialiser (Fraction)", function() {
-    var peo = new Peo(new Fraction(6, 5), -2)
+  it("can inverse square a Peo from initialiser (String)", function() {
+    var peo = new Peo("6/5", -2)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:-2, 3:-2, 5:2})
   })
 
@@ -321,8 +310,8 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
-  it("zero powers give 1/1 (fraction initialiser)", function() {
-    var peo = new Peo(new Fraction(2, 3), 0)
+  it("zero powers give 1/1 (string initialiser)", function() {
+    var peo = new Peo("2/3", 0)
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
@@ -343,9 +332,9 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo1.getPrimeExps(), {2:2,5:-1})
   })
 
-  it("first power same as default (fraction initialiser)", function() {
-    var peo1 = new Peo(new Fraction(4, 5), 1)
-    var peo2 = new Peo(new Fraction(4, 5))
+  it("first power same as default (string initialiser)", function() {
+    var peo1 = new Peo("4/5", 1)
+    var peo2 = new Peo("4/5")
     assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps())
     assert.deepStrictEqual(peo1.getPrimeExps(), {2:2,5:-1})
   })

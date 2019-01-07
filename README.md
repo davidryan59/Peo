@@ -9,7 +9,7 @@ This format aids multiplication and exponentiation of large numbers. Maximum pri
 
 The class contains:
 - A central data store of these primes and exponents
-- Some cached data, e.g. numeric, textual or fractional representation (the latter using Fraction class from `fraction.js`)
+- Some cached data, e.g. numeric or text representations
 - An API with many functions to manipulate the Peo and return the result as a new Peo.
 
 To install, use `npm i peo`. To test, `npm test`. For examples of usage see Github `examples` directory, via `npm run examples`. Limits of both prime (key) and exponent (value) are around 10^15.
@@ -21,8 +21,6 @@ To install, use `npm i peo`. To test, `npm test`. For examples of usage see Gith
 new Peo(a)                      // integer a
 new Peo(a, b)                   // fraction a/b
 new Peo(a, b, n)                // fraction (a/b) ^ n
-new Peo(fr)                     // fr a Fraction object from fraction.js
-new Peo(fr, n)                  // fr ^ n
 new Peo(txt)                    // txt an integer or fraction in text form e.g. "5", "3/2"
 new Peo(txt, n)                 // txt ^ n
 new Peo({p1:e1, ...,pk:ek})     // get Peo for p1^e1 * ... * pk^ek
@@ -72,7 +70,6 @@ peo.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
 #### Numeric values
 ``` js
 peo.getDenom()     // returns the denominator of the fraction
-peo.getFraction()  // returns relevant Fraction object from fraction.js
 peo.getNum()       // returns the numerator of the fraction
 peo.getText()      // returns a text representation of the Peo
 peo.getVal()       // returns a decimal representation of the Peo

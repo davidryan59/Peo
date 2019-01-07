@@ -35,7 +35,6 @@ Peo.prototype.split = require('./api/maths/split')
 
 // Numeric values
 Peo.prototype.getDenom = require('./api/number/getDenom')
-Peo.prototype.getFraction = require('./api/number/getFraction')
 Peo.prototype.getNum = require('./api/number/getNum')
 Peo.prototype.getText = require('./api/number/getText')
 Peo.prototype.getVal = require('./api/number/getVal')

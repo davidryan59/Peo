@@ -1,7 +1,7 @@
 var ibn = require('is-bounded-number')
 var pf = require('primes-and-factors')
 
-var checked = require('../maths/checkPower')
+var checkPower = require('../maths/checkPower')
 var incrementPrimeExp = require('./incrementPrimeExp')
 var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 
@@ -14,7 +14,7 @@ var incrementFromObjectPower = function(peo, obj, power) {
 
   // If power is 0, return.
   // Otherwise, if it's an integer, leave it alone, or else default to 1
-  if (!(power = checked(power))) return
+  if (!(power = checkPower(power))) return
 
   var keys = Object.keys(obj)
   for (var i=0; i<keys.length; i++) {

@@ -1,5 +1,3 @@
-var Fraction = require('fraction.js')
-
 var setNumbers = function(peo) {
 
   // Exit if already set
@@ -72,13 +70,11 @@ var setNumbers = function(peo) {
   peo.number.stats.liou = liou
   peo.number.stats.mob = mob
 
-  // Only allow a Fraction if num and denom both less than 10^15
+  // Only give a text representation as a fraction if both num and denom less than 10^15
   var accuracyLimit = 34.539      // Just over ln(10^15)
   if (lnNum<accuracyLimit && lnDenom<accuracyLimit) {
-    peo.number.fr = new Fraction(num, denom)
     peo.number.txt = (denom===1) ? "" + num : num + "/" + denom
   } else {
-    peo.number.fr = new Fraction(1, 1)
     peo.number.txt = "10^" + Math.round(lnVal*100/Math.log(10))/100  // 4dps
   }
 

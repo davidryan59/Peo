@@ -1,5 +1,4 @@
 var assert = require('assert');
-var Fraction = require('fraction.js');
 
 var test_index = require('./_test_index');
 var Peo = test_index.Peo;
@@ -21,12 +20,6 @@ describe("Extra checks on the setter functions", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:-1})
     incrementFromIntegerPower(peo, 3, 0)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:-1})
-  })
-
-  it("If numbers are too large, fraction does not calculate", function() {
-    var peo = Peo.binom(60, 20) // 16 digits. Ln = 35.97
-    setNumbers(peo)
-    assert.deepStrictEqual(peo.getFraction(), new Fraction(1))
   })
 
   it("If prime vector contains a falsey item, ignore it when calculating numbers", function() {

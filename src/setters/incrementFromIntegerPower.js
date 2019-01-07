@@ -1,5 +1,5 @@
 var pf = require('primes-and-factors')
-var checked = require('../maths/checkPower')
+var checkPower = require('../maths/checkPower')
 
 var incrementPrimeExp = require('./incrementPrimeExp')
 
@@ -13,7 +13,7 @@ var incrementFromIntegerPower = function(peo, integer, power) {
 
   // If power is 0, return.
   // Otherwise, if it's an integer, leave it alone, or else default to 1
-  if (!(power = checked(power))) return
+  if (!(power = checkPower(power))) return
 
   var primesObject = pf.getPrimeExponentObject(integer)   // Format like {"2":3, "3":-1}
   var keys = Object.keys(primesObject)

@@ -1,8 +1,8 @@
 var ibn = require('is-bounded-number')
-var Fraction = require('fraction.js')
+var isString = require('is-string');
 
 var incrementFromObjectPower = require('../setters/incrementFromObjectPower')
-var initialiseFromFraction = require('./initialiseFromFraction')
+var initialiseFromNumAndDenom = require('./initialiseFromNumAndDenom')
 
 var digits = 15
 var cutOff = Math.pow(10, digits)
@@ -26,33 +26,30 @@ var initialise = function(peo, args) {
     return
   }
 
-  // Check for 'Fraction' case
-  if (arg0 instanceof Fraction) {
-    initialiseFromFraction(peo, arg0, arg1)   // arg1 is the power
-    return
-  }
-
   // Then check for numeric case
   if (ibn(arg0, cutOff)) {
-    // Treat as case where small numerator, and possibly small denominator, are supplied
-    var fraction = null
-    if (ibn(arg1, cutOff)) {
-      // Both numerator and denominator supplied
-      fraction = new Fraction(arg0, arg1)
-    } else {
-      fraction = new Fraction(arg0)
-    }
-    initialiseFromFraction(peo, fraction, arg2)
+    // Treat as case where arg0, arg1, arg2 are in order:
+    // numerator, denominator, power
+    // Only numerator is mandatory, denominator and power are optional
+    initialiseFromNumAndDenom(peo, arg0, arg1, arg2)
     return
   }
 
-  // Check for string case e.g. new Peo("5") or new Peo("3/2")
-  // .search is 0 if match (at start), -1 if no match
-  // Fraction will initialise correctly from either "5" or "3/2"
-  if (typeof(arg0) === typeof("")) {
-    if (arg0.search(regexIntegerString)===0 || arg0.search(regexFractionString)===0) {
-      var fraction = new Fraction(arg0)
-      initialiseFromFraction(peo, fraction, arg1)
+  // Case arg0 is string "NNN" or "MMM/NNN"
+  // and arg1 is an optional power
+  // Note: .search is 0 if match (at start), -1 if no match
+  if (isString(arg0)) {
+    if (arg0.search(regexIntegerString)===0) {
+      // Case arg0="NNN"
+      var theNum = Number.parseInt(arg0)
+      initialiseFromNumAndDenom(peo, theNum, 1, arg1)
+      return
+    } else if (arg0.search(regexFractionString)===0) {
+      // Case arg0="MMM/NNN"
+      var splitArray = arg0.split(/\//)
+      var theNum = Number.parseInt(splitArray[0])
+      var theDenom = Number.parseInt(splitArray[1])
+      initialiseFromNumAndDenom(peo, theNum, theDenom, arg1)
       return
     }
   }
