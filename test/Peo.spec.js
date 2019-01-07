@@ -1,8 +1,8 @@
 var assert = require('assert');
 var Fraction = require('fraction.js');
 
-var index = require('./index');
-var Peo = index.Peo;
+var test_index = require('./_test_index');
+var Peo = test_index.Peo;
 
 describe("The Peo class", function() {
 
