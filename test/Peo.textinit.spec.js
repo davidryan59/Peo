@@ -42,9 +42,9 @@ describe('Initialise Peo from fraction in text form', function() {
     var peoFromObject = new Peo(objectToCompare)
     var expsFromParsing = peoFromParsing.getPrimeExps()
     var expsFromObject = peoFromObject.getPrimeExps()
-    var objectText = JSON.stringify(expsFromObject)
+    var objectToString = peoFromObject.toString()
     var commentText = (comment) ? ", " + comment : ""
-    var label = "new Peo(\"" + textToParse + "\") has prime exponents " + objectText + commentText
+    var label = "new Peo(\"" + textToParse + "\") has prime exponents " + objectToString + commentText
     it(label, function() {assert.deepStrictEqual(expsFromParsing, expsFromObject)})
   }
 

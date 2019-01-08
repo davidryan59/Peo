@@ -30,6 +30,8 @@ new Peo(a, b)      // fraction a/b
 new Peo(a, b, n)   // fraction (a/b) ^ n
 new Peo(txt)       // txt an integer or fraction in text form e.g. "5", "3/2"
 new Peo(txt, n)    // txt ^ n
+new Peo(peo)       // Copies prime information in a peo into a new peo. Also see instance method copy()
+new Peo(peo, n)    // peo ^ n
 ```
 
 ### Static or Class methods
@@ -46,16 +48,17 @@ Peo.prim(a, b)     // returns product of primes between a and b
 
 #### Accessing prime exponents
 ``` js
-peo.checkPrimeExps({p1:e1,...})  // returns Boolean
-peo.getPrimeExp(p)               // returns numeric, the exponent
-peo.getPrimeExps()               // returns all prime info {p1:e1,...}
-peo.getPrimeExps([p1,...])       // returns specified prime info {p1:e1,...}
+peo.checkPrimeExps({p1:e1,...})  // returns Boolean if these prime exponents agree
+peo.getPrimeExp(p)               // returns the exponent as a number
+peo.getPrimeExps()               // returns a copy of all prime info {p1:e1,...}
+peo.getPrimeExps([p1,...])       // returns a copy of prime info for specified primes only
 ```
 
 #### General functions
 ``` js
-peo.copy()      // returns a copy of the original peo
-peo.toString()  // returns a text representation of the Peo (same as .getText()
+peo.compress()  // removes all cached information, reducing size of peo. Use if you've got millions of peos.
+peo.copy()      // returns a copy of the original peo. Cached information not transferred.
+peo.toString()  // returns a JSON object for the primes and exponents obtained via getPrimeExps()
 ```
 
 #### Maths operations
@@ -74,10 +77,11 @@ peo.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
 
 #### Numeric values
 ``` js
-peo.getDenom()     // returns the denominator of the fraction
-peo.getNum()       // returns the numerator of the fraction
-peo.getText()      // returns a text representation of the Peo
-peo.getVal()       // returns a decimal representation of the Peo
+peo.getAsDecimal()       // returns a decimal representation of the Peo, if its not too big
+peo.getAsFractionText()  // returns fraction text if num, denom < around 1e15. Otherwise return NA.
+peo.getAsResultText()    // return fraction text, unless numbers are large, then return 10^NN.NN representation
+peo.getDenom()           // returns integer denominator of the fraction
+peo.getNum()             // returns integer numerator of the fraction
 ```
 
 #### Logarithmic numeric values

@@ -5,7 +5,7 @@ var Peo = test_index.Peo;
 
 describe("The Peo class", function() {
 
-  it('can initialise from {num:3, denom:4, pow:5}', function() {
+  it('can initialise from {num:3, denom:4, pow:5}, in object format num is mandatory', function() {
     var peo = new Peo({num:3, denom:4, pow:5})
     assert.deepStrictEqual(peo.getPrimeExps(), {2:-10, 3:5})
   })
@@ -41,7 +41,7 @@ describe("The Peo class", function() {
   })
 
   var check_1 = function(peo) {
-    assert.strictEqual(peo.getVal(), 1)
+    assert.strictEqual(peo.getAsDecimal(), 1)
     assert.strictEqual(peo.getNum(), 1)
     assert.strictEqual(peo.getDenom(), 1)
     assert.strictEqual(peo.getPrimeExp(2), 0)
@@ -50,12 +50,12 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(7), 0)
     assert.strictEqual(peo.getPrimeExp(11), 0)
     assert.strictEqual(peo.getPrimeExp(65537), 0)
-    assert.strictEqual(peo.getText(), "1")
-    assert.strictEqual(peo.toString(), "1")
+    assert.strictEqual(peo.getAsResultText(), "1")
+    assert.strictEqual(peo.toString(), "{}")
   }
 
   var check_60 = function(peo) {
-    assert.strictEqual(peo.getVal(), 60)
+    assert.strictEqual(peo.getAsDecimal(), 60)
     assert.strictEqual(peo.getNum(), 60)
     assert.strictEqual(peo.getDenom(), 1)
     assert.strictEqual(peo.getPrimeExp(2), 2)
@@ -64,12 +64,12 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(7), 0)
     assert.strictEqual(peo.getPrimeExp(11), 0)
     assert.strictEqual(peo.getPrimeExp(65537), 0)
-    assert.strictEqual(peo.getText(), "60")
-    assert.strictEqual(peo.toString(), "60")
+    assert.strictEqual(peo.getAsResultText(), "60")
+    assert.strictEqual(peo.toString(), '{"2":2,"3":1,"5":1}')
   }
 
   var check_56_45 = function(peo) {
-    assert.strictEqual(peo.getVal(), 56/45)
+    assert.strictEqual(peo.getAsDecimal(), 56/45)
     assert.strictEqual(peo.getNum(), 56)
     assert.strictEqual(peo.getDenom(), 45)
     assert.strictEqual(peo.getPrimeExp(2), 3)
@@ -78,8 +78,8 @@ describe("The Peo class", function() {
     assert.strictEqual(peo.getPrimeExp(7), 1)
     assert.strictEqual(peo.getPrimeExp(11), 0)
     assert.strictEqual(peo.getPrimeExp(65537), 0)
-    assert.strictEqual(peo.getText(), "56/45")
-    assert.strictEqual(peo.toString(), "56/45")
+    assert.strictEqual(peo.getAsResultText(), "56/45")
+    assert.strictEqual(peo.toString(), '{"2":3,"3":-2,"5":-1,"7":1}')
   }
 
   it("constructs a copy of peo, when doing new Peo(peo)", function() {
@@ -232,7 +232,7 @@ describe("The Peo class", function() {
 
   it("handles big number: new Peo(1e15)", function() {
     var peo = new Peo(1e15)
-    assert.strictEqual(peo.toString(), "1000000000000000")
+    assert.strictEqual(peo.getAsFractionText(), "1000000000000000")
   })
 
   it("returns 1 for bigger number: new Peo(1e15+1)", function() {
@@ -242,22 +242,22 @@ describe("The Peo class", function() {
 
   it("can calculate text for (new Peo(11, 1)).pow(4) as 14641 in integer format", function() {
     var peo = (new Peo(11, 1)).pow(4)
-    assert.strictEqual(peo.getText(), "14641")
+    assert.strictEqual(peo.getAsResultText(), "14641")
   })
 
   it("can calculate text for (new Peo(11, 2)).pow(4) as 14641/16 in fractional format", function() {
     var peo = (new Peo(11, 2)).pow(4)
-    assert.strictEqual(peo.getText(), "14641/16")
+    assert.strictEqual(peo.getAsResultText(), "14641/16")
   })
 
   it("can calculate text for (new Peo(11, 2)).pow(-1000) as 10^-740.36 in exponential format", function() {
     var peo = (new Peo(11, 2)).pow(-1000)
-    assert.strictEqual(peo.getText(), "10^-740.36")
+    assert.strictEqual(peo.getAsResultText(), "10^-740.36")
   })
 
   it("can calculate text for (new Peo(11, 2)).pow(1000000000) as 10^740362689.49 in exponential format", function() {
     var peo = (new Peo(11, 2)).pow(1000000000)
-    assert.strictEqual(peo.getText(), "10^740362689.49")
+    assert.strictEqual(peo.getAsResultText(), "10^740362689.49")
   })
 
   it("returns 1 for invalid input: new Peo('aString')", function() {
@@ -585,17 +585,17 @@ describe("The Peo class", function() {
 
   it("can calculate Peo.binom(20, 10) as 184756", function() {
     var peo = Peo.binom(20, 10)
-    assert.deepStrictEqual(peo.getText(), "184756")
+    assert.deepStrictEqual(peo.getAsResultText(), "184756")
   })
 
   it("can calculate Peo.binom(71, 9) as 74473879480", function() {
     var peo = Peo.binom(71, 9)
-    assert.deepStrictEqual(peo.getText(), "74473879480")
+    assert.deepStrictEqual(peo.getAsResultText(), "74473879480")
   })
 
   it("can calculate Peo.binom(71, 62) as 74473879480", function() {
     var peo = Peo.binom(71, 62)      // 71 - 9 =
-    assert.deepStrictEqual(peo.getText(), "74473879480")
+    assert.deepStrictEqual(peo.getAsResultText(), "74473879480")
   })
 
   it("can calculate (new Peo(32768)).getLog(2) as exactly 15", function() {
@@ -752,62 +752,71 @@ describe("The Peo class", function() {
     var peo = new Peo(14, 15)
     var array = peo.split()
     assert(array.length===1)
-    assert.strictEqual(array[0].getText(),"14/15")
+    assert.strictEqual(array[0].getAsResultText(),"14/15")
   })
 
   it("can split 14/15 by (5) to get 1/5, 14/3", function() {
     var peo = new Peo(14, 15)
     var array = peo.split(5)
     assert(array.length===2)
-    assert.strictEqual(array[0].getText(),"1/5")
-    assert.strictEqual(array[1].getText(),"14/3")
+    assert.strictEqual(array[0].getAsResultText(),"1/5")
+    assert.strictEqual(array[1].getAsResultText(),"14/3")
   })
 
   it('can split 14/15 by (2, 11, "aString") to get 2/1, 1/1, 1/1, 7/15', function() {
     var peo = new Peo(14, 15)
     var array = peo.split(2, 11, "aString")    // Test invalid values such as strings
     assert(array.length===4)
-    assert.strictEqual(array[0].getText(),"2")
-    assert.strictEqual(array[1].getText(),"1")
-    assert.strictEqual(array[2].getText(),"1")
-    assert.strictEqual(array[3].getText(),"7/15")
+    assert.strictEqual(array[0].getAsResultText(),"2")
+    assert.strictEqual(array[1].getAsResultText(),"1")
+    assert.strictEqual(array[2].getAsResultText(),"1")
+    assert.strictEqual(array[3].getAsResultText(),"7/15")
   })
 
   it('can split 14/15 by (3, 3) to get 1/3, 1/1, 14/5', function() {
     var peo = new Peo(14, 15)
     var array = peo.split(3, 3)
     assert(array.length===3)
-    assert.strictEqual(array[0].getText(),"1/3")
-    assert.strictEqual(array[1].getText(),"1")
-    assert.strictEqual(array[2].getText(),"14/5")
+    assert.strictEqual(array[0].getAsResultText(),"1/3")
+    assert.strictEqual(array[1].getAsResultText(),"1")
+    assert.strictEqual(array[2].getAsResultText(),"14/5")
   })
 
   it('can split 174440/73962963 by ([89, 3, 29]) to get 89/2349, 1960/31487', function() {
     var peo = new Peo(2*2*2*5*7*7*89, 3*3*3*3*23*29*37*37)
     var array = peo.split([89, 3, 29])
     assert(array.length===2)
-    assert.strictEqual(array[0].getText(),"89/2349")
-    assert.strictEqual(array[1].getText(),"1960/31487")
+    assert.strictEqual(array[0].getAsResultText(),"89/2349")
+    assert.strictEqual(array[1].getAsResultText(),"1960/31487")
   })
 
   it('can split 174440/73962963 5 ways using numbers and arrays together', function() {
     var peo = new Peo(2*2*2*5*7*7*89, 3*3*3*3*23*29*37*37)
     var array = peo.split(3, [37, 41, 7], [2, null, 5], 71)   // Test invalid value inside array
     assert(array.length===5)
-    assert.strictEqual(array[0].getText(),"1/81")
-    assert.strictEqual(array[1].getText(),"49/1369")
-    assert.strictEqual(array[2].getText(),"40")
-    assert.strictEqual(array[3].getText(),"1")
-    assert.strictEqual(array[4].getText(),"89/667")
+    assert.strictEqual(array[0].getAsResultText(),"1/81")
+    assert.strictEqual(array[1].getAsResultText(),"49/1369")
+    assert.strictEqual(array[2].getAsResultText(),"40")
+    assert.strictEqual(array[3].getAsResultText(),"1")
+    assert.strictEqual(array[4].getAsResultText(),"89/667")
   })
 
   it('can split big number using [2,3], 5', function() {
     var peo = new Peo({2:15, 3:-7, 5:2, 13:1, 29:-2, 1979:1})
     var array = peo.split([2, 3], 5)
     assert(array.length===3)
-    assert.strictEqual(array[0].getText(),"32768/2187")
-    assert.strictEqual(array[1].getText(),"25")
-    assert.strictEqual(array[2].getText(),"25727/841")
+    assert.strictEqual(array[0].getAsResultText(),"32768/2187")
+    assert.strictEqual(array[1].getAsResultText(),"25")
+    assert.strictEqual(array[2].getAsResultText(),"25727/841")
+  })
+
+  it('can compress a Peo', function() {
+    var peo = new Peo({2:15, 3:-7, 5:2, 13:1, 29:-2})
+    assert(peo.number === undefined)  // Cached information not yet calculated
+    peo.getDenom()
+    assert(peo.number.d > 0)          // Cached information stored. Using denominator as example.
+    peo.compress()
+    assert(peo.number === undefined)  // Cached information has been removed again
   })
 
 })

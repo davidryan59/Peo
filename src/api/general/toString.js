@@ -1,5 +1,5 @@
 var toString = function() {
-  return this.getText()
+  return JSON.stringify(this.p)
 }
 
 module.exports = toString

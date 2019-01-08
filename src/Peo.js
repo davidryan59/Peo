@@ -3,9 +3,7 @@ var initialise = require('./initialisers/initialise')
 
 // Peo class constructor
 function Peo() {
-  // This object must be immutable and completely determine the Peo output
-  this.p = {}
-  // Initialise the Peo
+  this.p = {}     // Immutable, is identity of this Peo. All other variables are just cached information.
   initialise(this, arguments)
 }
 
@@ -24,6 +22,7 @@ Peo.prototype.getPrimeExp = require('./api/exps/getPrimeExp')
 Peo.prototype.getPrimeExps = require('./api/exps/getPrimeExps')
 
 // General
+Peo.prototype.compress = require('./api/general/compress')
 Peo.prototype.copy = require('./api/general/copy')
 Peo.prototype.toString = require('./api/general/toString')
 
@@ -32,12 +31,6 @@ Peo.prototype.get1 = require('./api/maths/get1')
 Peo.prototype.mult = require('./api/maths/mult')
 Peo.prototype.pow = require('./api/maths/pow')
 Peo.prototype.split = require('./api/maths/split')
-
-// Numeric values
-Peo.prototype.getDenom = require('./api/number/getDenom')
-Peo.prototype.getNum = require('./api/number/getNum')
-Peo.prototype.getText = require('./api/number/getText')
-Peo.prototype.getVal = require('./api/number/getVal')
 
 // Logarithmic numeric values
 Peo.prototype.getLog = require('./api/number/ln/getLog')
@@ -54,6 +47,13 @@ Peo.prototype.getLiouville = require('./api/number/stats/getLiouville')
 Peo.prototype.getLowestExp = require('./api/number/stats/getLowestExp')
 Peo.prototype.getLowestPrime = require('./api/number/stats/getLowestPrime')
 Peo.prototype.getMobius = require('./api/number/stats/getMobius')
+
+// Numeric values
+Peo.prototype.getAsDecimal = require('./api/number/getAsDecimal')
+Peo.prototype.getAsFractionText = require('./api/number/getAsFractionText')
+Peo.prototype.getAsResultText = require('./api/number/getAsResultText')
+Peo.prototype.getDenom = require('./api/number/getDenom')
+Peo.prototype.getNum = require('./api/number/getNum')
 
 
 module.exports = Peo

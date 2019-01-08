@@ -73,9 +73,12 @@ var setNumbers = function(peo) {
   // Only give a text representation as a fraction if both num and denom less than 10^15
   var accuracyLimit = 34.539      // Just over ln(10^15)
   if (lnNum<accuracyLimit && lnDenom<accuracyLimit) {
-    peo.number.txt = (denom===1) ? "" + num : num + "/" + denom
+    var fractionText = (denom===1) ? "" + num : num + "/" + denom
+    peo.number.fracTxt = fractionText
+    peo.number.resTxt = fractionText
   } else {
-    peo.number.txt = "10^" + Math.round(lnVal*100/Math.log(10))/100  // 4dps
+    peo.number.fracTxt = "NA"
+    peo.number.resTxt = "10^" + Math.round(lnVal*100/Math.log(10))/100  // 2 dps
   }
 
 }
