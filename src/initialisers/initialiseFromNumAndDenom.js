@@ -5,7 +5,8 @@ var checkInt = function(input) {
   return (Number.isInteger(input) && input >= 1 && input<=1e15)
 }
 
-var initialiseFromNumAndDenom = function(peo, num, denom, power) {
+var initialiseFromNumAndDenom = function(peo, num, denom, powerInput) {
+  var power = powerInput
   // peo will be set to rational number (num/denom)^power
   // Require all three inputs after peo to be positive bounded integers
   // (Peos only work for positive rational numbers)

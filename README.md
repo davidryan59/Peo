@@ -36,12 +36,12 @@ new Peo(peo, n)    // peo ^ n
 
 ### Static or Class methods
 ``` js
-Peo.binom(n, r)    // returns 'n choose r', e.g. binomial coefficient
-Peo.fact(a)        // returns a! = a * (a-1) * ... * 1 (Factorial function)
-Peo.fact(a, b)     // returns a * (a-1) * ... * (a-(b-1))
-Peo.fact(a, b, c)  // returns a * (a+c) * ... * (a+c(b-1))
-Peo.prim(a)        // returns product of primes between 1 and a
-Peo.prim(a, b)     // returns product of primes between a and b
+Peo.fact(n)          // returns n! = n * (n-1) * ... * 1        (Factorial function)
+Peo.perm(n, r)       // returns n * (n-1) * ... * (n-(r-1))     (Permutation function)
+Peo.binom(n, r)      // returns n choose r; perm(n, r)/fact(r)  (Binomial coefficient)
+Peo.multSeq(n, r, j) // returns n * (n+j) * ... * (n+j(r-1))    (Multiply r terms of a sequence with jump j)
+Peo.prim(a)          // returns product of primes from 1 and a  (Primorial function)
+Peo.multPrimes(a, b) // returns product of primes from a and b  (Primes in given range)
 ```
 
 ### Instance methods

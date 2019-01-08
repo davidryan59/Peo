@@ -5,7 +5,8 @@ var checkPower = require('../maths/checkPower')
 var incrementPrimeExp = require('./incrementPrimeExp')
 var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 
-var incrementFromObjectPower = function(peo, obj, power) {
+var incrementFromObjectPower = function(peo, obj, powerInput) {
+  var power = powerInput
 
   // obj of form {p1:e1, p2:e2, ... , pk:ek}
   // Will reconstruct obj into peo, but only the

@@ -1,10 +1,10 @@
 var multiplyByPrimesInRange = require('../../setters/multiplyByPrimesInRange')
 
 // Static method - 'this' is Peo
-var prim = function(n) {
+var multPrimes = function(i, j) {
   var newPeo = new this()
-  multiplyByPrimesInRange(newPeo, n)
+  multiplyByPrimesInRange(newPeo, i, j)
   return newPeo
 }
 
-module.exports = prim
+module.exports = multPrimes

@@ -493,88 +493,88 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
-  it('can calculate Peo.fact(7, "aString") as 7! = 5040', function() {
-    var peo = Peo.fact(7, "aString")
+  it('can calculate Peo.perm(7, "aString") as 7! = 5040', function() {
+    var peo = Peo.perm(7, "aString")
     assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 2.499) as 7*6 = 42", function() {
-    var peo = Peo.fact(7, 2.499)
+  it("can calculate Peo.multSeq(7, 2.499) as 7*6 = 42", function() {
+    var peo = Peo.multSeq(7, 2.499)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 2.5) as 7*6*5 = 210", function() {
-    var peo = Peo.fact(7, 2.5)
+  it("can calculate Peo.perm(7, 2.5) as 7*6*5 = 210", function() {
+    var peo = Peo.perm(7, 2.5)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, -4) as Peo.fact(7, 7) = 7! = 5040", function() {
-    var peo = Peo.fact(7, -4)
+  it("can calculate Peo.perm(7, -4) as Peo.perm(7, 7) = 7! = 5040", function() {
+    var peo = Peo.perm(7, -4)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 0) as 1", function() {
-    var peo = Peo.fact(7, 0)
+  it("can calculate Peo.perm(7, 0) as 1", function() {
+    var peo = Peo.perm(7, 0)
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
-  it("can calculate Peo.fact(7, 1) as 7", function() {
-    var peo = Peo.fact(7, 1)
+  it("can calculate Peo.perm(7, 1) as 7", function() {
+    var peo = Peo.perm(7, 1)
     assert.deepStrictEqual(peo.getPrimeExps(), {7:1})
   })
 
-  it("can calculate Peo.fact(7, 4) as 7*6*5*4 = 840", function() {
-    var peo = Peo.fact(7, 4)
+  it("can calculate Peo.perm(7, 4) as 7*6*5*4 = 840", function() {
+    var peo = Peo.perm(7, 4)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 3:1, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 6) as 7*6*5*4*3*2 = 5040", function() {
-    var peo = Peo.fact(7, 6)
+  it("can calculate Peo.perm(7, 6) as 7*6*5*4*3*2 = 5040", function() {
+    var peo = Peo.perm(7, 6)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 7) as 7*6*5*4*3*2*1 = 5040", function() {
-    var peo = Peo.fact(7, 7)
+  it("can calculate Peo.perm(7, 7) as 7*6*5*4*3*2*1 = 5040", function() {
+    var peo = Peo.perm(7, 7)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 8) as .fact(7, 7) = 7! = 5040", function() {
-    var peo = Peo.fact(7, 8)
+  it("can calculate Peo.perm(7, 8) as .perm(7, 7) = 7! = 5040", function() {
+    var peo = Peo.perm(7, 8)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 4, -1) as .fact(7, 4) = 7*6*5*4 = 840", function() {
-    var peo = Peo.fact(7, 4, -1)
+  it("can calculate Peo.multSeq(7, 4, -1) as .perm(7, 4) = 7*6*5*4 = 840", function() {
+    var peo = Peo.multSeq(7, 4, -1)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 3:1, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 4, 1) as 7*8*9*10 = 5040", function() {
-    var peo = Peo.fact(7, 4, 1)
+  it("can calculate Peo.multSeq(7, 4, 1) as 7*8*9*10 = 5040", function() {
+    var peo = Peo.multSeq(7, 4, 1)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:4, 3:2, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(7, 4, 2) as 7*9*11*13 = 9009", function() {
-    var peo = Peo.fact(7, 4, 2)
+  it("can calculate Peo.multSeq(7, 4, 2) as 7*9*11*13 = 9009", function() {
+    var peo = Peo.multSeq(7, 4, 2)
     assert.deepStrictEqual(peo.getPrimeExps(), {3:2, 7:1, 11:1, 13:1})
   })
 
-  it('can calculate Peo.fact(7, 4, "aString") as defaulting to .fact(7, 4) = 7*6*5*4 = 840', function() {
-    var peo = Peo.fact(7, 4, "aString")
+  it('can calculate Peo.multSeq(7, 4, "aString") as defaulting to .perm(7, 4) = 7*6*5*4 = 840', function() {
+    var peo = Peo.multSeq(7, 4, "aString")
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 3:1, 5:1, 7:1})
   })
 
-  it('can calculate Peo.fact(7, 4, 0) as defaulting to .fact(7, 4) = 7*6*5*4 = 840', function() {
-    var peo = Peo.fact(7, 4, 0)
+  it('can calculate Peo.multSeq(7, 4, 0) as defaulting to .perm(7, 4) = 7*6*5*4 = 840', function() {
+    var peo = Peo.multSeq(7, 4, 0)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 3:1, 5:1, 7:1})
   })
 
-  it("can calculate Peo.fact(1, 5, 6) as 1*7*13*19*25", function() {
-    var peo = Peo.fact(1, 5, 6)
+  it("can calculate Peo.multSeq(1, 5, 6) as 1*7*13*19*25", function() {
+    var peo = Peo.multSeq(1, 5, 6)
     assert.deepStrictEqual(peo.getPrimeExps(), {5:2, 7:1, 13:1, 19:1})
   })
 
-  it("can calculate Peo.fact(100, 4, -7) as 100*93*86*79", function() {
-    var peo = Peo.fact(100, 4, -7)
+  it("can calculate Peo.multSeq(100, 4, -7) as 100*93*86*79", function() {
+    var peo = Peo.multSeq(100, 4, -7)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:3, 5:2, 3:1, 31:1, 43:1, 79:1})
   })
 
@@ -640,23 +640,23 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1})
   })
 
-  it("can calculate Peo.prim(1, 2) as 2", function() {
-    var peo = Peo.prim(1, 2)
+  it("can calculate Peo.multPrimes(1, 2) as 2", function() {
+    var peo = Peo.multPrimes(1, 2)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1})
   })
 
-  it("can calculate Peo.prim(2, 2) as 2", function() {
-    var peo = Peo.prim(2, 2)
+  it("can calculate Peo.multPrimes(2, 2) as 2", function() {
+    var peo = Peo.multPrimes(2, 2)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1})
   })
 
-  it("can calculate Peo.prim(1, 3) as 6", function() {
-    var peo = Peo.prim(1, 3)
+  it("can calculate Peo.multPrimes(1, 3) as 6", function() {
+    var peo = Peo.multPrimes(1, 3)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1})
   })
 
-  it("can calculate Peo.prim(3, 2) as 6", function() {
-    var peo = Peo.prim(3, 2)
+  it("can calculate Peo.multPrimes(3, 2) as 6", function() {
+    var peo = Peo.multPrimes(3, 2)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1})
   })
 
@@ -665,78 +665,98 @@ describe("The Peo class", function() {
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
-  it("can calculate Peo.prim(6.99) defaulting to .prim(7)", function() {
-    var peo = Peo.prim(6.99)
-    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1})
-  })
-
-  it("can calculate Peo.prim(6) as 2*3*5", function() {
-    var peo = Peo.prim(6)
+  it("can calculate Peo.prim(6.9999) gives same result as .prim(5) = 2*3*5", function() {
+    var peo = Peo.prim(6.9999)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1})
   })
 
-  it("can calculate Peo.prim(8, 10) as 1", function() {
-    var peo = Peo.prim(8, 10)
+  it("can calculate Peo.prim(7) as 2*3*5*7", function() {
+    var peo = Peo.prim(7)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1})
+  })
+
+  it("can calculate Peo.prim(19) as 2*3*5*7*11*13*17*19", function() {
+    var peo = Peo.prim(19)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1, 19:1})
+  })
+
+  it("can calculate Peo.prim(22.999) as same as .prim(19)", function() {
+    var peo = Peo.prim(22.999)
+    assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1, 19:1})
+  })
+
+  it("can calculate Peo.multPrimes(8, 10) as 1", function() {
+    var peo = Peo.multPrimes(8, 10)
     assert.deepStrictEqual(peo.getPrimeExps(), {})
   })
 
-  it("can calculate Peo.prim(12, 6) as 7*11", function() {
-    var peo = Peo.prim(12, 6)
+  it("can calculate Peo.multPrimes(7.0001, 10.9999) as 1", function() {
+    var peo = Peo.multPrimes(7.0001, 10.9999)
+    assert.deepStrictEqual(peo.getPrimeExps(), {})
+  })
+
+  it("can calculate Peo.multPrimes(7, 11) as 7*11", function() {
+    var peo = Peo.multPrimes(7, 11)
     assert.deepStrictEqual(peo.getPrimeExps(), {7:1, 11:1})
   })
 
-  it("can calculate Peo.prim(13, 5) as 5*7*11*13", function() {
-    var peo = Peo.prim(13, 5)
+  it("can calculate Peo.multPrimes(12, 6) as 7*11", function() {
+    var peo = Peo.multPrimes(12, 6)
+    assert.deepStrictEqual(peo.getPrimeExps(), {7:1, 11:1})
+  })
+
+  it("can calculate Peo.multPrimes(13, 5) as 5*7*11*13", function() {
+    var peo = Peo.multPrimes(13, 5)
     assert.deepStrictEqual(peo.getPrimeExps(), {5:1, 7:1, 11:1, 13:1})
   })
 
-  it("can calculate Peo.prim(96, 114)", function() {
-    var peo = Peo.prim(96, 114)
+  it("can calculate Peo.multPrimes(96, 114)", function() {
+    var peo = Peo.multPrimes(96, 114)
     assert.deepStrictEqual(peo.getPrimeExps(), {97:1, 101:1, 103:1, 107:1, 109:1, 113:1})
   })
 
-  it('can calculate Peo.prim(17, "aString") as 2*3*5*7*11*13*17', function() {
-    var peo = Peo.prim(17, "aString")
+  it('can calculate Peo.multPrimes(17, "aString") as 2*3*5*7*11*13*17', function() {
+    var peo = Peo.multPrimes(17, "aString")
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(17, -10) as 2*3*5*7*11*13*17", function() {
-    var peo = Peo.prim(17, -10)
+  it("can calculate Peo.multPrimes(17, -10) as 2*3*5*7*11*13*17", function() {
+    var peo = Peo.multPrimes(17, -10)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(-10, 17) as 2*3*5*7*11*13*17", function() {
-    var peo = Peo.prim(-10, 17)
+  it("can calculate Peo.multPrimes(-10, 17) as 2*3*5*7*11*13*17", function() {
+    var peo = Peo.multPrimes(-10, 17)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(17, 1) as 2*3*5*7*11*13*17", function() {
-    var peo = Peo.prim(17, 1)
+  it("can calculate Peo.multPrimes(17, 1) as 2*3*5*7*11*13*17", function() {
+    var peo = Peo.multPrimes(17, 1)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(17, 2) as 2*3*5*7*11*13*17", function() {
-    var peo = Peo.prim(17, 2)
+  it("can calculate Peo.multPrimes(17, 2) as 2*3*5*7*11*13*17", function() {
+    var peo = Peo.multPrimes(17, 2)
     assert.deepStrictEqual(peo.getPrimeExps(), {2:1, 3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(17, 3) as 3*5*7*11*13*17", function() {
-    var peo = Peo.prim(17, 3)
+  it("can calculate Peo.multPrimes(17, 3) as 3*5*7*11*13*17", function() {
+    var peo = Peo.multPrimes(17, 3)
     assert.deepStrictEqual(peo.getPrimeExps(), {3:1, 5:1, 7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(17, 7) as 7*11*13*17", function() {
-    var peo = Peo.prim(17, 7)
+  it("can calculate Peo.multPrimes(17, 7) as 7*11*13*17", function() {
+    var peo = Peo.multPrimes(17, 7)
     assert.deepStrictEqual(peo.getPrimeExps(), {7:1, 11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(17, 8) as 11*13*17", function() {
-    var peo = Peo.prim(17, 8)
+  it("can calculate Peo.multPrimes(17, 8) as 11*13*17", function() {
+    var peo = Peo.multPrimes(17, 8)
     assert.deepStrictEqual(peo.getPrimeExps(), {11:1, 13:1, 17:1})
   })
 
-  it("can calculate Peo.prim(100, 70) as 71*73*79*83*89*97", function() {
-    var peo = Peo.prim(100, 70)
+  it("can calculate Peo.multPrimes(100, 70) as 71*73*79*83*89*97", function() {
+    var peo = Peo.multPrimes(100, 70)
     assert.deepStrictEqual(peo.getPrimeExps(), {71:1, 73:1, 79:1, 83:1, 89:1, 97:1})
   })
 

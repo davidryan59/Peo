@@ -1,10 +1,10 @@
 var multiplyBySequence = require('../../setters/multiplyBySequence')
 
 // Static method - 'this' is Peo
-var fact = function(n) {
+var multSeq = function(startNum, numTerms, jump) {
   var newPeo = new this()
-  multiplyBySequence(newPeo, n)
+  multiplyBySequence(newPeo, startNum, numTerms, jump)
   return newPeo
 }
 
-module.exports = fact
+module.exports = multSeq

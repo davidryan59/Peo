@@ -3,7 +3,8 @@ var checkPower = require('../maths/checkPower')
 
 var incrementPrimeExp = require('./incrementPrimeExp')
 
-var incrementFromIntegerPower = function(peo, integer, power) {
+var incrementFromIntegerPower = function(peo, integer, powerInput) {
+  var power = powerInput
   // power is optional, defaults to 1
   // integer is a whole number for which to add t
   // primeFactorArray output from pf.getFrequency(integer)

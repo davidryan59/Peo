@@ -10,8 +10,11 @@ function Peo() {
 
 // Static or Class methods
 Peo.fact = require('./api/class/fact')
-Peo.prim = require('./api/class/prim')
+Peo.perm = require('./api/class/perm')
+Peo.multSeq = require('./api/class/multSeq')
 Peo.binom = require('./api/class/binom')
+Peo.prim = require('./api/class/prim')
+Peo.multPrimes = require('./api/class/multPrimes')
 
 
 // --------- Instance methods ---------
