@@ -241,6 +241,26 @@ describe('The Peo class', function () {
     checkIs1(peo);
   });
 
+  it('does not initialise from negative decimal', function () {
+    var peo = new Peo(-1.5);
+    assert.strictEqual(peo.toString(), '{}');
+  });
+
+  it('can initialise using decimal from 3/2', function () {
+    var peo = new Peo(3 / 2);
+    assert.strictEqual(peo.toString(), '{"2":-1,"3":1}');
+  });
+
+  it('can initialise using decimal from 7/3', function () {
+    var peo = new Peo(7 / 3);
+    assert.strictEqual(peo.toString(), '{"3":-1,"7":1}');
+  });
+
+  it('can initialise using decimal 0.3', function () {
+    var peo = new Peo(0.3);
+    assert.strictEqual(peo.toString(), '{"2":-1,"3":1,"5":-1}');
+  });
+
   it('can calculate text for (new Peo(11, 1)).pow(4) as 14641 in integer format', function () {
     var peo = (new Peo(11, 1)).pow(4);
     assert.strictEqual(peo.getAsResultText(), '14641');

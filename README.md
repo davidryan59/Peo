@@ -26,8 +26,10 @@ new Peo({p1:e1, ...,pk:ek}, n)      // get Peo for (p1^e1 * ... * pk^ek) ^ n
 ### Shorthand constructors
 ``` js
 new Peo(a)         // integer a
-new Peo(a, b)      // fraction a/b
-new Peo(a, b, n)   // fraction (a/b) ^ n
+new Peo(a, b)      // integers a, b => fraction a/b
+new Peo(a, b, n)   // integers a, b, n => fraction (a/b) ^ n
+new Peo(d)         // decimal d (find a fraction that approximates d)
+new Peo(d, n)      // decimal d^n
 new Peo(txt)       // txt an integer or fraction in text form e.g. "5", "3/2"
 new Peo(txt, n)    // txt ^ n
 new Peo(peo)       // Copies prime information in a peo into a new peo. Also see instance method copy()

@@ -3,6 +3,7 @@ var isString = require('is-string');
 
 var incrementFromObjectPower = require('../setters/incrementFromObjectPower');
 var initialiseFromNumAndDenom = require('./initialiseFromNumAndDenom');
+var initialiseFromDecimal = require('./initialiseFromDecimal');
 
 var digits = 15;
 var cutOff = Math.pow(10, digits);
@@ -10,14 +11,13 @@ var searchForDigits = '[0-9]{1,' + digits + '}';
 var regexIntegerString = new RegExp('^' + searchForDigits + '$');
 var regexFractionString = new RegExp('^' + searchForDigits + '\\/' + searchForDigits + '$');
 
-
 var initialise = function initialise(peo, args) {
   // Get the first few arguments given to Peo constructor
   var arg0 = args[0];
   var arg1 = args[1];
   var arg2 = args[2];
 
-  // Check for 'Peo' case
+  // Case: new Peo(peo, power)
   // Have to use peo.constructor, rather than Peo
   if (arg0 instanceof peo.constructor) {
     // arg0.p is an object, from which we can increment peo
@@ -25,12 +25,15 @@ var initialise = function initialise(peo, args) {
     return;
   }
 
-  // Then check for numeric case
-  if (ibn(arg0, cutOff)) {
-    // Treat as case where arg0, arg1, arg2 are in order:
-    // numerator, denominator, power
-    // Only numerator is mandatory, denominator and power are optional
+  // Case: new Peo(a, b, c) where a is an integer => (a/b)^c
+  if (Number.isInteger(arg0)) {
     initialiseFromNumAndDenom(peo, arg0, arg1, arg2);
+    return;
+  }
+
+  // Case: new Peo(d, c) where d is a decimal number, c is a power, for d^c
+  if (ibn(arg0, cutOff)) {
+    initialiseFromDecimal(peo, arg0, arg1);
     return;
   }
 
