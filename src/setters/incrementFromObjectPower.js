@@ -6,8 +6,6 @@ var incrementPrimeExp = require('./incrementPrimeExp')
 var incrementFromIntegerPower = require('./incrementFromIntegerPower')
 
 var incrementFromObjectPower = function(peo, obj, powerInput) {
-  var power = powerInput
-
   // obj of form {p1:e1, p2:e2, ... , pk:ek}
   // Will reconstruct obj into peo, but only the
   // keys that are primes, and the
@@ -15,7 +13,8 @@ var incrementFromObjectPower = function(peo, obj, powerInput) {
 
   // If power is 0, return.
   // Otherwise, if it's an integer, leave it alone, or else default to 1
-  if (!(power = checkPower(power))) return
+  var power = checkPower(powerInput);
+  if (!power) return;
 
   var keys = Object.keys(obj)
   for (var i=0; i<keys.length; i++) {

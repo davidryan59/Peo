@@ -1,7 +1,7 @@
-var ibn = require('is-bounded-number')
+var ibn = require('is-bounded-number');
 
-var getBaseMult = function(base) {
-  return (base===undefined || !ibn(base) || base<=1) ? 1 : 1/Math.log(base)
-}
+var getBaseMult = function getBaseMult(base) {
+  return (!ibn(base) || base <= 1) ? 1 : 1 / Math.log(base);
+};
 
-module.exports = getBaseMult
+module.exports = getBaseMult;
