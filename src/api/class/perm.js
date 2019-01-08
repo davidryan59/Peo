@@ -1,10 +1,10 @@
-var multiplyBySequence = require('../../setters/multiplyBySequence')
+var multiplyBySequence = require('../../setters/multiplyBySequence');
 
 // Static method - 'this' is Peo
-var perm = function(n, r) {
-  var newPeo = new this()
-  multiplyBySequence(newPeo, n, r)
-  return newPeo
-}
+var perm = function perm( n, r ) {
+  var newPeo = new this();
+  multiplyBySequence(newPeo, n, r);
+  return newPeo;
+};
 
-module.exports = perm
+module.exports = perm;
