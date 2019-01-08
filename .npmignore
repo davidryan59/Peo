@@ -1,10 +1,8 @@
 .DS_Store
 .eslintrc
 .nyc_output
-build
 examples
 node_modules
 removed
 test
-minify-js.sh
 temp*.md

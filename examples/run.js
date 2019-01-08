@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 // var Peo = require('peo')
 var Peo = require('../src/Peo')
 

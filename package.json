@@ -14,11 +14,10 @@
     "lint": "eslint src",
     "test": "nyc mocha ./test/*.spec.js",
     "examples": "cd ./examples && node run.js",
-    "build": "./minify-js.sh",
     "prepublishOnly": "npm run test"
   },
   "dependencies": {
-    "is-bounded-number": "^1.2.0",
+    "is-bounded-number": "^1.2.1",
     "is-string": "^1.0.4",
     "primes-and-factors": "^1.2.2"
   },
