@@ -1,8 +1,8 @@
-var setNumbers = require('../../setters/setNumbers')
+var setNumbers = require('../../setters/setNumbers');
 
-var getAsDecimal = function() {
-  setNumbers(this)
-  return this.number.val
-}
+var getAsDecimal = function getAsDecimal() {
+  setNumbers(this);
+  return this.number.val;
+};
 
-module.exports = getAsDecimal
+module.exports = getAsDecimal;

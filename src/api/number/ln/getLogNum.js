@@ -1,9 +1,9 @@
-var getBaseMult = require('../../../maths/getBaseMult')
-var setNumbers = require('../../../setters/setNumbers')
+var getBaseMult = require('../../../maths/getBaseMult');
+var setNumbers = require('../../../setters/setNumbers');
 
-var getLogNum = function(base) {
-  setNumbers(this)
-  return this.number.ln.n * getBaseMult(base)
-}
+var getLogNum = function getLogNum(base) {
+  setNumbers(this);
+  return this.number.ln.n * getBaseMult(base);
+};
 
-module.exports = getLogNum
+module.exports = getLogNum;

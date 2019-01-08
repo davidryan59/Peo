@@ -1,8 +1,8 @@
-var setNumbers = require('../../../setters/setNumbers')
+var setNumbers = require('../../../setters/setNumbers');
 
-var getMobius = function(base) {
-  setNumbers(this)
-  return this.number.stats.mob
-}
+var getMobius = function getMobius() {
+  setNumbers(this);
+  return this.number.stats.mob;
+};
 
-module.exports = getMobius
+module.exports = getMobius;

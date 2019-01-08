@@ -1,8 +1,8 @@
-var setNumbers = require('../../setters/setNumbers')
+var setNumbers = require('../../setters/setNumbers');
 
-var getAsResultText = function() {
-  setNumbers(this)
-  return this.number.resTxt
-}
+var getAsResultText = function getAsResultText() {
+  setNumbers(this);
+  return this.number.resTxt;
+};
 
-module.exports = getAsResultText
+module.exports = getAsResultText;

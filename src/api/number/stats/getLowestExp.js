@@ -1,8 +1,8 @@
-var setNumbers = require('../../../setters/setNumbers')
+var setNumbers = require('../../../setters/setNumbers');
 
-var getLowestExp = function(base) {
-  setNumbers(this)
-  return this.number.stats.eLo
-}
+var getLowestExp = function getLowestExp() {
+  setNumbers(this);
+  return this.number.stats.eLo;
+};
 
-module.exports = getLowestExp
+module.exports = getLowestExp;

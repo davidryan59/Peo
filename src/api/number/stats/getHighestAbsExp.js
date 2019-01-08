@@ -1,8 +1,8 @@
-var setNumbers = require('../../../setters/setNumbers')
+var setNumbers = require('../../../setters/setNumbers');
 
-var getHighestAbsExp = function(base) {
-  setNumbers(this)
-  return this.number.stats.eAbsHi
-}
+var getHighestAbsExp = function getHighestAbsExp() {
+  setNumbers(this);
+  return this.number.stats.eAbsHi;
+};
 
-module.exports = getHighestAbsExp
+module.exports = getHighestAbsExp;
