@@ -1,7 +1,7 @@
 var assert = require('assert');
 
-var test_index = require('./_test_index');
-var Peo = test_index.Peo;
+var testIndex = require('./_test_index');
+var Peo = testIndex.Peo;
 
 describe("The Peo class", function() {
 

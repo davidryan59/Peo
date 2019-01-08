@@ -1,10 +1,10 @@
 var assert = require('assert');
 
-var test_index = require('./_test_index');
-var Peo = test_index.Peo;
-var amendPrimeExponent = test_index.amendPrimeExponent;
-var incrementFromIntegerPower = test_index.incrementFromIntegerPower;
-var setNumbers = test_index.setNumbers;
+var testIndex = require('./_test_index');
+var Peo = testIndex.Peo;
+var amendPrimeExponent = testIndex.amendPrimeExponent;
+var incrementFromIntegerPower = testIndex.incrementFromIntegerPower;
+var setNumbers = testIndex.setNumbers;
 
 describe("Extra checks on the setter functions", function() {
 

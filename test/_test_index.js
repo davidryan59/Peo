@@ -7,5 +7,5 @@ module.exports = {
   Peo: require('../' + testDir + '/Peo'),
   amendPrimeExponent: require('../' + testDir + '/setters/amendPrimeExponent'),
   incrementFromIntegerPower: require('../' + testDir + '/setters/incrementFromIntegerPower'),
-  setNumbers: require('../' + testDir + '/setters/setNumbers'),
+  setNumbers: require('../' + testDir + '/setters/setNumbers')
 };
