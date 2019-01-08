@@ -1,9 +1,9 @@
-var pf = require('primes-and-factors')
-var checkPower = require('../maths/checkPower')
+var pf = require('primes-and-factors');
+var checkPower = require('../maths/checkPower');
 
-var incrementPrimeExp = require('./incrementPrimeExp')
+var incrementPrimeExp = require('./incrementPrimeExp');
 
-var incrementFromIntegerPower = function(peo, integer, powerInput) {
+var incrementFromIntegerPower = function incrementFromIntegerPower(peo, integer, powerInput) {
   // power is optional, defaults to 1
   // integer is a whole number for which to add t
   // primeFactorArray output from pf.getFrequency(integer)
@@ -16,14 +16,14 @@ var incrementFromIntegerPower = function(peo, integer, powerInput) {
   var power = checkPower(powerInput);
   if (!power) return;
 
-  var primesObject = pf.getPrimeExponentObject(integer)   // Format like {"2":3, "3":-1}
-  var keys = Object.keys(primesObject)
-  for (var i=0; i<keys.length; i++) {
-    var key = keys[i]                    // key is a string
-    var prime = Number.parseInt(key)     // both prime and exponent are numeric
-    var exponent = primesObject[key]
-    incrementPrimeExp(peo, prime, exponent * power)
+  var primesObject = pf.getPrimeExponentObject(integer);   // Format like {"2":3, "3":-1}
+  var keys = Object.keys(primesObject);
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];                    // key is a string
+    var prime = Number.parseInt(key, 10);     // both prime and exponent are numeric
+    var exponent = primesObject[key];
+    incrementPrimeExp(peo, prime, exponent * power);
   }
-}
+};
 
-module.exports = incrementFromIntegerPower
+module.exports = incrementFromIntegerPower;

@@ -1,10 +1,8 @@
-var amendPrimeExponent = require('./amendPrimeExponent')
+var amendPrimeExponent = require('./amendPrimeExponent');
 
-var incrementPrimeExp = function(peo, prime, exponent) {
+var incrementPrimeExp = function incrementPrimeExp(peo, prime, exponent) {
+  var currentPrimeExp = peo.getPrimeExp(prime);
+  amendPrimeExponent(peo, prime, currentPrimeExp + exponent);
+};
 
-  var currentPrimeExp = peo.getPrimeExp(prime)
-  amendPrimeExponent(peo, prime, currentPrimeExp + exponent)
-
-}
-
-module.exports = incrementPrimeExp
+module.exports = incrementPrimeExp;
