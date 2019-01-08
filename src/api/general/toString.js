@@ -1,5 +1,5 @@
-var toString = function() {
-  return JSON.stringify(this.p)
-}
+var toString = function toString() {
+  return JSON.stringify(this.p);
+};
 
-module.exports = toString
+module.exports = toString;

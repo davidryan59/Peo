@@ -1,5 +1,5 @@
-var getPrimeExp = function(prime) {
-  return this.p[prime] || 0
-}
+var getPrimeExp = function getPrimeExp( prime ) {
+  return this.p[prime] || 0;
+};
 
-module.exports = getPrimeExp
+module.exports = getPrimeExp;
