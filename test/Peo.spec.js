@@ -261,6 +261,38 @@ describe('The Peo class', function () {
     assert.strictEqual(peo.toString(), '{"2":-1,"3":1,"5":-1}');
   });
 
+  it('can initialise using decimal from 0.1 + 0.2 ignoring small numeric error', function () {
+    // 0.1 + 0.2 = 0.30000000000000004
+    var peo = new Peo(0.1 + 0.2);
+    assert.strictEqual(peo.toString(), '{"2":-1,"3":1,"5":-1}');
+  });
+
+  it('can initialise using decimal from 1/7 + 1/13', function () {
+    var peo = new Peo(1 / 7 + 1 / 13);
+    assert.strictEqual(peo.toString(), '{"2":2,"5":1,"7":-1,"13":-1}');
+  });
+
+  it('can initialise using decimal from 5 + 1/3 + 1/47', function () {
+    var peo = new Peo(5 + 1 / 3 + 1 / 47);
+    assert.strictEqual(peo.toString(), '{"3":-1,"5":1,"47":-1,"151":1}');
+  });
+
+  it('can initialise using decimal 0.2*0.2 ignoring small numerical error', function () {
+    // 0.2 * 0.2 = 0.04000000000000001
+    var peo = new Peo(0.2 * 0.2);
+    assert.strictEqual(peo.toString(), '{"5":-2}');
+  });
+
+  it('can initialise using decimal 0.2 to power 2', function () {
+    var peo = new Peo(0.2, 2);
+    assert.strictEqual(peo.toString(), '{"5":-2}');
+  });
+
+  it('can initialise using decimal 0.18237', function () {
+    var peo = new Peo(0.18237);
+    assert.strictEqual(peo.toString(), '{"2":-5,"3":1,"5":-5,"6079":1}');
+  });
+
   it('can calculate text for (new Peo(11, 1)).pow(4) as 14641 in integer format', function () {
     var peo = (new Peo(11, 1)).pow(4);
     assert.strictEqual(peo.getAsResultText(), '14641');
