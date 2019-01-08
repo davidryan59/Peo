@@ -12,10 +12,9 @@
   "license": "ISC",
   "scripts": {
     "lint": "eslint src test examples",
-    "lint:fix": "eslint test --fix",
     "test": "nyc mocha ./test/*.spec.js",
     "examples": "cd ./examples && node run.js",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "dependencies": {
     "is-bounded-number": "^1.2.1",

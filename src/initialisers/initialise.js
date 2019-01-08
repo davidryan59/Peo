@@ -37,23 +37,32 @@ var initialise = function initialise(peo, args) {
     return;
   }
 
-  // Case arg0 is string "NNN" or "MMM/NNN"
+  // Case arg0 is string "NNN"
   // and arg1 is an optional power
   // Note: .search is 0 if match (at start), -1 if no match
-  if (isString(arg0)) {
-    if (arg0.search(regexIntegerString) === 0) {
-      // Case arg0="NNN"
-      var theInt = Number.parseInt(arg0, 10);
-      initialiseFromNumAndDenom(peo, theInt, 1, arg1);
-      return;
-    } else if (arg0.search(regexFractionString) === 0) {
-      // Case arg0="MMM/NNN"
-      var splitArray = arg0.split(/\//);
-      var theNum = Number.parseInt(splitArray[0], 10);
-      var theDenom = Number.parseInt(splitArray[1], 10);
-      initialiseFromNumAndDenom(peo, theNum, theDenom, arg1);
-      return;
-    }
+  if (isString(arg0) && arg0.search(regexIntegerString) === 0) {
+    var theInt = Number.parseInt(arg0, 10);
+    initialiseFromNumAndDenom(peo, theInt, 1, arg1);
+    return;
+  }
+
+  // Case arg0 is string "MMM/NNN"
+  // and arg1 is an optional power
+  if (isString(arg0) && arg0.search(regexFractionString) === 0) {
+    var splitArray = arg0.split(/\//);
+    var theNum = Number.parseInt(splitArray[0], 10);
+    var theDenom = Number.parseInt(splitArray[1], 10);
+    initialiseFromNumAndDenom(peo, theNum, theDenom, arg1);
+    return;
+  }
+
+  // Case arg0 is string "NNN.NNN", arg1 an optional power
+  // Must be processed after "NNN" and "NNN/NNN",
+  // since parseFloat parses the latter incorrectly!
+  var testNum = Number.parseFloat(arg0);
+  if (ibn(testNum, cutOff)) {
+    initialiseFromDecimal(peo, testNum, arg1);
+    return;
   }
 
   // Need to do this check last, since its 'object', the most general!

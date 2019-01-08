@@ -261,6 +261,11 @@ describe('The Peo class', function () {
     assert.strictEqual(peo.toString(), '{"2":-1,"3":1,"5":-1}');
   });
 
+  it('can initialise using decimal string "0.3"', function () {
+    var peo = new Peo('0.3');
+    assert.strictEqual(peo.toString(), '{"2":-1,"3":1,"5":-1}');
+  });
+
   it('can initialise using decimal from 0.1 + 0.2 ignoring small numeric error', function () {
     // 0.1 + 0.2 = 0.30000000000000004
     var peo = new Peo(0.1 + 0.2);
@@ -290,6 +295,11 @@ describe('The Peo class', function () {
 
   it('can initialise using decimal 0.18237', function () {
     var peo = new Peo(0.18237);
+    assert.strictEqual(peo.toString(), '{"2":-5,"3":1,"5":-5,"6079":1}');
+  });
+
+  it('can initialise using decimal string "0.18237"', function () {
+    var peo = new Peo('0.18237');
     assert.strictEqual(peo.toString(), '{"2":-5,"3":1,"5":-5,"6079":1}');
   });
 
