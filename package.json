@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run test"
   },
   "dependencies": {
-    "is-bounded-number": "^1.1.3",
+    "is-bounded-number": "^1.2.0",
     "is-string": "^1.0.4",
     "primes-and-factors": "^1.2.2"
   },
