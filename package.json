@@ -11,6 +11,7 @@
   "repository": "git@github.com:davidryan59/Peo.git",
   "license": "ISC",
   "scripts": {
+    "lint": "eslint src",
     "test": "nyc mocha ./test/*.spec.js",
     "examples": "cd ./examples && node run.js",
     "build": "./minify-js.sh",
@@ -22,6 +23,10 @@
     "primes-and-factors": "^1.2.2"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-es5": "^1.2.0",
+    "eslint-plugin-react": "^7.12.3",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2"
   },
