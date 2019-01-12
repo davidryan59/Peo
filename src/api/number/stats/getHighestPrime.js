@@ -1,8 +1,8 @@
 var setNumbers = require('../../../setters/setNumbers');
 
-var getLowestPrime = function getLowestPrime() {
+var getHighestPrime = function getHighestPrime() {
   setNumbers(this);
   return this.number.stats.pHi;
 };
 
-module.exports = getLowestPrime;
+module.exports = getHighestPrime;
