@@ -1,6 +1,7 @@
 .DS_Store
 .eslintrc
 .nyc_output
+.travis.yml
 examples
 node_modules
 removed

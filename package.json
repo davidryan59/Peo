@@ -18,7 +18,7 @@
     "prepublishOnly": "npm run lint && npm run test"
   },
   "dependencies": {
-    "is-bounded-number": "^1.2.1",
+    "is-bounded-number": "^1.2.2",
     "is-string": "^1.0.4",
     "primes-and-factors": "^1.2.2"
   },
