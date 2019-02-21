@@ -7,16 +7,12 @@ var assert = require('assert');
 var testIndex = require('./_test_index');
 var Peo = testIndex.Peo;
 
-var getTimeMS = function () {
-  return new Date().getTime();
-};
-
 var runTest = function (startAtNumber, totalLoops, maxTimeMicroseconds, testLabel, functionToCall) {
   it(testLabel, function () {
     var exampleOutput = null;
-    var startTimeMS = getTimeMS();
+    var startTimeMS = Date.now();
     for (var i = startAtNumber; i < startAtNumber + totalLoops; i++) exampleOutput = functionToCall(i);
-    var endTimeMS = getTimeMS();
+    var endTimeMS = Date.now();
     // console.log(`Example output:`)
     // console.log(exampleOutput)
     var timeInMicroseconds = Math.round((endTimeMS - startTimeMS) * 1000 / totalLoops);
