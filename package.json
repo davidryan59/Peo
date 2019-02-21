@@ -18,17 +18,17 @@
     "prepublishOnly": "npm run lint && npm run test"
   },
   "dependencies": {
-    "is-bounded-number": "^1.2.2",
+    "is-bounded-number": "^1.2.7",
     "is-string": "^1.0.4",
     "primes-and-factors": "^1.2.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.12.0",
+    "eslint": "^5.14.1",
     "eslint-config-airbnb-es5": "^1.2.0",
     "eslint-plugin-react": "^7.12.3",
     "mocha": "^5.2.0",
-    "nyc": "^12.0.2"
+    "nyc": "^13.3.0"
   },
   "keywords": [
     "add",
