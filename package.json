@@ -20,7 +20,7 @@
   "dependencies": {
     "is-bounded-number": "^1.2.7",
     "is-string": "^1.0.4",
-    "primes-and-factors": "^1.3.0"
+    "primes-and-factors": "^1.3.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
