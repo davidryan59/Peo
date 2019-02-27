@@ -49,6 +49,14 @@ var setNumbers = function setNumbers(peo) {
   var liou = Math.pow(-1, cF);
   var mob = (cDF === cF) ? liou : 0;
 
+  // If numerator and denominator are very large, value might still be modest
+  if (!(Number.isFinite(num) && Number.isFinite(denom))) {
+    // Check the final number will not exceed Number.MAX_VALUE
+    if (Math.abs(lnVal) < 709) {
+      val = Math.exp(lnVal);
+    }
+  }
+
   // Store results
   peo.number = {};
   peo.number.val = val;

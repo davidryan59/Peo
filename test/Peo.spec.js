@@ -901,4 +901,19 @@ describe('The Peo class', function () {
     peo.compress();
     assert(!peo.number);       // Cached information has been removed again
   });
+
+  // A couple of fractions very close to 1 previously did not work
+  // due to large numerators and denominators.
+  it("can deal with {'2':-1054, '3':665}", function () {
+    var peo = new Peo({'2': -1054, '3': 665 });
+    var val = peo.getAsDecimal();
+    assert(val < 1.000044);
+    assert(val > 1.000043);
+  });
+  it("can deal with {'2':-301994, '3':190537}", function () {
+    var peo = new Peo({ '2': -301994, '3': 190537 });
+    var val = peo.getAsDecimal();
+    assert(val < 0.999999936);
+    assert(val > 0.999999935);
+  });
 });
