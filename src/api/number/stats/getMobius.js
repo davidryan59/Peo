@@ -2,7 +2,7 @@ var setNumbers = require('../../../setters/setNumbers');
 
 var getMobius = function getMobius() {
   setNumbers(this);
-  return this.number.stats.mob;
+  return this.n.s.mob;
 };
 
 module.exports = getMobius;

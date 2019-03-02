@@ -895,11 +895,11 @@ describe('The Peo class', function () {
 
   it('can compress a Peo', function () {
     var peo = new Peo({2: 15, 3: -7, 5: 2, 13: 1, 29: -2});
-    assert(!peo.number);       // Cached information not yet calculated
+    assert(!peo.n);       // Cached information not yet calculated
     peo.getDenom();
-    assert(peo.number.d > 0);  // Cached information stored. Using denominator as example.
+    assert(peo.n.d > 0);  // Cached information stored. Using denominator as example.
     peo.compress();
-    assert(!peo.number);       // Cached information has been removed again
+    assert(!peo.n);       // Cached information has been removed again
   });
 
   // A couple of fractions very close to 1 previously did not work

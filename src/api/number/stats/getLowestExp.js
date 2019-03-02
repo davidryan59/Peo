@@ -2,7 +2,7 @@ var setNumbers = require('../../../setters/setNumbers');
 
 var getLowestExp = function getLowestExp() {
   setNumbers(this);
-  return this.number.stats.eLo;
+  return this.n.s.eLo;
 };
 
 module.exports = getLowestExp;

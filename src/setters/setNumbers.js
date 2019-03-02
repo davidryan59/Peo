@@ -1,6 +1,6 @@
 var setNumbers = function setNumbers(peo) {
   // Exit if already set
-  if (peo.number) return;
+  if (peo.n) return;
 
   // Calculate many things from the primes and their exponents
   var val = 1;
@@ -66,34 +66,37 @@ var setNumbers = function setNumbers(peo) {
   }
 
   // Store results
-  peo.number = {};
-  peo.number.val = val;
-  peo.number.n = num;
-  peo.number.d = denom;
-  peo.number.ln = {};
-  peo.number.ln.val = lnVal;
-  peo.number.ln.n = lnNum;
-  peo.number.ln.d = lnDenom;
-  peo.number.stats = {};
-  peo.number.stats.pLo = pLo;
-  peo.number.stats.pHi = pHi;
-  peo.number.stats.cF = cF;
-  peo.number.stats.cDF = cDF;
-  peo.number.stats.eLo = eLo;
-  peo.number.stats.eHi = eHi;
-  peo.number.stats.eAbsHi = eAbsHi;
-  peo.number.stats.liou = liou;
-  peo.number.stats.mob = mob;
+  peo.n = {};
+  var n = peo.n;
+  n.v = val;
+  n.n = num;
+  n.d = denom;
+  n.l = {};
+  var l = n.l;
+  l.v = lnVal;
+  l.n = lnNum;
+  l.d = lnDenom;
+  n.s = {};
+  var s = n.s;
+  s.pLo = pLo;
+  s.pHi = pHi;
+  s.cF = cF;
+  s.cDF = cDF;
+  s.eLo = eLo;
+  s.eHi = eHi;
+  s.eAHi = eAbsHi;
+  s.liou = liou;
+  s.mob = mob;
 
   // Only give a text representation as a fraction if both num and denom less than 10^15
   var accuracyLimit = 34.539;      // Just over ln(10^15)
   if (lnNum < accuracyLimit && lnDenom < accuracyLimit) {
     var fractionText = (denom === 1) ? '' + num : num + '/' + denom;
-    peo.number.fracTxt = fractionText;
-    peo.number.resTxt = fractionText;
+    n.fTx = fractionText;
+    n.rTx = fractionText;
   } else {
-    peo.number.fracTxt = 'NA';
-    peo.number.resTxt = '10^' + Math.round(lnVal * 100 / Math.log(10)) * 0.01;  // 2 dps
+    n.fTx = 'NA';
+    n.rTx = '10^' + Math.round(lnVal * 100 / Math.log(10)) * 0.01;  // 2 dps
   }
 };
 

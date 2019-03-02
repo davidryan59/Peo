@@ -3,7 +3,7 @@ var setNumbers = require('../../../setters/setNumbers');
 
 var getLog = function getLog(base) {
   setNumbers(this);
-  return this.number.ln.val * getBaseMult(base);
+  return this.n.l.v * getBaseMult(base);
 };
 
 module.exports = getLog;
