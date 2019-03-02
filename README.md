@@ -82,26 +82,26 @@ peo.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
 peo.getAsDecimal()       // returns a decimal representation of the Peo, if its not too big
 peo.getAsFractionText()  // returns fraction text if num, denom < around 1e15. Otherwise return NA.
 peo.getAsResultText()    // return fraction text, unless numbers are large, then return 10^NN.NN representation
-peo.getDenom()           // returns integer denominator of the fraction
 peo.getNum()             // returns integer numerator of the fraction
+peo.getDenom()           // returns integer denominator of the fraction
 ```
 
 #### Logarithmic numeric values
 ``` js
 peo.getLog(b)       // returns log of Peo to base b (if omitted, natural log)
-peo.getLogDenom(b)  // returns log of Peo denominator
 peo.getLogNum(b)    // returns log of Peo numerator
+peo.getLogDenom(b)  // returns log of Peo denominator
 ```
 
 #### Numeric stats
 ``` js
 peo.countDistinctFactors()  // returns the number of distinct prime factors of the Peo
 peo.countFactors()          // returns the total number of prime factors of the Peo
-peo.getHighestAbsExp()      // returns the highest abs(exponent) in the Peo
-peo.getHighestExp()         // returns the highest exponent in the Peo
-peo.getHighestPrime()       // returns the highest prime in the Peo
-peo.getLiouville()          // returns the Liouville function on the Peo
-peo.getLowestExp()          // returns the lowest exponent in the Peo
-peo.getLowestPrime()        // returns the lowest prime in the Peo
-peo.getMobius()             // returns the Mobius function on the Peo
+peo.getLowestPrime()        // returns the lowest prime in the Peo (* null for 1)
+peo.getLowestExp()          // returns the lowest exponent in the Peo (*)
+peo.getHighestPrime()       // returns the highest prime in the Peo (*)
+peo.getHighestExp()         // returns the highest exponent in the Peo (*)
+peo.getHighestAbsExp()      // returns the highest abs(exponent) in the Peo (*)
+peo.getLiouville()          // returns the Liouville function on the Peo (-1 ^ countFactors)
+peo.getMobius()             // returns the Mobius function on the Peo (-1 ^ countFactors if square-free, 0 otherwise)
 ```

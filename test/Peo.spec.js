@@ -916,4 +916,59 @@ describe('The Peo class', function () {
     assert(val < 0.999999936);
     assert(val > 0.999999935);
   });
+
+  it('Check new Peo() returns all the right stats. 1/1 is exceptional case with no lowest or highest prime.', function () {
+    var peo = new Peo();
+    assert.strictEqual(peo.getAsFractionText(), '1');
+    assert.strictEqual(peo.getAsResultText(), '1');
+    assert.strictEqual(peo.getAsDecimal(), 1);
+    assert.strictEqual(peo.getLog(), 0);
+    assert.strictEqual(peo.getNum(), 1);
+    assert.strictEqual(peo.getLogNum(), 0);
+    assert.strictEqual(peo.getDenom(), 1);
+    assert.strictEqual(peo.getLogDenom(), 0);
+    assert.strictEqual(peo.countFactors(), 0);
+    assert.strictEqual(peo.countDistinctFactors(), 0);
+    assert.strictEqual(peo.getLowestPrime(), null);
+    assert.strictEqual(peo.getHighestPrime(), null);
+    assert.strictEqual(peo.getLowestExp(), null);
+    assert.strictEqual(peo.getHighestExp(), null);
+    assert.strictEqual(peo.getHighestAbsExp(), null);
+    assert.strictEqual(peo.getLiouville(), 1);
+    assert.strictEqual(peo.getMobius(), 1);
+  });
+
+  it('Check new Peo(1, 139) returns all the right stats for prime 139.', function () {
+    var peo = new Peo(1, 139);
+    assert.strictEqual(peo.getAsFractionText(), '1/139');
+    assert.strictEqual(peo.getAsResultText(), '1/139');
+    assert.strictEqual(peo.getNum(), 1);
+    assert.strictEqual(peo.getDenom(), 139);
+    assert.strictEqual(peo.countFactors(), 1);
+    assert.strictEqual(peo.countDistinctFactors(), 1);
+    assert.strictEqual(peo.getLowestPrime(), 139);
+    assert.strictEqual(peo.getHighestPrime(), 139);
+    assert.strictEqual(peo.getLowestExp(), -1);
+    assert.strictEqual(peo.getHighestExp(), -1);
+    assert.strictEqual(peo.getHighestAbsExp(), 1);
+    assert.strictEqual(peo.getLiouville(), -1);
+    assert.strictEqual(peo.getMobius(), -1);
+  });
+
+  it('Check new Peo(275, 189) returns all the right stats', function () {
+    var peo = new Peo(275, 189);
+    assert.strictEqual(peo.getAsFractionText(), '275/189');
+    assert.strictEqual(peo.getAsResultText(), '275/189');
+    assert.strictEqual(peo.getNum(), 275);
+    assert.strictEqual(peo.getDenom(), 189);
+    assert.strictEqual(peo.countFactors(), 7);
+    assert.strictEqual(peo.countDistinctFactors(), 4);
+    assert.strictEqual(peo.getLowestPrime(), 3);
+    assert.strictEqual(peo.getHighestPrime(), 11);
+    assert.strictEqual(peo.getLowestExp(), -3);
+    assert.strictEqual(peo.getHighestExp(), 2);
+    assert.strictEqual(peo.getHighestAbsExp(), 3);
+    assert.strictEqual(peo.getLiouville(), -1);
+    assert.strictEqual(peo.getMobius(), 0);
+  });
 });

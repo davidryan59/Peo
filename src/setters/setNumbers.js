@@ -9,13 +9,13 @@ var setNumbers = function setNumbers(peo) {
   var lnVal = 0;
   var lnNum = 0;
   var lnDenom = 0;
-  var pLo = 0;
-  var pHi = 0;
-  var cF = 0;
   var cDF = 0;
-  var eLo = null;   // exponent could be +/-
-  var eHi = null;   // exponent could be +/-
-  var eAbsHi = 0;
+  var cF = 0;
+  var pLo = null;
+  var pHi = null;
+  var eLo = null;
+  var eHi = null;
+  var eAbsHi = null;
   var primeExpObj = peo.getPrimeExps();
   var keys = Object.keys(primeExpObj);
   for (var i = 0; i < keys.length; i++) {
@@ -26,11 +26,19 @@ var setNumbers = function setNumbers(peo) {
     if (prime && exponent) {
       cDF++;
       cF += Math.abs(exponent);
-      pLo = (pLo) ? Math.min(pLo, prime) : prime;
-      pHi = Math.max(pHi, prime);
-      eLo = (eLo !== null) ? Math.min(eLo, exponent) : exponent;
-      eHi = (eHi !== null) ? Math.max(eHi, exponent) : exponent;
-      eAbsHi = Math.max(eAbsHi, Math.abs(exponent));
+      if (cDF === 1) {
+        pLo = prime;
+        pHi = prime;
+        eLo = exponent;
+        eHi = exponent;
+        eAbsHi = Math.abs(exponent);
+      } else {
+        pLo = Math.min(pLo, prime);
+        pHi = Math.max(pHi, prime);
+        eLo = Math.min(eLo, exponent);
+        eHi = Math.max(eHi, exponent);
+        eAbsHi = Math.max(eAbsHi, Math.abs(exponent));
+      }
       var factor = Math.pow(prime, exponent);
       var logFactor = exponent * Math.log(prime);
       val *= factor;
