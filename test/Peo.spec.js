@@ -167,10 +167,45 @@ describe('The Peo class', function () {
     checkIs60(peo);
   });
 
+  it('can produce factor stats on 48 = 2*2*2*2*3', function () {
+    var peo = new Peo(48);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 2);
+    assert.strictEqual(peo.countPrimeFactors(), 5);
+    assert.strictEqual(peo.countFactors(), 10);
+  });
+
+  it('can produce factor stats on 30030 = 2*3*5*7*11*13', function () {
+    var peo = new Peo(30030);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 6);
+    assert.strictEqual(peo.countPrimeFactors(), 6);
+    assert.strictEqual(peo.countFactors(), 64);
+  });
+
+  it('can produce factor stats on 59 (prime)', function () {
+    var peo = new Peo(59);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 1);
+    assert.strictEqual(peo.countPrimeFactors(), 1);
+    assert.strictEqual(peo.countFactors(), 2);
+  });
+
+  it('can produce factor stats on 6859 = 19^3', function () {
+    var peo = new Peo(6859);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 1);
+    assert.strictEqual(peo.countPrimeFactors(), 3);
+    assert.strictEqual(peo.countFactors(), 4);
+  });
+
+  it('can produce factor stats on 13125/1144 = 3*5*5*5*5*7 / 2*2*2*11*13', function () {
+    var peo = new Peo(13125, 1144);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 6);
+    assert.strictEqual(peo.countPrimeFactors(), 11);
+    assert.strictEqual(peo.countFactors(), 320);  // 2*5*2*4*2*2
+  });
+
   it('can produce 9 stats on a fraction', function () {
     var peo = new Peo({13: 1, 17: -1000, 19: 12, 25: 3});    // 25 will go to 5
-    assert.strictEqual(peo.countDistinctFactors(), 4);
-    assert.strictEqual(peo.countFactors(), 1019);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 4);
+    assert.strictEqual(peo.countPrimeFactors(), 1019);
     assert.strictEqual(peo.getLowestPrime(), 5);
     assert.strictEqual(peo.getHighestPrime(), 19);
     assert.strictEqual(peo.getLowestExp(), -1000);
@@ -182,8 +217,8 @@ describe('The Peo class', function () {
 
   it('can produce 9 stats on a large integer', function () {
     var peo = new Peo({5: 1, 17: 21, 25: 22});    // 25 will go to 5
-    assert.strictEqual(peo.countDistinctFactors(), 2);
-    assert.strictEqual(peo.countFactors(), 66);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 2);
+    assert.strictEqual(peo.countPrimeFactors(), 66);
     assert.strictEqual(peo.getLowestPrime(), 5);
     assert.strictEqual(peo.getHighestPrime(), 17);
     assert.strictEqual(peo.getLowestExp(), 21);
@@ -195,8 +230,8 @@ describe('The Peo class', function () {
 
   it('can produce 9 stats on reciprocal of a large integer', function () {
     var peo = new Peo({23: -13, 25: -17, 35: -10});     // 25, 35 composite!
-    assert.strictEqual(peo.countDistinctFactors(), 3);
-    assert.strictEqual(peo.countFactors(), 67);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 3);
+    assert.strictEqual(peo.countPrimeFactors(), 67);
     assert.strictEqual(peo.getLowestPrime(), 5);
     assert.strictEqual(peo.getHighestPrime(), 23);
     assert.strictEqual(peo.getLowestExp(), -44);
@@ -927,8 +962,8 @@ describe('The Peo class', function () {
     assert.strictEqual(peo.getLogNum(), 0);
     assert.strictEqual(peo.getDenom(), 1);
     assert.strictEqual(peo.getLogDenom(), 0);
-    assert.strictEqual(peo.countFactors(), 0);
-    assert.strictEqual(peo.countDistinctFactors(), 0);
+    assert.strictEqual(peo.countPrimeFactors(), 0);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 0);
     assert.strictEqual(peo.getLowestPrime(), null);
     assert.strictEqual(peo.getHighestPrime(), null);
     assert.strictEqual(peo.getLowestExp(), null);
@@ -944,8 +979,8 @@ describe('The Peo class', function () {
     assert.strictEqual(peo.getAsResultText(), '1/139');
     assert.strictEqual(peo.getNum(), 1);
     assert.strictEqual(peo.getDenom(), 139);
-    assert.strictEqual(peo.countFactors(), 1);
-    assert.strictEqual(peo.countDistinctFactors(), 1);
+    assert.strictEqual(peo.countPrimeFactors(), 1);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 1);
     assert.strictEqual(peo.getLowestPrime(), 139);
     assert.strictEqual(peo.getHighestPrime(), 139);
     assert.strictEqual(peo.getLowestExp(), -1);
@@ -961,8 +996,8 @@ describe('The Peo class', function () {
     assert.strictEqual(peo.getAsResultText(), '275/189');
     assert.strictEqual(peo.getNum(), 275);
     assert.strictEqual(peo.getDenom(), 189);
-    assert.strictEqual(peo.countFactors(), 7);
-    assert.strictEqual(peo.countDistinctFactors(), 4);
+    assert.strictEqual(peo.countPrimeFactors(), 7);
+    assert.strictEqual(peo.countUniquePrimeFactors(), 4);
     assert.strictEqual(peo.getLowestPrime(), 3);
     assert.strictEqual(peo.getHighestPrime(), 11);
     assert.strictEqual(peo.getLowestExp(), -3);

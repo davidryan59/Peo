@@ -9,8 +9,9 @@ var setNumbers = function setNumbers(peo) {
   var lnVal = 0;
   var lnNum = 0;
   var lnDenom = 0;
-  var cDF = 0;
-  var cF = 0;
+  var cF = 1;
+  var cPF = 0;
+  var cUPF = 0;
   var pLo = null;
   var pHi = null;
   var eLo = null;
@@ -24,20 +25,22 @@ var setNumbers = function setNumbers(peo) {
     var prime = Number.parseInt(key, 10);
     var exponent = Number.parseInt(value, 10);
     if (prime && exponent) {
-      cDF++;
-      cF += Math.abs(exponent);
-      if (cDF === 1) {
+      cUPF++;
+      var expAbs = Math.abs(exponent);
+      cPF += expAbs;
+      cF *= (expAbs + 1);
+      if (cUPF === 1) {
         pLo = prime;
         pHi = prime;
         eLo = exponent;
         eHi = exponent;
-        eAbsHi = Math.abs(exponent);
+        eAbsHi = expAbs;
       } else {
         pLo = Math.min(pLo, prime);
         pHi = Math.max(pHi, prime);
         eLo = Math.min(eLo, exponent);
         eHi = Math.max(eHi, exponent);
-        eAbsHi = Math.max(eAbsHi, Math.abs(exponent));
+        eAbsHi = Math.max(eAbsHi, expAbs);
       }
       var factor = Math.pow(prime, exponent);
       var logFactor = exponent * Math.log(prime);
@@ -54,8 +57,8 @@ var setNumbers = function setNumbers(peo) {
     }
   }
   // Work out Liouville and Mobius function
-  var liou = Math.pow(-1, cF);
-  var mob = (cDF === cF) ? liou : 0;
+  var liou = Math.pow(-1, cPF);
+  var mob = (cUPF === cPF) ? liou : 0;
 
   // If numerator and denominator are very large, value might still be modest
   if (!(Number.isFinite(num) && Number.isFinite(denom))) {
@@ -78,7 +81,8 @@ var setNumbers = function setNumbers(peo) {
   l.d = lnDenom;
   n.s = {};
   var s = n.s;
-  s.cDF = cDF;
+  s.cUPF = cUPF;
+  s.cPF = cPF;
   s.cF = cF;
   s.pLo = pLo;
   s.pHi = pHi;

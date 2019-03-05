@@ -107,3 +107,12 @@ console.log(`peo.toString() returns ${peo.toString()}`);
 console.log('');
 console.log(peo);
 console.log('');
+
+
+console.log('');
+console.log('For factorials, count: unique prime factors, all prime factors, all factors');
+for (var i = 1; i <= 50; i++) {
+  peo = Peo.fact(i);
+  console.log(`${i}!   ${peo.countUniquePrimeFactors()}   ${peo.countPrimeFactors()}   ${peo.countFactors()}`);
+}
+console.log('');

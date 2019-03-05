@@ -37,7 +37,8 @@ Peo.prototype.getLogDenom = require('./api/number/ln/getLogDenom');
 Peo.prototype.getLogNum = require('./api/number/ln/getLogNum');
 
 // Numeric stats
-Peo.prototype.countDistinctFactors = require('./api/number/stats/countDistinctFactors');
+Peo.prototype.countUniquePrimeFactors = require('./api/number/stats/countUniquePrimeFactors');
+Peo.prototype.countPrimeFactors = require('./api/number/stats/countPrimeFactors');
 Peo.prototype.countFactors = require('./api/number/stats/countFactors');
 Peo.prototype.getHighestAbsExp = require('./api/number/stats/getHighestAbsExp');
 Peo.prototype.getHighestExp = require('./api/number/stats/getHighestExp');

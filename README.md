@@ -95,13 +95,14 @@ peo.getLogDenom(b)  // returns log of Peo denominator
 
 #### Numeric stats
 ``` js
-peo.countDistinctFactors()  // returns the number of distinct prime factors of the Peo
-peo.countFactors()          // returns the total number of prime factors of the Peo
-peo.getLowestPrime()        // returns the lowest prime in the Peo (* null for 1)
-peo.getLowestExp()          // returns the lowest exponent in the Peo (*)
-peo.getHighestPrime()       // returns the highest prime in the Peo (*)
-peo.getHighestExp()         // returns the highest exponent in the Peo (*)
-peo.getHighestAbsExp()      // returns the highest abs(exponent) in the Peo (*)
-peo.getLiouville()          // returns the Liouville function on the Peo (-1 ^ countFactors)
-peo.getMobius()             // returns the Mobius function on the Peo (-1 ^ countFactors if square-free, 0 otherwise)
+peo.countUniquePrimeFactors() // returns the number of different prime factors of the Peo
+peo.countPrimeFactors()       // returns the number of prime factors, with multiplicity
+peo.countFactors()            // returns the total number of factors of the Peo
+peo.getLowestPrime()          // returns the lowest prime in the Peo (* null for 1)
+peo.getLowestExp()            // returns the lowest exponent in the Peo (*)
+peo.getHighestPrime()         // returns the highest prime in the Peo (*)
+peo.getHighestExp()           // returns the highest exponent in the Peo (*)
+peo.getHighestAbsExp()        // returns the highest abs(exponent) in the Peo (*)
+peo.getLiouville()            // returns the Liouville function on the Peo (-1 ^ countFactors)
+peo.getMobius()               // returns the Mobius function on the Peo (-1 ^ countFactors if square-free, 0 otherwise)
 ```
