@@ -47,6 +47,7 @@ Peo.prototype.getLiouville = require('./api/number/stats/getLiouville');
 Peo.prototype.getLowestExp = require('./api/number/stats/getLowestExp');
 Peo.prototype.getLowestPrime = require('./api/number/stats/getLowestPrime');
 Peo.prototype.getMobius = require('./api/number/stats/getMobius');
+Peo.prototype.getBenedettiHeight = require('./api/number/stats/getBenedettiHeight');
 
 // Numeric values
 Peo.prototype.getAsDecimal = require('./api/number/getAsDecimal');

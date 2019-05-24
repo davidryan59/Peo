@@ -105,4 +105,5 @@ peo.getHighestExp()           // returns the highest exponent in the Peo (*)
 peo.getHighestAbsExp()        // returns the highest abs(exponent) in the Peo (*)
 peo.getLiouville()            // returns the Liouville function on the Peo (-1 ^ countFactors)
 peo.getMobius()               // returns the Mobius function on the Peo (-1 ^ countFactors if square-free, 0 otherwise)
+peo.getBenedettiHeight()      // returns the Benedetti Height or the Complexity of the Peo; N x D when N/D is in lowest terms
 ```
