@@ -1006,4 +1006,29 @@ describe('The Peo class', function () {
     assert.strictEqual(peo.getLiouville(), -1);
     assert.strictEqual(peo.getMobius(), 0);
   });
+
+  it('check Benedetti Height on 1 is 1', function () {
+    var peo = new Peo(1);
+    assert.strictEqual(peo.getBenedettiHeight(), 1);
+  });
+
+  it('chec Benedetti Height on 3/2 is 6', function () {
+    var peo = new Peo(3, 2);
+    assert.strictEqual(peo.getBenedettiHeight(), 6);
+  });
+
+  it('check Benedetti Height on 876543 is 876543', function () {
+    var peo = new Peo(876543);
+    assert.strictEqual(peo.getBenedettiHeight(), 876543);
+  });
+
+  it('check Benedetti Height on 240/231 is 6160 = 80 * 77, due to common factor of 3', function () {
+    var peo = new Peo(240, 231);
+    assert.strictEqual(peo.getBenedettiHeight(), 6160);
+  });
+
+  it('check Benedetti Height on 1000000000/1000000001 is null due to exceeding height limit', function () {
+    var peo = new Peo(1000000000, 1000000001);
+    assert.strictEqual(peo.getBenedettiHeight(), null);
+  });
 });

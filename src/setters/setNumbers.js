@@ -69,16 +69,19 @@ var setNumbers = function setNumbers(peo) {
   }
 
   // Store results
+  // Numbers: peo.n
   peo.n = {};
   var n = peo.n;
   n.v = val;
   n.n = num;
   n.d = denom;
+  // Log numbers: peo.n.l
   n.l = {};
   var l = n.l;
   l.v = lnVal;
   l.n = lnNum;
   l.d = lnDenom;
+  // Statistics: peo.n.s
   n.s = {};
   var s = n.s;
   s.cUPF = cUPF;
@@ -92,8 +95,8 @@ var setNumbers = function setNumbers(peo) {
   s.liou = liou;
   s.mob = mob;
 
-  // Only give a text representation as a fraction if both num and denom less than 10^15
   var accuracyLimit = 34.539;      // Just over ln(10^15)
+  // Only give a text representation as a fraction if both num and denom less than 10^15
   if (lnNum < accuracyLimit && lnDenom < accuracyLimit) {
     var fractionText = (denom === 1) ? '' + num : num + '/' + denom;
     n.fTx = fractionText;
@@ -101,6 +104,14 @@ var setNumbers = function setNumbers(peo) {
   } else {
     n.fTx = 'NA';
     n.rTx = '10^' + Math.round(lnVal * 100 / Math.log(10)) * 0.01;  // 2 dps
+  }
+  // Only give a Benedetti Height / Complexity value if numbers are small enough
+  if (lnNum + lnDenom < accuracyLimit) {
+    s.bh = num * denom;
+  } else {
+    s.bh = null;
+    // If numerator is ever allowed to be zero,
+    // need to distinguish the 0 and the null cases
   }
 };
 
