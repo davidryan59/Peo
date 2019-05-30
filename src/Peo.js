@@ -20,6 +20,9 @@ Peo.prototype.checkPrimeExps = require('./api/exps/checkPrimeExps');
 Peo.prototype.getPrimeExp = require('./api/exps/getPrimeExp');
 Peo.prototype.getPrimeExps = require('./api/exps/getPrimeExps');
 
+// Array
+Peo.prototype.reduce = require('./api/array/reduce');
+
 // General
 Peo.prototype.compress = require('./api/general/compress');
 Peo.prototype.copy = require('./api/general/copy');
