@@ -75,6 +75,22 @@ peo.split(p1, [p2, p3])  // splits a Peo into an array of 3 components:
                          // [{p1:e1}, {p2:e2, p3:e3}, {everything else}]
                          // The argument list for .split is extensible and can contain
                          // primes or arrays of primes in any order.
+// Unary comparisons
+peo.is1()                   // Return true if peo equivalent to 1/1, false otherwise
+peo.isNot1()                // Return false if peo equivalent to 1/1, true otherwise
+peo.lessThan1()             // Return true if peo has log value < 0, false otherwise
+peo.lessThanOrEqualTo1()    // Return true if peo has log value <= 0, false otherwise
+peo.greaterThan1()          // Return true if peo has 0 < log value, false otherwise
+peo.greaterThanOrEqualTo1() // Return true if peo has 0 <= log value, false otherwise
+// Comparing the log values, rather than original value, means that peos of any size are handled correctly.
+
+// Binary comparisons
+peo.equals(otherPeo)               // Return true if peos have equal value, false otherwise
+peo.notEquals(otherPeo)            // Return false if peos have equal value, true otherwise
+peo.lessThan(otherPeo)             // Return true if peo < otherPeo, false otherwise (this is calculated using logs)
+peo.lessThanOrEqualTo(otherPeo)    // Return true if peo <= otherPeo, false otherwise
+peo.greaterThan(otherPeo)          // Return true if peo > otherPeo, false otherwise
+peo.greaterThanOrEqualTo(otherPeo) // Return true if peo >= otherPeo, false otherwise
 ```
 
 #### Numeric values

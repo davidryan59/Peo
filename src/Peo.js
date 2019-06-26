@@ -34,6 +34,22 @@ Peo.prototype.mult = require('./api/maths/mult');
 Peo.prototype.pow = require('./api/maths/pow');
 Peo.prototype.split = require('./api/maths/split');
 
+// Maths - unary comparison
+Peo.prototype.is1 = require('./api/maths/comparisonUnary/is1');
+Peo.prototype.isNot1 = require('./api/maths/comparisonUnary/isNot1');
+Peo.prototype.lessThan1 = require('./api/maths/comparisonUnary/lessThan1');
+Peo.prototype.lessThanOrEqualTo1 = require('./api/maths/comparisonUnary/lessThanOrEqualTo1');
+Peo.prototype.greaterThan1 = require('./api/maths/comparisonUnary/greaterThan1');
+Peo.prototype.greaterThanOrEqualTo1 = require('./api/maths/comparisonUnary/greaterThanOrEqualTo1');
+
+// Maths - binary comparison
+Peo.prototype.equals = require('./api/maths/comparisonBinary/equals');
+Peo.prototype.notEquals = require('./api/maths/comparisonBinary/notEquals');
+Peo.prototype.lessThan = require('./api/maths/comparisonBinary/lessThan');
+Peo.prototype.lessThanOrEqualTo = require('./api/maths/comparisonBinary/lessThanOrEqualTo');
+Peo.prototype.greaterThan = require('./api/maths/comparisonBinary/greaterThan');
+Peo.prototype.greaterThanOrEqualTo = require('./api/maths/comparisonBinary/greaterThanOrEqualTo');
+
 // Logarithmic numeric values
 Peo.prototype.getLog = require('./api/number/ln/getLog');
 Peo.prototype.getLogDenom = require('./api/number/ln/getLogDenom');

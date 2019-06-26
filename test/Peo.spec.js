@@ -87,7 +87,7 @@ describe('The Peo class', function () {
     var peo1 = new Peo(5, 4);
     var peo2 = new Peo(peo1);
     assert(peo1 !== peo2);
-    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps());
+    assert(peo1.equals(peo2));
   });
 
   it('constructs a copy of Nth power of peo, when doing new Peo(peo, N)', function () {
@@ -95,7 +95,7 @@ describe('The Peo class', function () {
     var peo2 = new Peo(peo1, -2);
     var peo3 = new Peo(16, 25);
     assert(peo1 !== peo2);
-    assert.deepStrictEqual(peo2.getPrimeExps(), peo3.getPrimeExps());
+    assert(peo2.equals(peo3));
   });
 
   it('constructs Peo for 56/45 correctly using new Peo({2:3, 7:1, 3:-2, 5:-1})', function () {
@@ -386,21 +386,21 @@ describe('The Peo class', function () {
     var peo1Over10 = new Peo(1, 10);
     var peoMult = peo12.mult(peo1Over10);
     var peo6Over5 = new Peo(6, 5);
-    assert.deepStrictEqual(peoMult.getPrimeExps(), peo6Over5.getPrimeExps());
+    assert(peoMult.equals(peo6Over5));
   });
 
   it('can multiply new Peo(12) by 14 to get new Peo(168)', function () {
     var peoStart = new Peo(12);
     var peoActual = peoStart.mult(14);
     var peoExpected = new Peo(168);
-    assert.deepStrictEqual(peoActual.getPrimeExps(), peoExpected.getPrimeExps());
+    assert(peoActual.equals(peoExpected));
   });
 
   it('can multiply new Peo(30) by 35^3 to get new Peo(1286250)', function () {
     var peoStart = new Peo(30);
     var peoActual = peoStart.mult(35, 3);
     var peoExpected = new Peo(1286250);
-    assert.deepStrictEqual(peoActual.getPrimeExps(), peoExpected.getPrimeExps());
+    assert(peoActual.equals(peoExpected));
   });
 
   it('can cube a Peo from initialiser (numeric)', function () {
@@ -461,28 +461,28 @@ describe('The Peo class', function () {
   it('first power same as default (numeric initialiser)', function () {
     var peo1 = new Peo(4, 5, 1);
     var peo2 = new Peo(4, 5);
-    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps());
+    assert(peo1.equals(peo2));
     assert.deepStrictEqual(peo1.getPrimeExps(), {2: 2, 5: -1});
   });
 
   it('first power same as default (string initialiser)', function () {
     var peo1 = new Peo('4/5', 1);
     var peo2 = new Peo('4/5');
-    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps());
+    assert(peo1.equals(peo2));
     assert.deepStrictEqual(peo1.getPrimeExps(), {2: 2, 5: -1});
   });
 
   it('first power same as default (object initialiser)', function () {
     var peo1 = new Peo({4: 1, 5: -1}, 1);
     var peo2 = new Peo({4: 1, 5: -1});
-    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps());
+    assert(peo1.equals(peo2));
     assert.deepStrictEqual(peo1.getPrimeExps(), {2: 2, 5: -1});
   });
 
   it('first power same as default (mult)', function () {
     var peo1 = (new Peo(3, 4)).mult(new Peo(4, 5), 1);
     var peo2 = (new Peo(3, 4)).mult(new Peo(4, 5));
-    assert.deepStrictEqual(peo1.getPrimeExps(), peo2.getPrimeExps());
+    assert(peo1.equals(peo2));
     assert.deepStrictEqual(peo1.getPrimeExps(), {3: 1, 5: -1});
   });
 
