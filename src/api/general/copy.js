@@ -1,5 +1,6 @@
 var copy = function copy() {
-  var copyPeo = this.get1();  // Start a new Peo representing 1/1
+  // Start a new Peo representing 1/1
+  var copyPeo = this.get1();
   // Assign it a copy of the prime exponent information, which contains all relevant info
   copyPeo.p = Object.assign({}, this.p);
   // Doing it this way because this.p is already trusted,

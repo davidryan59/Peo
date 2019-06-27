@@ -58,9 +58,11 @@ peo.getPrimeExps([p1,...])       // returns a copy of prime info for specified p
 
 #### General functions
 ``` js
+peo.toString()  // returns a JSON object for the primes and exponents obtained via getPrimeExps()
 peo.compress()  // removes all cached information, reducing size of peo. Use if you've got millions of peos.
 peo.copy()      // returns a copy of the original peo. Cached information not transferred.
-peo.toString()  // returns a JSON object for the primes and exponents obtained via getPrimeExps()
+peo.construct() // anyPeo.construct(...args) should return Peo instance equivalent to new Peo(...args).
+                // This allows any Peo instance to be used as a constructor.
 ```
 
 #### Maths operations

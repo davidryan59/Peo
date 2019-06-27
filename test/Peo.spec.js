@@ -1031,4 +1031,29 @@ describe('The Peo class', function () {
     var peo = new Peo(1000000000, 1000000001);
     assert.strictEqual(peo.getBenedettiHeight(), null);
   });
+
+  // Test .construct
+  it('test peo.construct(3, 4, 5) is equivalent to (3/4)^5', function () {
+    var peo1 = new Peo(7 / 11);
+    var peo2 = peo1.construct(3, 4, 5);  // (3/4)^5
+    assert.deepStrictEqual(peo1.getPrimeExps(), {7: 1, 11: -1});
+    assert.deepStrictEqual(peo2.getPrimeExps(), {2: -10, 3: 5});
+  });
+  it('test peo.construct(1.5) is equivalent to new Peo(3, 2)', function () {
+    var peo1 = new Peo(7 / 11);
+    var peo2 = peo1.construct(1.5);  // 3/2
+    var peo3 = new Peo(3, 2);
+    assert(peo2.equals(peo3));
+  });
+  it('test peo.construct(1.5, -3) is equivalent to new Peo(8, 27)', function () {
+    var peo1 = new Peo(7 / 11);
+    var peo2 = peo1.construct(1.5, -3);  // (3/2)^-3
+    var peo3 = new Peo(8, 27);
+    assert(peo2.equals(peo3));
+  });
+  it('test peo.construct(23/22) has prime exponents {2:-1, 11:-1, 23:1}', function () {
+    var peo1 = new Peo(7 / 11);
+    var peo2 = peo1.construct(23 / 22);
+    assert.deepStrictEqual(peo2.getPrimeExps(), {2: -1, 11: -1, 23: 1});
+  });
 });

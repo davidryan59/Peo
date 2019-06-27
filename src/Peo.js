@@ -25,6 +25,7 @@ Peo.prototype.reduce = require('./api/array/reduce');
 
 // General
 Peo.prototype.compress = require('./api/general/compress');
+Peo.prototype.construct = require('./api/general/construct');
 Peo.prototype.copy = require('./api/general/copy');
 Peo.prototype.toString = require('./api/general/toString');
 

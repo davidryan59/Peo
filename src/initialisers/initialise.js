@@ -12,6 +12,8 @@ var regexIntegerString = new RegExp('^' + searchForDigits + '$');
 var regexFractionString = new RegExp('^' + searchForDigits + '\\/' + searchForDigits + '$');
 
 var initialise = function initialise(peo, args) {
+  // Also see peo.construct function on API
+  // Only the first 3 arguments are used
   // Get the first few arguments given to Peo constructor
   var arg0 = args[0];
   var arg1 = args[1];
