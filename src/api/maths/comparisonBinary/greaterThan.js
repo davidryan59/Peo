@@ -1,5 +1,5 @@
-var greaterThan = function greaterThan(otherPeo) {
-  return this.mult(otherPeo, -1).greaterThan1();
+var greaterThan = function greaterThan(input) {
+  return this.mult(input, -1).greaterThan1();
 };
 
 module.exports = greaterThan;

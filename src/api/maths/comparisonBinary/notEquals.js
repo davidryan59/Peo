@@ -1,5 +1,5 @@
-var notEquals = function notEquals(otherPeo) {
-  return !this.equals(otherPeo);
+var notEquals = function notEquals(input) {
+  return !this.equals(input);
 };
 
 module.exports = notEquals;

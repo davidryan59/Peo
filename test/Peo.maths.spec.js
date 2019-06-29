@@ -46,7 +46,7 @@ describe('Peo maths functions', function () {
     assert(peo.greaterThanOrEqualTo1());
   });
 
-  // Binary comparisons
+  // Binary comparisons, otherInput is a Peo
   it('test binary comparison operators on peo1 less than peo2', function () {
     var peo1 = new Peo(3, 5);
     var peo2 = new Peo(60, 7);
@@ -78,6 +78,40 @@ describe('Peo maths functions', function () {
     assert(!peo1.lessThanOrEqualTo(peo2));
     assert(peo1.greaterThan(peo2));
     assert(peo1.greaterThanOrEqualTo(peo2));
+  });
+
+  // Binary comparisons, otherInput is a positive decimal number
+  it('test binary comparison operators on peo1 less than decimal2', function () {
+    var peo1 = new Peo(3, 5);
+    var decimal2 = 60 / 7;
+    assert(!peo1.equals(decimal2));
+    assert(peo1.notEquals(decimal2));
+    assert(peo1.lessThan(decimal2));
+    assert(peo1.lessThanOrEqualTo(decimal2));
+    assert(!peo1.greaterThan(decimal2));
+    assert(!peo1.greaterThanOrEqualTo(decimal2));
+  });
+
+  it('test binary comparison operators on peo1 equal to decimal2', function () {
+    var peo1 = new Peo(4, 6);
+    var decimal2 = 2000 / 3000;
+    assert(peo1.equals(decimal2));
+    assert(!peo1.notEquals(decimal2));
+    assert(!peo1.lessThan(decimal2));
+    assert(peo1.lessThanOrEqualTo(decimal2));
+    assert(!peo1.greaterThan(decimal2));
+    assert(peo1.greaterThanOrEqualTo(decimal2));
+  });
+
+  it('test binary comparison operators on peo1 greater than decimal2', function () {
+    var peo1 = new Peo(3, 5);
+    var decimal2 = 2 / 4;
+    assert(!peo1.equals(decimal2));
+    assert(peo1.notEquals(decimal2));
+    assert(!peo1.lessThan(decimal2));
+    assert(!peo1.lessThanOrEqualTo(decimal2));
+    assert(peo1.greaterThan(decimal2));
+    assert(peo1.greaterThanOrEqualTo(decimal2));
   });
 
   // Test .mult can handle decimals, and powers of decimals

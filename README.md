@@ -84,17 +84,19 @@ peo.is1()                   // Return true if peo equivalent to 1/1, false other
 peo.isNot1()                // Return false if peo equivalent to 1/1, true otherwise
 peo.lessThan1()             // Return true if peo has log value < 0, false otherwise
 peo.lessThanOrEqualTo1()    // Return true if peo has log value <= 0, false otherwise
-peo.greaterThan1()          // Return true if peo has 0 < log value, false otherwise
-peo.greaterThanOrEqualTo1() // Return true if peo has 0 <= log value, false otherwise
+peo.greaterThan1()          // Return true if peo has log value > 0, false otherwise
+peo.greaterThanOrEqualTo1() // Return true if peo has log value >= 0, false otherwise
 // Comparing the log values, rather than original value, means that peos of any size are handled correctly.
 
-// Binary comparisons
-peo.equals(otherPeo)               // Return true if peos have equal value, false otherwise
-peo.notEquals(otherPeo)            // Return false if peos have equal value, true otherwise
-peo.lessThan(otherPeo)             // Return true if peo < otherPeo, false otherwise (this is calculated using logs)
-peo.lessThanOrEqualTo(otherPeo)    // Return true if peo <= otherPeo, false otherwise
-peo.greaterThan(otherPeo)          // Return true if peo > otherPeo, false otherwise
-peo.greaterThanOrEqualTo(otherPeo) // Return true if peo >= otherPeo, false otherwise
+// Binary comparisons. Cases handled:
+// 1. input is a Peo
+// 2. input is a positive decimal number
+peo.equals(input)               // Return true if peo = input, false otherwise
+peo.notEquals(input)            // Return false if peo = input, true otherwise
+peo.lessThan(input)             // Return true if peo < input, false otherwise
+peo.lessThanOrEqualTo(input)    // Return true if peo <= input, false otherwise
+peo.greaterThan(input)          // Return true if peo > input, false otherwise
+peo.greaterThanOrEqualTo(input) // Return true if peo >= input, false otherwise
 ```
 
 #### Numeric values
