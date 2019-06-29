@@ -70,6 +70,8 @@ peo.construct() // anyPeo.construct(...args) should return Peo instance equivale
 peo.get1()               // returns a new identity Peo, e.g. new Peo(1)
 peo.mult(m)              // returns a new Peo which is this * integer m
 peo.mult(m, n)           // returns a new Peo which is this * integer m^n
+peo.mult(dec)            // returns a new Peo which is this * decimal
+peo.mult(dec, n)         // returns a new Peo which is this * decimal ^ power
 peo.mult(otherPeo)       // returns a new Peo which is this * otherPeo  
 peo.mult(otherPeo, n)    // returns a new Peo which is this * (otherPeo^n)
 peo.pow(n)               // returns a new Peo which is this^n
