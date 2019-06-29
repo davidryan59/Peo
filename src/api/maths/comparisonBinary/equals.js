@@ -1,6 +1,7 @@
-var equals = function equals(otherPeo) {
-  // Two peos are equal if their ratio is 1
-  return this.mult(otherPeo, -1).is1();
+var equals = function equals(input) {
+  // The 6 binary comparison functions handle the same inputs as .mult
+  // which includes Peo and positive decimals.
+  return this.mult(input, -1).is1();
 };
 
 module.exports = equals;
