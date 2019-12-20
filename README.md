@@ -1,7 +1,7 @@
 # peo
 Prime Exponent Object module containing `Peo` class. Find [module on npm](https://www.npmjs.com/package/peo) and [code repo with examples on GitHub](https://github.com/davidryan59/Peo).
 
-[![npm version](https://badge.fury.io/js/peo.png)](https://badge.fury.io/js/peo)[![Build status](https://travis-ci.org/davidryan59/Peo.svg?master)](https://travis-ci.org/davidryan59)
+[![npm version](https://badge.fury.io/js/peo.svg)](https://badge.fury.io/js/peo)[![Build status](https://travis-ci.org/davidryan59/Peo.svg?master)](https://travis-ci.org/davidryan59)
 
 A **Prime Exponent Object** (Peo) stores small or large rational numbers as an object of the form `{p1:e1, p2:e2, ...}`. A simple example would be `20/3` stored as `{2:2, 3:-1, 5:1}`.
 
